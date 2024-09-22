@@ -29,7 +29,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $adminRole = Role::findByName(Roles::ADMIN->value);
         $freelancerRole = Role::findByName(Roles::FREELANCER->value);
-        $recruiter = Role::findByName(Roles::RECRUITER->value);
+        $recruiter = Role::findByName(Roles::EMPLOYER->value);
 
         // Assign all permissions to the admin role
         $adminRole->syncPermissions(Permissions::cases());

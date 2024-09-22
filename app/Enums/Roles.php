@@ -8,5 +8,5 @@ enum  Roles: string
 {
     case ADMIN = "admin";
     case FREELANCER = "freelancer";
-    case RECRUITER = 'recruiter';
+    case EMPLOYER = 'employer';
 }
