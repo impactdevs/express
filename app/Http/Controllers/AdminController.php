@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminCredentials;
 use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -53,6 +55,8 @@ class AdminController extends Controller
             'userable_id' => $admin->id,
             'userable_type' => Admin::class, // Polymorphic type
         ]);
+        // Send the email with the admin's credentials
+        Mail::to($admin->email)->send(new AdminCredentials($admin));
 
         return redirect()->route('admin.index')->with('success', 'Admin created successfully.');
     }
