@@ -17,7 +17,7 @@
 								<form method="POST" action="{{ route('login.custom') }}">
 									@csrf
 									<div class="form-group form-focus">
-										<input type="text" class="form-control floating" name="email" id="Email" value="admin@example.com">
+										<input type="text" class="form-control floating" name="email" id="Email" value="">
 										<label class="focus-label">Email</label>
 										<div class="text-danger">
 											@error('0')
@@ -29,7 +29,7 @@
 						            	</div>
 									</div>
 									<div class="form-group form-focus mt-4">
-										<input type="password" class="form-control floating pass-input" name="password" id="password" value="123456">
+										<input type="password" class="form-control floating pass-input" name="password" id="password" value="">
 										<label class="focus-label">Password</label>
 										<span class="fa fa-eye-slash toggle-password pt-4"></span>
 										<div class="text-danger">

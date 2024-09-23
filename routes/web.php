@@ -14,12 +14,14 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
-Route::get('index_admin', [CustomAuthController::class, 'dashboard']); 
-Route::get('admin/login', [CustomAuthController::class, 'index'])->name('admin/login');
-Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('admin/register', [CustomAuthController::class, 'registration'])->name('admin/register');
-Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+include_once __DIR__ . '/custom/web/admin_routes.php';
+
+// Route::get('index_admin', [CustomAuthController::class, 'dashboard']); 
+// Route::get('admin/login', [CustomAuthController::class, 'index'])->name('admin/login');
+// Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+// Route::get('admin/register', [CustomAuthController::class, 'registration'])->name('admin/register');
+// Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
 Route::get('/', function () {

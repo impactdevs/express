@@ -24,6 +24,8 @@ class User extends Authenticatable implements Auditable
         'name',
         'email',
         'password',
+        'userable_id',
+        'userable_type'
     ];
 
     /**
@@ -47,5 +49,11 @@ class User extends Authenticatable implements Auditable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Polymorphic relationship to Admin
+    public function userable()
+    {
+        return $this->morphTo();
     }
 }
