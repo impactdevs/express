@@ -154,7 +154,7 @@ class GenerateModels extends Command
                     // Use regular expressions to extract the table name and fillable array elements
                     preg_match('/protected \$table = \'([^\']+)\';/', $content, $matches);
                     $table = $matches[1];
-                    print("Generating validators for $table\n");
+//                    print("Generating validators for $table\n");
 
                     preg_match('/protected \$fillable = \[([^]]+)];/', $content, $matches);
                     if (count($matches) < 2) continue;
