@@ -1,15 +1,15 @@
 <?php $page="onboard-screen";?>
 @extends('layout.mainlayout')
-@section('content')		
+@section('content')
 			<!-- Page Wrapper -->
 			<div class="page-wrapper board-screen">
 				<div class="content container-fluid">
 					<div class="acc-content">
-						
+
 						<div class="row">
 							<div class="col-sm-12">
-								<div class="multistep-form"> 
-										
+								<div class="multistep-form">
+
 									<!-- Freelancer Multistep -->
 									<div class="multistep-progress" id="freelance_step">
 										<div class="container">
@@ -23,35 +23,35 @@
 													<div class="col-md-9">
 														<ul id="progressbar" class="progressbar">
 															<li class="progress-active">
-																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-01.svg')}}" alt="Img"></div>	
+																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-01.svg')}}" alt="Img"></div>
 																<div class="steps-count">
 																	<span>Step 1/5</span>
 																	<h5>Account Type</h5>
-																</div>								
+																</div>
 															</li>
 															<li class="">
-																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-02.svg')}}" alt="Img"></div>		
+																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-02.svg')}}" alt="Img"></div>
 																<div class="steps-count">
 																	<span>Step 2/5</span>
 																	<h5>Personal info</h5>
 																</div>
 															</li>
 															<li class="">
-																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}" alt="Img"></div>		
+																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}" alt="Img"></div>
 																<div class="steps-count">
 																	<span>Step 3/5</span>
 																	<h5>Skills & Experience</h5>
 																</div>
 															</li>
 															<li class="">
-																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}" alt="Img"></div>		
+																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}" alt="Img"></div>
 																<div class="steps-count">
 																	<span>Step 4/5</span>
 																	<h5>Other Information</h5>
 																</div>
 															</li>
 															<li class="">
-																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}" alt="Img"></div>		
+																<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}" alt="Img"></div>
 																<div class="steps-count">
 																	<span>Step 5/5</span>
 																	<h5>Email Verification</h5>
@@ -64,7 +64,7 @@
 										</div>
 									</div>
 									<!-- /Freelancer Multistep -->
-									
+
 									<!-- Accounting Onboard -->
 									<div  class="text-center on-board select-account group-select">
 										<div class="select-type">
@@ -84,12 +84,12 @@
 													<label class="employee-level employee-img accounts_type" data-id="employee" for="employee"><a href="{{url('onboard-screen-employer')}}"  ><img src="{{URL::asset('/assets/img/select-05.png')}}" alt="Img" class="img-fluid" ><span>Employer</span></a></label>
 												</div>
 											</div>
-											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled>									
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled>
 											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 										</div>
 									</div>
 									<!-- /Accounting Onboard -->
-								
+
 									<!-- Personal Info -->
 									<div class="on-board field-card select-account select-btn">
 										<div class="text-center onboard-head">
@@ -114,69 +114,62 @@
 													</div>
 													<div class="col-md-6 col-lg-6">
 														<div class="input-block">
-															<label class="form-label">First Name</label>
-															<input type="text" class="form-control">
+															<label class="form-label">Full Name</label>
+															<input type="text" class="form-control" value="{{Auth::user()->name}}" disabled readonly>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-6">
 														<div class="input-block">
-															<label class="form-label">Last Name</label>
-															<input type="text" class="form-control">
-														</div>
-													</div>
-													<div class="col-md-6 col-lg-6">
-														<div class="input-block">
-															<label class="form-label">Phone Number</label>
-															<input type="text" class="form-control">
+															<label class="form-label">Phone Number</label><span class="label-star"> *</span>
+															<input type="tel" name="phone" class="form-control" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-6">
 														<div class="input-block">
 															<label class="form-label">Email Address</label>
-															<input type="text" class="form-control">
+															<input type="text" class="form-control" value="{{Auth::user()->email}}" disabled readonly>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-4">
 														<div class="input-block">
-															<label class="form-label">Date of Birth</label>
+															<label class="form-label">Date of Birth</label><span class="label-star"> *</span>
 															<div class="cal-icon">
-																<input type="text" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+																<input type="text" name="date_of_birth" class="form-control datetimepicker" placeholder="Choose" required>
+															</div>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-4">
 														<div class="input-block">
-															<label class="form-label">Your Job Title</label>
-															<input type="text" class="form-control">
+															<label class="form-label">Your Job Title</label><span class="label-star"> *</span>
+															<input type="text" name="job_title" class="form-control" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-4">
 														<div class="input-block">
-															<label class="form-label">Type of Job</label>
-															<select class="form-control select">
-																<option>Select</option>
+															<label class="form-label">Type of Job</label><span class="label-star"> *</span>
+															<select class="form-control select" name="job_type" required>
 																<option>Full Time</option>
-																<option>part Time</option>
+																<option>Part Time</option>
 																<option>Hourly</option>
 															</select>
 														</div>
 													</div>
 													<div class="col-md-12">
 														<div class="input-block min-characters">
-															<label class="form-label">Describe Yourself</label>
-															<textarea class="form-control" rows="5" ></textarea>
+															<label class="form-label">Describe Yourself</label><span class="label-star"> *</span>
+															<textarea name="description" class="form-control" rows="5" required></textarea>
 														</div>
 													</div>
 												</div>
 											</form>
 										</div>
 										<div class="text-center">
-											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 										</div>
 									</div>
 									<!-- /Personal Info -->
-									
+
 									<!-- Skills & Experience -->
 									<div class="on-board field-card select-account select-btn">
 										<div class="text-center onboard-head">
@@ -199,7 +192,7 @@
 														<div class="input-block">
 															<label class="focus-label">Level</label>
 															<select name="skills['level'][]" class="form-control select-level select">
-																<option value="">Choose Level</option> 
+																<option value="">Choose Level</option>
 																<option value="Basic">Basic</option>
 																<option value="Intermediate" >Intermediate</option>
 																<option value="Proficient" >Proficient</option>
@@ -236,7 +229,7 @@
 															<label class="focus-label">Start Date</label>
 															<div class="cal-icon">
 																<input type="text" name="education['start_date'][]" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+															</div>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-3">
@@ -244,7 +237,7 @@
 															<label class="focus-label">End Date</label>
 															<div class="cal-icon">
 																<input type="text" name="education['end_date'][]" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+															</div>
 															<div class="new-addd">
 																<a class="add-new" id="edu_add"><i class="fas fa-plus"></i> Add New</a>
 															</div>
@@ -277,7 +270,7 @@
 															<label class="focus-label">Year</label>
 															<div class="cal-icon">
 																<input type="text" name="certification['year'][]" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+															</div>
 															<div class="new-addd">
 																<a class="add-new" id="certify_add"><i class="fas fa-plus"></i> Add New</a>
 															</div>
@@ -299,7 +292,7 @@
 														<div class="input-block">
 															<label class="focus-label">Position</label>
 															<select name="experience['position'][]" class="form-control select-level select">
-																<option>Select</option> 
+																<option>Select</option>
 																<option>Basic</option>
 																<option>Intermediate</option>
 																<option>Proficient</option>
@@ -311,7 +304,7 @@
 															<label class="focus-label">Start Date</label>
 															<div class="cal-icon">
 																<input type="text" name="experience['start_date'][]" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+															</div>
 														</div>
 													</div>
 													<div class="col-md-6 col-lg-3">
@@ -319,7 +312,7 @@
 															<label class="focus-label">End Date</label>
 															<div class="cal-icon">
 																<input type="text" name="experience['end_date'][]" class="form-control datetimepicker" placeholder="Choose">
-															</div>	
+															</div>
 															<div class="new-addd">
 																<a class="add-new" id="experience_add"><i class="fas fa-plus"></i> Add New</a>
 															</div>
@@ -341,7 +334,7 @@
 														<div class="input-block">
 															<label class="focus-label">Level</label>
 															<select  class="form-control select-level select">
-																<option value="">Choose Level</option> 
+																<option value="">Choose Level</option>
 																<option value="Basic" >Basic</option>
 																<option value="Intermediate">Intermediate</option>
 																<option value="Proficient" >Proficient</option>
@@ -354,10 +347,10 @@
 													<div id="language_add_row"></div>
 												</div>
 											</form>
-											
+
 										</div>
 										<div class="text-center">
-											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 										</div>
 									</div>
@@ -411,7 +404,7 @@
 															<input type="text"  class="form-control">
 														</div>
 													</div>
-													
+
 												</div>
 											</div>
 											<div>
@@ -711,9 +704,9 @@
 											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button" value="Submit">
 										</div>
-									</div>	
+									</div>
 									<!-- /Other Info -->
-									
+
 									<!-- Completeing Register -->
 									<div class="on-board field-card">
 										<div class="account-onborad complte-board back-home pb-0">
@@ -746,6 +739,6 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- /Page Wrapper -->
 @endsection

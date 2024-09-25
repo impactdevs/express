@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
-// Auth-related routes 
+// Auth-related routes
 Route::get('/login', function () {
     return view('login');
 })->name('login');

@@ -35,8 +35,8 @@
                         <div role="tabpanel" id="developer" class="tab-pane fade active show">
                             <form action="{{route('register')}}" method="post">
                                 @csrf
-                                
-                                <input type="hidden" name="is_company" value="1">
+
+                                <input type="hidden" name="is_company" value="0">
 
                                 <div class="input-block ">
                                     <label class="focus-label">Full Name<span class="label-star"> *</span></label>

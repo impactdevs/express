@@ -25,7 +25,7 @@ final class AuthRegisterRequest extends FormRequest
             'full_name' => ['required', 'string', 'min:5'],
             'email'    => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed'],
-            'is_company' => ['nullable']
+            'is_company' => ['required', 'integer']
         ];
     }
 }
