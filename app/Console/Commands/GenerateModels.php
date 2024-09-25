@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use PDO;
+use RuntimeException;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 /**
@@ -84,9 +85,9 @@ class GenerateModels extends Command
         $this->call("config:clear");
         $this->call('migrate', ['--force' => true]);
         $generatedModelsPath = config('models.*.path');
-        if (!file_exists($generatedModelsPath)) {
-            // Create the directory and any necessary parent directories
-            mkdir($generatedModelsPath, 0777, true);
+        // Create the directory and any necessary parent directories
+        if (!file_exists($generatedModelsPath) && !mkdir($generatedModelsPath, 0777, true) && !is_dir($generatedModelsPath)) {
+            throw new RuntimeException(sprintf('Directory "%s" was not created', $generatedModelsPath));
         }
         $table = $this->option('table');
         if ($table) {
@@ -104,7 +105,7 @@ class GenerateModels extends Command
         if ($handle = opendir($directory)) {
             while (false !== ($file = readdir($handle))) {
                 // Skip '.' and '..'
-                if ($file != '.' && $file != '..') {
+                if ($file !== '.' && $file !== '..') {
                     $filePath = $directory . '/' . $file;
 
                     // Read the file content
@@ -142,7 +143,7 @@ class GenerateModels extends Command
         if ($handle = opendir($directory)) {
             while (false !== ($file = readdir($handle))) {
                 // Skip '.' and '..'
-                if ($file != '.' && $file != '..') {
+                if ($file !== '.' && $file !== '..') {
                     $filePath = $directory . '/' . $file;
 
                     // Read the file content
@@ -157,7 +158,9 @@ class GenerateModels extends Command
 //                    print("Generating validators for $table\n");
 
                     preg_match('/protected \$fillable = \[([^]]+)];/', $content, $matches);
-                    if (count($matches) < 2) continue;
+                    if (count($matches) < 2) {
+                        continue;
+                    }
                     $matchedStr = $matches[1];
                     $fillableArray = explode(',', str_replace(['"', "'", ' '], '', $matchedStr));
 
@@ -176,9 +179,9 @@ class GenerateModels extends Command
 
                     foreach ($lines as $line) {
                         $newLine = trim($line);
-                        if (strlen($newLine) > 0){
+                        if ($newLine !== ''){
                             if (str_starts_with($newLine, '[')){
-                                $validatorStr .= $spacer . "const array validators = " .$newLine ."\n";
+                                $validatorStr .= $spacer . "const validators = " .$newLine ."\n";
                             }else if (str_starts_with($newLine, ']')){
                                 $validatorStr .= $spacer . $newLine .";\n";
                             }else {
