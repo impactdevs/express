@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use PDO;
 use RuntimeException;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -39,15 +40,15 @@ class GenerateModels extends Command
     protected function createDatabase(): void
     {
         $this->info('Creating Fake Database...');
-        if ($this->dbConnection === 'sqlite'){
-            $this->dbName = database_path($this->dbName.".sqlite");
+        if ($this->dbConnection === 'sqlite') {
+            $this->dbName = database_path($this->dbName . ".sqlite");
             file_put_contents($this->dbName, "");
-        }else {
-            $host = config('database.connections.'.$this->dbConnection.'.host');
-            $port = config('database.connections.'.$this->dbConnection.'.port');
-            $username = config('database.connections.'.$this->dbConnection.'.username');
-            $password = config('database.connections.'.$this->dbConnection.'.password');
-            $driver = config('database.connections.'.$this->dbConnection.'.driver');
+        } else {
+            $host = config('database.connections.' . $this->dbConnection . '.host');
+            $port = config('database.connections.' . $this->dbConnection . '.port');
+            $username = config('database.connections.' . $this->dbConnection . '.username');
+            $password = config('database.connections.' . $this->dbConnection . '.password');
+            $driver = config('database.connections.' . $this->dbConnection . '.driver');
 
             $dsn = "$driver:host=$host;port=$port";
             $this->pdo = new PDO($dsn, $username, $password);
@@ -66,11 +67,10 @@ class GenerateModels extends Command
 
     protected function dropDatabase(): void
     {
-        if ($this->dbConnection === 'sqlite'){
+        if ($this->dbConnection === 'sqlite') {
             unlink($this->dbName);
-        }
-        else {
-            if ($this->dbConnection === 'pgsql'){
+        } else {
+            if ($this->dbConnection === 'pgsql') {
                 $this->pdo->exec("SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '$this->dbName' AND pid <> pg_backend_pid();");
             }
             $sql = "DROP DATABASE IF EXISTS $this->dbName";
@@ -90,9 +90,10 @@ class GenerateModels extends Command
             throw new RuntimeException(sprintf('Directory "%s" was not created', $generatedModelsPath));
         }
         $table = $this->option('table');
+
         if ($table) {
             $this->call('code:models', ['--table' => $table]);
-        }else{
+        } else {
             $this->call('code:models');
         }
         $this->removeComments();
@@ -131,7 +132,7 @@ class GenerateModels extends Command
     {
         $indent_with_space = config('models.*.indent_with_space');
         $spacer = "\t";
-        if ($indent_with_space > 0){
+        if ($indent_with_space > 0) {
             $spacer = "";
             for ($i = 1; $i <= $indent_with_space; $i++) {
                 $spacer .= " ";
@@ -148,7 +149,7 @@ class GenerateModels extends Command
 
                     // Read the file content
                     $content = file_get_contents($filePath);
-                    if (str_contains($content, 'validators')){
+                    if (str_contains($content, 'validators')) {
                         continue;
                     }
 
@@ -165,12 +166,12 @@ class GenerateModels extends Command
                     $fillableArray = explode(',', str_replace(['"', "'", ' '], '', $matchedStr));
 
                     $columns = "";
-                    foreach ($fillableArray as $fillable){
-                        $columns .= trim($fillable) .",";
+                    foreach ($fillableArray as $fillable) {
+                        $columns .= trim($fillable) . ",";
                     }
                     $columns = rtrim($columns, ",");
                     $output = new BufferedOutput();
-                    Artisan::call("schema:generate-rules", ['table'=>$table, '--columns'=>$columns], $output);
+                    Artisan::call("schema:generate-rules", ['table' => $table, '--columns' => $columns], $output);
                     $outputText = $output->fetch();
                     $lines = explode("\n", $outputText);
                     array_splice($lines, 0, 2);
@@ -179,16 +180,18 @@ class GenerateModels extends Command
 
                     foreach ($lines as $line) {
                         $newLine = trim($line);
-                        if ($newLine !== ''){
-                            if (str_starts_with($newLine, '[')){
-                                $validatorStr .= $spacer . "const validators = " .$newLine ."\n";
-                            }else if (str_starts_with($newLine, ']')){
-                                $validatorStr .= $spacer . $newLine .";\n";
-                            }else {
+                        if ($newLine !== '') {
+                            if (str_starts_with($newLine, '[')) {
+                                $validatorStr .= $spacer . "const validators = " . $newLine . "\n";
+                            } else if (str_starts_with($newLine, ']')) {
+                                $validatorStr .= $spacer . $newLine . ";\n";
+                            } else {
                                 $validatorStr .= $spacer . $spacer . $newLine . "\n";
                             }
                         }
                     }
+
+                    $validatorStr = $this->addUniqueConstraint($table, $validatorStr);
 
                     $updateValidatorStr = rtrim($this->getUpdateValidators($validatorStr), "\n");
 
@@ -197,7 +200,7 @@ class GenerateModels extends Command
                     $fillableArrayEnd = strpos($content, ';', $fillableArrayStart);
 
                     // Replace the contents of the array with the word "Here"
-                    $newContents = substr_replace($content, '; '. "\n\n" . $validatorStr . "\n" . $updateValidatorStr, $fillableArrayEnd,1 );
+                    $newContents = substr_replace($content, '; ' . "\n\n" . $validatorStr . "\n" . $updateValidatorStr, $fillableArrayEnd, 1);
 
                     // Write the updated content back to the file
                     file_put_contents($filePath, $newContents);
@@ -207,7 +210,8 @@ class GenerateModels extends Command
         }
     }
 
-    protected function getUpdateValidators($string): string {
+    protected function getUpdateValidators($string): string
+    {
         // Regular expression to match both forms of "('required', )" and "('required')"
         $pattern = '/\'required\', |\'required\'/';
 
@@ -215,5 +219,59 @@ class GenerateModels extends Command
         $replacedString = preg_replace($pattern, '', $string);
 
         return str_replace('validators', 'updateValidators', $replacedString);
+    }
+
+    protected function addUniqueConstraint(string $table, string $validatorStr): string
+    {
+        $unique_columns = [];
+        if ($this->dbConnection === "pgsql") {
+            $unique_columns = DB::select("SELECT a.attname AS column_name
+            FROM pg_constraint AS c
+                     JOIN pg_attribute AS a ON a.attnum = ANY(c.conkey) AND a.attrelid = c.conrelid
+                     JOIN pg_class AS t ON t.oid = c.conrelid
+            WHERE c.contype = 'u' AND t.relname = '$table';");
+        }
+        else if ($this->dbConnection === "mysql") {
+            $dbName = config('database.connections.mysql.database');
+            $unique_columns = DB::select("SELECT COLUMN_NAME as column_name
+            FROM INFORMATION_SCHEMA.STATISTICS
+            WHERE TABLE_SCHEMA = '$dbName'
+              AND TABLE_NAME = '$table'
+              AND NON_UNIQUE = 0;");
+        }
+        else if ($this->dbConnection === "sqlite") {
+            $unique_columns = DB::select("SELECT SUBSTR(
+                sql,
+                INSTR(sql, '(') + 2,
+                INSTR(sql, ')') - INSTR(sql, '(') - 3
+                          ) AS column_name
+            FROM sqlite_master
+            WHERE type = 'index' AND tbl_name = '$table' AND sql LIKE '%UNIQUE%';");
+        }
+
+        $newValidatorStr = "";
+
+        if(count($unique_columns)>0) {
+            $lines = explode("\n", $validatorStr);
+
+            foreach ($unique_columns as $column) {
+                $column_name = $column->column_name;
+                if ($newValidatorStr !== ""){
+                    $lines = explode("\n", rtrim($newValidatorStr,"\n"));
+                    $newValidatorStr = "";
+                }
+                foreach ($lines as $i => $line) {
+                    if (strpos($line, "'$column_name' =>") !== false) {
+                        // Add 'Here' before the closing bracket
+                        $lines[$i] = str_replace("]", ", 'unique:$table']", $line);
+                    }
+                    $newValidatorStr .= $lines[$i] . "\n";
+                }
+            }
+        }
+        if ($newValidatorStr !== ""){
+            return $newValidatorStr;
+        }
+        return $validatorStr;
     }
 }
