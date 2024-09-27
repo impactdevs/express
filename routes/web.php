@@ -1,7 +1,9 @@
 <?php
 
+use App\Enums\OnboardStep;
 use App\Http\Controllers\Auth\AuthLoginController;
 use App\Http\Controllers\Auth\AuthRegisterController;
+use App\Http\Controllers\Freelancers\FreelancerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 
@@ -34,6 +36,8 @@ Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])-
 Route::get('admin/register', [CustomAuthController::class, 'registration'])->name('admin/register');
 Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::post('onboard', [FreelancerController::class, 'store'])->name('onboard');
 
 
 
@@ -121,9 +125,12 @@ Route::get('/invited-favourites', function () {
 Route::get('/onboard-screen-employer', function () {
     return view('onboard-screen-employer');
 })->name('onboard-screen-employer');
-Route::get('/onboard-screen', function () {
-    return view('onboard-screen');
-})->name('onboard-screen');
+Route::get('/onboard-screen', function (?OnboardStep $step = null) {
+    if ($step !== null){
+        return view('onboard-screen', ['step'=>$step]);
+    }
+    return view('onboard-screen', ['step'=>OnboardStep::PERSONAL_INFO]);
+})->name('onboard-screen')->middleware(['auth']);
 Route::get('/completed-projects', function () {
     return view('completed-projects');
 })->name('completed-projects');
@@ -491,9 +498,6 @@ Route::Group(['prefix' => 'admin'], function () {
     Route::get('/localization-details', function () {
         return view('admin.localization-details');
     })->name('localization-details');
-    Route::get('/login', function () {
-        return view('admin.login');
-    })->name('login');
     Route::get('/others-settings', function () {
         return view('admin.others-settings');
     })->name('others-settings');
