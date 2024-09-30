@@ -3,70 +3,138 @@
 namespace App\Http\Controllers\Freelancers;
 
 use App\Enums\OnboardStep;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
+use App\Http\Requests\Freelancers\OtherInfoStoreRequest;
+use App\Http\Requests\Freelancers\PersonalInfoStoreRequest;
+use App\Http\Requests\Freelancers\SkillsStoreRequest;
+use App\Models\Certification;
 use App\Models\Education;
+use App\Models\Experience;
 use App\Models\Freelancer;
 use App\Models\Language;
 use App\Models\Skill;
+use App\Models\SocialMedia;
 use DateTime;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 
 
 class FreelancerController extends Controller
 {
-    /**
-     * Get the middleware that should be assigned to the controller.
-     */
-    public static function middleware(): array
-    {
-        return [
-            'auth',
-        ];
-    }
+   public function __construct()
+   {
+       $this->middleware('auth');
+   }
 
-    public function index(Request $request){
+    public function index(Request $request): RedirectResponse|View
+    {
         $step = session('step');
         if ($step !== null){
             Session::forget('step');
             return view('onboard-screen', ['step'=>$step]);
         }
-        $step = OnboardStep::PERSONAL_INFO->value;
-        if ($request->user()->freelancer()->exists()){
-            $step = OnboardStep::SKILLS->value;
+        $user = $request->user();
+        if($user->email_verified_at){
+            return redirect()->to(route('login'));
         }
+
+        $freelancer = $request->user()->freelancer;
+        if($freelancer){
+          if($freelancer->skills()->exists()){
+              if($freelancer->country){
+                  $step = OnboardStep::SEND_EMAIL->value;
+              }else{
+                  $step = OnboardStep::OTHER_INFO->value;
+              }
+          }else{
+              $step = OnboardStep::SKILLS->value;
+          }
+        }else{
+            $step = OnboardStep::PERSONAL_INFO->value;
+        }
+
         return view('onboard-screen', ['step'=>$step]);
     }
 
 
-
-    private function store_personal_info(Request $request): RedirectResponse
+    public function store_personal_info(PersonalInfoStoreRequest $request)
     {
-        $request->merge([
-            'user' => $request->user()->id,
-        ]);
-
-        $validated = $request->validate(array_merge(Freelancer::validators,[
-            'date_of_birth' => ['required', 'date_format:d/m/Y'],
-            'profile_picture' => ['nullable', 'image', 'mimes:jpg,bmp,png,jpeg,svg,webp', 'extensions:jpg,bmp,png,jpeg,svg,webp', 'max:2048'],
-        ]));
-
-        $validated['date_of_birth'] = DateTime::createFromFormat('d/m/Y', $validated['date_of_birth']);
-
+        $data = $request->validated();
+        $data['date_of_birth'] = DateTime::createFromFormat('d/m/Y', $data['date_of_birth']);
         if($request->hasFile('profile_picture')) {
             $path = $request->file('profile_picture')?->store('profile_pictures');
-            $validated['profile_picture_path'] = $path;
-            unset($validated['profile_picture']);
+            $data['profile_picture_path'] = $path;
+            unset($data['profile_picture']);
         }
 
-        Freelancer::create($validated);
+        return Freelancer::create($data);
+    }
+
+    public function store_skills(SkillsStoreRequest $request): array
+    {
+        $validated = $request->validated();
+        $freelancer = $validated['freelancer'];
+        unset($validated['freelancer']);
+        $now = Carbon::now();
+
+        foreach ($validated as $key => $iValue) {
+            foreach ($iValue as $i => $v) {
+                $validated[$key][$i] = array_merge($validated[$key][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+
+                if(in_array($key, ['certification', 'education', 'experience'])){
+                    foreach (['start_date', 'end_date', 'certified_on'] as $date_field ){
+                        if(array_key_exists($date_field, $validated[$key][$i])){
+                            $validated[$key][$i][$date_field] = DateTime::createFromFormat('d/m/Y', $validated[$key][$i][$date_field]);
+                        }
+                    }
+                }
+            }
+        }
+
+        $output = [];
+        $output['education'] = Education::insert($validated['education']);
+        $output['skills'] = Skill::insert($validated['skills']);
+        $output['languages'] = Language::insert($validated['language']);
+        if(array_key_exists('certification', $validated)){
+            $output['certification'] = Certification::insert($validated['certification']);
+        }
+        if(array_key_exists('experience', $validated)){
+            $output['experience'] = Experience::insert($validated['experience']);
+        }
+        return $output;
+    }
+
+    public function store_other_info(OtherInfoStoreRequest $request): array
+    {
+        $validated = $request->validated();
+        $freelancer = $validated['freelancer'];
+        unset($validated['freelancer']);
+        $now = Carbon::now();
+        $output = [];
+
+        if(array_key_exists('social_media', $validated)){
+            foreach ($validated['social_media'] as $i => $iValue) {
+                $validated['social_media'][$i] = array_merge($validated['social_media'][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+            }
+            $output['social_media'] = SocialMedia::insert($validated['social_media']);
+        }
+        unset($validated['social_media']);
+        $freelancer->fill($validated);
+        $freelancer->save();
+        $output['freelancer'] = $freelancer;
+        return $output;
+    }
+
+    private function _store_personal_info(Request $request): RedirectResponse
+    {
+        $this->store_personal_info(app(PersonalInfoStoreRequest::class));
         return redirect()->to(route('onboard-screen'))->with(['step'=>OnboardStep::SKILLS->value]);
     }
 
-    private function store_skills(Request $request): RedirectResponse
+    private function _store_skills(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'skills' => ['required', 'array'],
@@ -75,54 +143,22 @@ class FreelancerController extends Controller
             'certification' => ['nullable', 'array'],
             'experience' => ['nullable', 'array'],
         ]);
-        $outputArray = assoc_from_array($validated);
+        $request->merge(assoc_from_array($validated));
 
-        $validated1 = Validator::make($outputArray, [
-            "skills.*.skill" => ['required'],
-            "skills.*.level" => ['required'],
-
-            "language.*.name" => ['required'],
-            "language.*.level" => ['required'],
-
-            "education.*.degree" => ['required'],
-            "education.*.university_name" => ['required'],
-            "education.*.start_date" => ['required', 'date_format:d/m/Y'],
-            "education.*.end_date" => ['required', 'date_format:d/m/Y'],
-
-            "experience.*.organisation" => ['required_with:experience.*.position'],
-            "experience.*.position" => ['required_with:experience.*.start_date'],
-            "experience.*.start_date" => ['required_with:experience.*.end_date', 'date_format:d/m/Y'],
-            "experience.*.end_date" => ['required_with:experience.*.start_date', 'date_format:d/m/Y'],
-
-
-            "certification.*.certification_type" => ['required_with:certification.*.name'],
-            "certification.*.name" => ['required_with:certification.*.certified_from'],
-            "certification.*.certified_from" => ['required_with:certification.*.certified_on'],
-            "certification.*.certified_on" => ['required_with:certification.*.certified_from', 'date_format:d/m/Y'],
-
-        ])->validate();
-
-        dd($validated1);
-
-        $now = Carbon::now();
-        $freelancer = $request->user()->freelancer()->id;
-        foreach ($validated1 as $key => $iValue) {
-            foreach ($iValue as $i => $v) {
-                $validated1[$key][$i]['freelancer'] = $freelancer;
-                $validated1[$key][$i]['created_at'] = $now;
-                $validated1[$key][$i]['updated_at'] = $now;
-            }
-        }
-
-        Skill::insert($validated1['skills']);
-        Language::insert($validated1['language']);
-        Education::insert($validated1['education']);
+        $this->store_skills(app(SkillsStoreRequest::class));
 
         return redirect()->to(route('onboard-screen'))->with(['step'=>OnboardStep::OTHER_INFO->value]);
     }
 
-    private function store_other_info(Request $request): RedirectResponse
+    private function _store_other_info(Request $request): RedirectResponse
     {
+        if($request->has('social_media')){
+            $request->validate([
+               'social_media' => ['nullable', 'array'],
+            ]);
+            $request->merge(assoc_from_array(['social_media' => $request->get('social_media')]));
+        }
+        $this->store_other_info(app(OtherInfoStoreRequest::class));
         return redirect()->to(route('onboard-screen'))->with(['step'=>OnboardStep::SEND_EMAIL->value]);
     }
 
@@ -132,41 +168,9 @@ class FreelancerController extends Controller
     public function store(Request $request): RedirectResponse
     {
         return match ((int)$request->step) {
-            OnboardStep::PERSONAL_INFO->value => $this->store_personal_info($request),
-            OnboardStep::SKILLS->value => $this->store_skills($request),
-            default => $this->store_other_info($request),
+            OnboardStep::PERSONAL_INFO->value => $this->_store_personal_info($request),
+            OnboardStep::SKILLS->value => $this->_store_skills($request),
+            default => $this->_store_other_info($request),
         };
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

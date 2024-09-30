@@ -51,6 +51,7 @@ return new class extends Migration
 
         Schema::create('certifications', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->foreignId('freelancer');
             $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
             $table->string('certification_type', 50);

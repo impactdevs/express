@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class Certification
  * 
  * @property int $id
+ * @property string $name
  * @property int $freelancer
  * @property string $certification_type
  * @property string $certified_from
@@ -34,6 +35,7 @@ class Certification extends Model
 	];
 
 	protected $fillable = [
+		'name',
 		'freelancer',
 		'certification_type',
 		'certified_from',
@@ -41,6 +43,7 @@ class Certification extends Model
 	]; 
 
 	const validators = [
+		'name' => ['required', 'string', 'min:1', 'max:255'],
 		'freelancer' => ['required', 'exists:freelancers,id'],
 		'certification_type' => ['required', 'string', 'min:1', 'max:50'],
 		'certified_from' => ['required', 'string', 'min:1', 'max:255'],
@@ -49,6 +52,7 @@ class Certification extends Model
 
 
 	const updateValidators = [
+		'name' => ['string', 'min:1', 'max:255'],
 		'freelancer' => ['exists:freelancers,id'],
 		'certification_type' => ['string', 'min:1', 'max:50'],
 		'certified_from' => ['string', 'min:1', 'max:255'],
