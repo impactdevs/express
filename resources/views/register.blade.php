@@ -64,37 +64,37 @@
                                             <span class="fas toggle-passwords fa-eye-slash"></span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="dont-have">
-                                    <label class="custom_check">
-                                        <input type="checkbox" name="rem_password">
-                                        <span class="checkmark"></span> I have read and agree to all <a
-                                            href="{{ url('privacy-policy') }}">Terms &amp; Conditions</a>
-                                    </label>
-                                </div>
+                                </div><br/>
+{{--                                <div class="dont-have">--}}
+{{--                                    <label class="custom_check">--}}
+{{--                                        <input type="checkbox" name="rem_password">--}}
+{{--                                        <span class="checkmark"></span> I have read and agree to all <a--}}
+{{--                                            href="{{ url('privacy-policy') }}">Terms &amp; Conditions</a>--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
                                 <button
                                     class="btn btn-primary w-100 btn-lg login-btn d-flex align-items-center justify-content-center"
                                     type="submit">Sign In Now<i class="feather-arrow-right ms-2"></i></button>
-                                <div class="login-or">
-                                    <p><span>Or</span></p>
-                                </div>
-                                <div class="row social-login">
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/google-icon.svg') }}"
-                                                alt="Google">Google</a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/fb-icon.svg') }}"
-                                                alt="Fb">Facebook</a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/ios-icon.svg') }}"
-                                                alt="Apple">Apple</a>
-                                    </div>
-                                </div>
+{{--                                <div class="login-or">--}}
+{{--                                    <p><span>Or</span></p>--}}
+{{--                                </div>--}}
+{{--                                <div class="row social-login">--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/google-icon.svg') }}"--}}
+{{--                                                alt="Google">Google</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/fb-icon.svg') }}"--}}
+{{--                                                alt="Fb">Facebook</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/ios-icon.svg') }}"--}}
+{{--                                                alt="Apple">Apple</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="row">
                                     <div class="col-sm-8 dont-have d-flex  align-items-center">Already have account <a
                                             href="{{url('login')}}" class="ms-2">Sign in?</a></div>
@@ -155,26 +155,26 @@
                                 <button
                                     class="btn btn-primary w-100 btn-lg login-btn d-flex align-items-center justify-content-center"
                                     type="submit">Sign In Now<i class="feather-arrow-right ms-2"></i></button>
-                                <div class="login-or">
-                                    <p><span>Or</span></p>
-                                </div>
-                                <div class="row social-login">
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/google-icon.svg') }}"
-                                                alt="Google">Google</a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/fb-icon.svg') }}"
-                                                alt="Fb">Facebook</a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a href="javascript:void(0);" class="btn btn-block"><img
-                                                src="{{ URL::asset('/assets/img/icon/ios-icon.svg') }}"
-                                                alt="Apple">Apple</a>
-                                    </div>
-                                </div>
+{{--                                <div class="login-or">--}}
+{{--                                    <p><span>Or</span></p>--}}
+{{--                                </div>--}}
+{{--                                <div class="row social-login" hidden>--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/google-icon.svg') }}"--}}
+{{--                                                alt="Google">Google</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/fb-icon.svg') }}"--}}
+{{--                                                alt="Fb">Facebook</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-4">--}}
+{{--                                        <a href="javascript:void(0);" class="btn btn-block"><img--}}
+{{--                                                src="{{ URL::asset('/assets/img/icon/ios-icon.svg') }}"--}}
+{{--                                                alt="Apple">Apple</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="row">
                                     <div class="col-sm-8 dont-have d-flex  align-items-center">Already have account <a
                                             href="{{url('login')}}" class="ms-2">Sign in?</a></div>

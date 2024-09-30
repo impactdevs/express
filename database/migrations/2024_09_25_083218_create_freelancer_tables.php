@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->longText('description');
             $table->string('profile_picture_path')->nullable();
-            $table->foreignId('country');
-            $table->foreign('country')->references('id')->on('countries')->nullable();
+            $table->foreignId('country')->nullable();
+            $table->foreign('country')->references('id')->on('countries');
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();

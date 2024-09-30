@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\OnboardStep;
 use App\Http\Controllers\Auth\AuthLoginController;
 use App\Http\Controllers\Auth\AuthRegisterController;
 use App\Http\Controllers\Freelancers\FreelancerController;
@@ -38,7 +37,7 @@ Route::post('admin/custom-registration', [CustomAuthController::class, 'customRe
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::post('onboard', [FreelancerController::class, 'store'])->name('onboard');
-
+Route::get('/onboard-screen', [FreelancerController::class, 'index'])->name('onboard-screen');
 
 
 Route::get('/', function () {
@@ -125,12 +124,7 @@ Route::get('/invited-favourites', function () {
 Route::get('/onboard-screen-employer', function () {
     return view('onboard-screen-employer');
 })->name('onboard-screen-employer');
-Route::get('/onboard-screen', function (?OnboardStep $step = null) {
-    if ($step !== null){
-        return view('onboard-screen', ['step'=>$step]);
-    }
-    return view('onboard-screen', ['step'=>OnboardStep::PERSONAL_INFO]);
-})->name('onboard-screen')->middleware(['auth']);
+
 Route::get('/completed-projects', function () {
     return view('completed-projects');
 })->name('completed-projects');
@@ -519,9 +513,9 @@ Route::Group(['prefix' => 'admin'], function () {
     Route::get('/providers', function () {
         return view('admin.providers');
     })->name('providers');
-    Route::get('/register', function () {
-        return view('admin.register');
-    })->name('admin.register');
+//    Route::get('/register', function () {
+//        return view('admin.register');
+//    })->name('admin.register');
     Route::get('/reports', function () {
         return view('admin.reports');
     })->name('reports');

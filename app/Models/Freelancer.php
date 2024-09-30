@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Freelancer
- * 
+ *
  * @property int $id
  * @property int $user
  * @property string $phone
@@ -23,13 +23,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Carbon $date_of_birth
  * @property string $description
  * @property string|null $profile_picture_path
- * @property int $country
+ * @property int|null $country
  * @property string|null $state
  * @property string|null $city
  * @property string|null $zip_code
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Certification[] $certifications
  * @property Collection|Education[] $education
  * @property Collection|Experience[] $experiences
@@ -61,32 +61,31 @@ class Freelancer extends Model
 		'state',
 		'city',
 		'zip_code'
-	]; 
+	];
 
 	const validators = [
-		'user' => ['required', 'exists:users,id'],
-		'phone' => ['required', 'string', 'min:1', 'max:20'],
+		'user' => ['required', 'exists:users,id', 'unique:freelancers'],
+		'phone' => ['required', 'string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['required', 'string', 'min:1', 'max:50'],
 		'job_title' => ['required', 'string', 'min:1', 'max:50'],
 		'date_of_birth' => ['required', 'date'],
 		'description' => ['required'],
 		'profile_picture_path' => ['nullable', 'string', 'min:1', 'max:255'],
-		'country' => ['required', 'exists:countries,id'],
+		'country' => ['nullable', 'exists:countries,id'],
 		'state' => ['nullable', 'string', 'min:1', 'max:255'],
 		'city' => ['nullable', 'string', 'min:1', 'max:255'],
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
 	];
 
-
 	const updateValidators = [
-		'user' => ['exists:users,id'],
-		'phone' => ['string', 'min:1', 'max:20'],
+		'user' => ['exists:users,id', 'unique:freelancers'],
+		'phone' => ['string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['string', 'min:1', 'max:50'],
 		'job_title' => ['string', 'min:1', 'max:50'],
 		'date_of_birth' => ['date'],
 		'description' => [],
 		'profile_picture_path' => ['nullable', 'string', 'min:1', 'max:255'],
-		'country' => ['exists:countries,id'],
+		'country' => ['nullable', 'exists:countries,id'],
 		'state' => ['nullable', 'string', 'min:1', 'max:255'],
 		'city' => ['nullable', 'string', 'min:1', 'max:255'],
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']

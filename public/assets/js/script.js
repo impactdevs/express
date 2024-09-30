@@ -8,9 +8,9 @@ Version      : 1.0
     "use strict";
 
 	var $slimScrolls = $('.slimscroll');
-	
+
 	// Stick Sidebar
-	
+
 	if ($(window).width() > 767) {
 		if($('.theiaStickySidebar').length > 0) {
 			$('.theiaStickySidebar').theiaStickySidebar({
@@ -19,30 +19,30 @@ Version      : 1.0
 			});
 		}
 	}
-	  
+
 	// Search Bar
 
 	$(document).on('click', '.searchbar .feather-search', function() {
 		$(".togglesearch").slideToggle();
 		$(".top-search").focus();
 	});
-	
+
 	// Loader
-	
+
 	setTimeout(function () {
 		$('#global-loader');
 		setTimeout(function () {
 			$("#global-loader").fadeOut("slow");
 		}, 100);
 	}, 500);
-	
+
 	// Sidebar
-	
+
 	if($(window).width() <= 991){
 	var Sidemenu = function() {
 		this.$menuItem = $('.main-nav a');
 	};
-	
+
 	function init() {
 		var $this = Sidemenu;
 		$('.main-nav a').on('click', function(e) {
@@ -90,7 +90,7 @@ Version      : 1.0
 
 	// Sidebar Initiate
 	initi();
-	
+
 	// JQuery counterUp
 
 	if($('.course-count .counter-up').length > 0) {
@@ -105,7 +105,7 @@ Version      : 1.0
 		  $(".top-header").hide();
 		});
 	});
-	
+
 	//Home slider
 	if($('.dot-slider').length > 0) {
 		$('.dot-slider').slick({
@@ -148,18 +148,18 @@ Version      : 1.0
 			}]
 		});
 	}
-	
+
 	// Textarea Text Count
-	
+
 	var maxLength = 100;
 	$('#review_desc').on('keyup change', function () {
 		var length = $(this).val().length;
 		 length = maxLength-length;
 		$('#chars').text(length);
 	});
-	
+
 	// Fav-btn
-	
+
 	$('.freelance-widget .favourite').on('click', function () {
       	$(this).toggleClass('color-active');
     });
@@ -172,18 +172,18 @@ Version      : 1.0
 	$('.hired-developers-img-content .favourite').on('click', function () {
 		$(this).toggleClass('blue-active');
   });
-	
+
 	// Select 2
-	
+
 	if($('.select').length > 0) {
 		$('.select').select2({
 			minimumResultsForSearch: -1,
 			width: '100%'
 		});
 	}
-	
+
 	// Date Time Picker
-	
+
 	if($('.datetimepicker').length > 0) {
 		$('.datetimepicker').datetimepicker({
 			format: 'DD/MM/YYYY',
@@ -207,8 +207,8 @@ Version      : 1.0
 		});
 	}
 
-	
-	
+
+
 	// Floating Label
 
 	if($('.floating').length > 0 ){
@@ -216,9 +216,9 @@ Version      : 1.0
 		$(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
 		}).trigger('blur');
 	}
-	
+
 	// Mobile menu sidebar overlay
-	
+
 	$('body').append('<div class="sidebar-overlay"></div>');
 	$(document).on('click', '#mobile_btn', function() {
 		$('main-wrapper').toggleClass('slide-nav');
@@ -226,28 +226,28 @@ Version      : 1.0
 		$('html').addClass('menu-opened');
 		return false;
 	});
-	
+
 	$(document).on('click', '.sidebar-overlay', function() {
 		$('html').removeClass('menu-opened');
 		$(this).removeClass('opened');
 		$('main-wrapper').removeClass('slide-nav');
 	});
-	
+
 	$(document).on('click', '#menu_close', function() {
 		$('html').removeClass('menu-opened');
 		$('.sidebar-overlay').removeClass('opened');
 		$('main-wrapper').removeClass('slide-nav');
 	});
-	
+
 	// Tooltip
-	
+
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 	  return new bootstrap.Tooltip(tooltipTriggerEl)
 	})
-	
+
 	// Circle Progress Bar
-	
+
 	function animateElements() {
 		$('.circle-bar1').each(function () {
 			var elementPos = $(this).offset().top;
@@ -267,24 +267,24 @@ Version      : 1.0
 				});
 			}
 		});
-	}	
-	
+	}
+
 	if($('.circle-bar').length > 0) {
 		animateElements();
 	}
 	$(window).scroll(animateElements);
-	
+
 	$(document).ready(function () {
 	let progressVal = 0;
 	let businessType = 0;
 		/*---------------------------------------------------------*/
 		$(".next_btn").click(function () { // Function Runs On NEXT Button Click
-		
+
 			$(this).parent().parent().next().fadeIn('slow');
 			$(this).parent().parent().css({
 				'display': 'none'
 			});
-			
+
 			if(progressVal == 0) {
 				$('.acc-title-02').show();
 				$('.progress-25').hide();
@@ -294,14 +294,14 @@ Version      : 1.0
 				$('.acc-title-03').show();
 				$('.progress-50').hide();
 				$('.progress-75').show();
-				
-				
+
+
 				$('#individual').hide();
 				$('#partnership').hide();
 				$('#society').hide();
 				$('#proprietorship').hide();
 				$('#privateltd').hide();
-				
+
 				if($('#business-type').val() == "Individual") {
 					$('#individual').show();
 					businessType=1;
@@ -327,13 +327,13 @@ Version      : 1.0
 				$('.acc-title-04').show();
 				$('.progress-75').hide();
 				$('.progress-100').show();
-				
+
 				$('#individual-doc').hide();
 				$('#partnership-doc').hide();
 				$('#society-doc').hide();
 				$('#proprietorship-doc').hide();
 				$('#privateltd-doc').hide();
-				
+
 				if(businessType == 1)
 				{
 					$('#individual-doc').show();
@@ -357,8 +357,8 @@ Version      : 1.0
 				$('.circle-percent-100').show();
 			}
 			progressVal = progressVal + 1;
-			$('.progress-active').removeClass('progress-active').addClass('progress-activated').next().addClass('progress-active'); 
-			
+			$('.progress-active').removeClass('progress-active').addClass('progress-activated').next().addClass('progress-active');
+
 
 		});
 		$(".prev_btn").click(function () { // Function Runs On PREVIOUS Button Click
@@ -366,15 +366,15 @@ Version      : 1.0
 			$(this).parent().parent().css({
 				'display': 'none'
 			});
-			
+
 			$('.acc-title-01').hide();
 			$('.acc-title-02').hide();
 			$('.acc-title-03').hide();
 			$('.acc-title-04').hide();
 			$('.acc-title-05').hide();
-			
+
 			progressVal = progressVal - 1;
-			
+
 			if(progressVal == 0) {
 				$('.acc-title-01').show();
 				$('.progress-25').show();
@@ -395,14 +395,14 @@ Version      : 1.0
 				$('.circle-percent-75').show();
 				$('.circle-percent-100').hide();
 			}
-			
+
 			// Removing Class Active To Show Steps Backward;
-			$('.progress-active').removeClass('progress-active').prev().removeClass('progress-activated').addClass('progress-active'); 
+			$('.progress-active').removeClass('progress-active').prev().removeClass('progress-activated').addClass('progress-active');
 		});
 	});
-	
+
 	// Add Row
-	
+
     $("#new_add").click(function () {
         var html = '';
         html += '<div class="row" id="form-row">';
@@ -428,13 +428,13 @@ Version      : 1.0
 
         $('#add_row').append(html);
     });
-	
+
 	 // Remove Row
-	 
+
 	$(document).on('click', '#remove_row', function () {
 		$(this).closest('#form-row').remove();
 	});
-	
+
 	$("#new_add1").click(function () {
         var html = '';
         html += '<div class="row" id="form-row">';
@@ -462,7 +462,7 @@ Version      : 1.0
         html += '<a  id="remove_row" class="remove_row"> Remove</a>';
         html += '</div>';
         html += '</div>';
- 
+
 
         $('#add_row1').append(html);
     });
@@ -477,7 +477,7 @@ Version      : 1.0
 				});
 			  });
 			}
-		
+
 			//   View all Show hide Two
 			if($('.viewall-Two').length > 0) {
 				$(document).ready(function () {
@@ -487,16 +487,16 @@ Version      : 1.0
 					  $(".viewall-Two").slideToggle(900);
 					});
 				});
-			} 
+			}
 
 
 			$(".add-fav-list").click(function(){
 				$(".add-fav-list").toggleClass("checked");
 			  });
 	// Skill Add Row
-	
+
 	// Working Hours
-	
+
 	$('#check_hour').click(function() {
 		if ($(this).is(':checked')) {
 			$(".checkout-hour").show();
@@ -512,7 +512,7 @@ Version      : 1.0
 		$(".fixed-rate").removeClass("active");
 		$(".fixed-rates").addClass("d-none");
 		$(".hours-rates").removeClass("d-none");
-		
+
 	});
 	$('.fixedradio').click(function() {
 		$(".hours-rate").removeClass("active");
@@ -522,7 +522,7 @@ Version      : 1.0
 		$(".fixed-rates").removeClass("d-none");
 	});
 	// Select Screen
-	
+
 	$(document).on('click','.accounts_type',function(){
 		var id=$(this).data('id');
 		localStorage.setItem('screen',id);
@@ -538,16 +538,16 @@ Version      : 1.0
 			$('#freelance').prop('checked',true);
 		}
 	});
-	
+
 	// Add More Hours
-	
+
     $(".hours-info").on('click','.trash', function () {
 		$(this).closest('.hours-cont').remove();
 		return false;
     });
 
     $(".add-hours").on('click', function () {
-		
+
 		var hourscontent = '<div class="row form-row hours-cont">' +
 			'<div class="col-12 col-md-10">' +
 				'<div class="row form-row">' +
@@ -557,7 +557,7 @@ Version      : 1.0
 							'<select class="form-control">' +
 								'<option>-</option>' +
 								'<option>12.00 am</option>' +
-								'<option>12.30 am</option>' + 
+								'<option>12.30 am</option>' +
 								'<option>1.00 am</option>' +
 								'<option>1.30 am</option>' +
 							'</select>' +
@@ -579,22 +579,22 @@ Version      : 1.0
 			'</div>' +
 			'<div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="javascript:void(0);" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>' +
 		'</div>';
-		
+
         $(".hours-info").append(hourscontent);
         return false;
     });
-	
+
 	// Content div min height set
-	
+
 	function resizeInnerDiv() {
-		var height = $(window).height();	
+		var height = $(window).height();
 		var header_height = $(".header").height();
 		var footer_height = $(".footer").height();
 		var setheight = height - header_height;
 		var trueheight = setheight - footer_height;
 		$(".content").css("min-height", trueheight);
 	}
-	
+
 	if($('.content').length > 0 ){
 		resizeInnerDiv();
 	}
@@ -604,7 +604,7 @@ Version      : 1.0
 			resizeInnerDiv();
 		}
 	});
-	
+
 	// Date Range Picker
 	if($('.bookingrange').length > 0) {
 		var start = moment().subtract(6, 'days');
@@ -635,7 +635,7 @@ Version      : 1.0
 	(function() {
 		if ($(window).width() > 991)
 			chatAppTarget.removeClass('chat-slide');
-		
+
 		$(document).on("click",".chat-window .chat-users-list a.media",function () {
 			if ($(window).width() <= 991) {
 				chatAppTarget.addClass('chat-slide');
@@ -645,11 +645,11 @@ Version      : 1.0
 		$(document).on("click","#back_user_list",function () {
 			if ($(window).width() <= 991) {
 				chatAppTarget.removeClass('chat-slide');
-			}	
+			}
 			return false;
 		});
 	})();
-	
+
 	// Rating Star Review
 
 	const stars = document.querySelectorAll('.rating-select i');
@@ -666,32 +666,32 @@ Version      : 1.0
 		});
 	});
 	});
-	
+
 	// Datatable
 	if ($('.datatable').length > 0) {
 		$('.datatable').DataTable({
 			"bFilter": true,
 		});
 	}
-	
+
 	// select Box
 	$(document).on('click', '.select-group .select-item .service-item', function() {
 		$('.selected .service-item .fa').removeClass('fa-check');
 		$('.select-item .service-item').removeClass('selected');
 		$(this).addClass('selected');
 	});
-	
+
 	// Preloader
-	
+
 	$(window).on('load', function () {
 		if($('#loader').length > 0) {
 			$('#loader').delay(350).fadeOut('slow');
 			$('body').delay(350).css({ 'overflow': 'visible' });
 		}
 	})
-	
+
 	// readmore
-	
+
 	$(document).on('click', '.readmore', function() {
 		var dots = document.getElementById("dots");
 		var moreText = document.getElementById("more");
@@ -707,9 +707,9 @@ Version      : 1.0
 			moreText.style.display = "inline";
 		}
 	});
-	
+
 	// Range slider
-	
+
 	if($('.slidercontainer').length > 0) {
 		var slider = document.getElementById("myRange");
 		var output = document.getElementById("demo");
@@ -719,7 +719,7 @@ Version      : 1.0
 		  output.innerHTML = this.value;
 		}
 	}
-	
+
 	// Fade in scroll
 
 	if($('.main-wrapper .aos').length>0){
@@ -728,9 +728,9 @@ Version      : 1.0
 			once:true
 		});
 	}
-	
+
 	// Scroll Window
-	
+
 	$(window).on('scroll', function () {
 		if ($(this).scrollTop() > 0) {
 		  $('.scroll-to-target').addClass('open');
@@ -755,9 +755,9 @@ Version      : 1.0
 
     });
   }
-	
+
 	// Summernote
-	
+
 	if($('.summernote').length > 0) {
 		$('.summernote').summernote({
 			height: 200,                 // set editor height
@@ -775,9 +775,9 @@ Version      : 1.0
 			]			// set focus to editable area after initializing summernote
 		});
 	}
-	
+
 	// custom seleaction
-	
+
 	if($('#store').length > 0) {
 		document.getElementById('store').storeID.onchange = function() {
 			var newaction = this.value;
@@ -856,7 +856,7 @@ Version      : 1.0
 			self.removeClass('active');
 		}
 	});
-	
+
 	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
 		if (scroll < 100) {
@@ -865,7 +865,7 @@ Version      : 1.0
 			$(".header").addClass("sticky");
 		}
 	});
-	
+
 	if($('#developers-slider').length > 0 ){
 		$('#developers-slider').owlCarousel({
 			items: 5,
@@ -892,7 +892,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#trend-slider').length > 0 ){
 		$('#trend-slider').owlCarousel({
 			items: 5,
@@ -918,7 +918,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#review-three-slider').length > 0 ){
 		$('#review-three-slider').owlCarousel({
 			items: 5,
@@ -952,7 +952,7 @@ Version      : 1.0
 			spaceBetween: 15,
 		});
 	}
-	
+
 	if($('#feature-project-slider').length > 0 ){
 		$('#feature-project-slider').owlCarousel({
 			items: 5,
@@ -982,7 +982,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#blog-slider').length > 0 ){
 		$('#blog-slider').owlCarousel({
 			items: 5,
@@ -1012,7 +1012,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#blog-slider').length > 0 ){
 		$('#blog-slider').owlCarousel({
 			items: 5,
@@ -1068,7 +1068,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#testimonial-slider').length > 0 ){
 		$('#testimonial-slider').owlCarousel({
 			items: 5,
@@ -1098,7 +1098,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#testimonial-slider-two').length > 0 ){
 		$('#testimonial-slider-two').owlCarousel({
 			items: 5,
@@ -1128,7 +1128,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#testimonial-two').length > 0 ){
 		$('#testimonial-two').owlCarousel({
 			items: 5,
@@ -1159,7 +1159,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#company-slider').length > 0 ){
 		$('#company-slider').owlCarousel({
 			items: 8,
@@ -1186,7 +1186,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#popular-slider').length > 0 ){
 		$('#popular-slider').owlCarousel({
 			items: 6,
@@ -1239,7 +1239,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	if($('#blog-article').length > 0 ){
 		$('#blog-article').owlCarousel({
 			items: 6,
@@ -1292,7 +1292,7 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+
 	// Slick testimonial two
 
 	if($('.say-about.slider-for').length > 0) {
@@ -1302,7 +1302,7 @@ Version      : 1.0
 			arrows: true,
 			fade: true,
 			asNavFor: '.client-img.slider-nav'
-		});																										
+		});
 	}
 
 	if($('.client-img.slider-nav').length > 0) {
@@ -1314,10 +1314,10 @@ Version      : 1.0
 			arrows: false,
 			centerMode: true,
 			focusOnSelect: true
-			
+
 		});
 	}
-	
+
 	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
 		if (scroll < 100) {
@@ -1338,7 +1338,7 @@ Version      : 1.0
        $('.pro-new').css('display','none');
        $('.pro-text').css('display','block');
    	});
-   
+
    	// Overview
 	$('#edit_overview').on('click',function(){
        $('.pro-new1').css('display','block');
@@ -1349,7 +1349,7 @@ Version      : 1.0
        $('.pro-new1').css('display','none');
        $('.pro-text1').css('display','block');
    	});
-   
+
    	// Overview
 
    	$('#edit_education').on('click',function(){
@@ -1373,372 +1373,116 @@ Version      : 1.0
     });
 
 	// Skill Add Row
-	
-	$("#skill_add").click(function () {
-        var html = '';
-        html += '<div class="row" id="form-row">';
-        html += '<div class="col-md-6">';
-        html += '<div class="input-block ">';
-        html += '<label class="form-label">Skills</label>';
-        html += '<input type="text" name="skills["name"][]" class="form-control">';
-        html += '</div>';
-        html += '</div>';
-		html += '<div class="col-md-6">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">Level</label>';
-        html += '<select name="skills["level"][]" class="form-control select-level select">';
-        html += '<option value="">Choose Level</option>';
-		html += '<option value="Basic" <?php if(old("level")=="Basic") echo "selected"; ?>Basic</option>';
-		html += '<option value="Intermediate" <?php if(old("level")=="Intermediate") echo "selected"; ?>Intermediate</option>';
-		html += '<option value="Proficient" <?php if(old("level")=="Proficient") echo "selected"; ?>Proficient</option>';
-        html += '</select>';
-		html += '<div class="new-addd">';
-        html += '<a  id="remove_row" class="remove_row"> Remove</a>';
-        html += '</div>';
-        html += '</div>';
-        html += '</div>';
 
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#skill_add_row').append(html);
-    });	
+	$("#skill_add").click(function () {
+        var nextDiv = $(this).closest('div.multiple').next();
+        while(nextDiv){
+            if (nextDiv.is('[hidden]')){
+                nextDiv.removeAttr('hidden')
+                nextDiv.find('input, select').prop('required', true);
+                break;
+            }
+            nextDiv = nextDiv.next()
+        }
+
+    });
+
+    $(".hide_skill_row").click(function () {
+        var nextDiv = $(this).closest('div.multiple');
+        nextDiv.prop('hidden', true);
+        nextDiv.find('input, select').prop('required', false);
+        nextDiv.find('input, select').val("")
+        nextDiv.find('span.select2-selection__rendered').html("Choose Level").attr('title', 'Choose Level')
+    });
 
 	// Education Add Row
-	
-    $("#edu_add").click(function () {
-        var html = '';
-        html += '<div class="row" id="form-row">';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block">';
-        html += '<label class="focus-label">Degree Name</label>';
-        html += '<select name="education["degree_name"][]" class="form-control select-level select-edu select">';
-        html += '<option value="0">Select</option>';
-        html += '<option value="1">Bachelors degree</option>';
-        html += '<option value="1">Masters Degree</option>';
-        html += '</select>';
-        html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">University Name</label>';
-        html += '<input type="text" name="education["university_name"][]" class="form-control">';
-        html += '</div>';
-        html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">Start Date</label>';
-        html += '<div class="cal-icon">';
-        html += '<input type="text" name="education["start_date"][]" class="form-control datetimepicker" placeholder="Choose">';
-        html += '</div>';
-        html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">End Date</label>';
-        html += '<div class="cal-icon">';
-        html += '<input type="text" name="education["end_date"][]" class="form-control datetimepicker" placeholder="Choose">';
-        html += '</div>';
-        html += '<div class="new-addd">';
-        html += '<a  id="remove_row" class="remove_row"> Remove</a>';
-        html += '</div>';
-        html += '</div>';
-        html += '</div>';
-		html += '</div>';
 
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#education_add_row').append(html);
-    });	
+    $("#edu_add").click(function () {
+        var nextDiv = $(this).closest('div.multiple').next();
+        while(nextDiv){
+            if (nextDiv.is('[hidden]')){
+                nextDiv.removeAttr('hidden')
+                nextDiv.find('input, select').prop('required', true);
+                break;
+            }
+            nextDiv = nextDiv.next()
+        }
+    });
+
+    $(".hide_edu_row").click(function () {
+        var nextDiv = $(this).closest('div.multiple');
+        nextDiv.prop('hidden', true);
+        nextDiv.find('input, select').prop('required', false);
+        nextDiv.find('input, select').val("")
+    });
 
 	// education add freelancer profile
 
-	$(".add-edu").click(function () {
-        var html = '';
-        html += '<div class="form-row align-items-center skill-cont">';
-		html += '<div class="input-block col-lg-3">';
-        html += '<label class="form-label">Degree Name</label>';
-        html += '<input type="text" class="form-control" value="BE CSE">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-3">';
-        html += '<label class="form-label">University Name</label>';
-        html += '<input type="text" class="form-control" value="Brington">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-3">';
-        html += '<label class="form-label">Start Date</label>';
-        html += '<input type="text" class="form-control">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-2">';
-        html += '<label class="form-label">End Date</label>';
-        html += '<input type="text" class="form-control">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-1 mb-0">';
-		html += '<a href="javascript:void(0);" class="btn trash-icon"><i class="far fa-trash-alt"></i></a>';
-		html += '</div>';
-		html += '</div>';
-       
-
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#education_add_row').append(html);
-		$(".trash-icon").click(function(){
-			$(this).parent().parent().addClass("d-none");
-			return false;
-		  });
-    });
-
 		// Certificate add freelancer profile
 
-		$(".add-certi").click(function () {
-			var html = '';
-			html += '<div class="form-row align-items-center skill-cont w-100">';
-			html += '<div class="input-block col-lg-4">';
-			html += '<label class="form-label">Certification or Award</label>';
-			html += '<input type="text" class="form-control" value="Feast of UI">';
-			html += '</div>';
-			html += '<div class="input-block col-lg-4">';
-			html += '<label class="form-label">Certified from</label>';
-			html += '<input type="text" class="form-control" value="PSD Technologies">';
-			html += '</div>';
-			html += '<div class="input-block col-lg-3 floating-icon">';
-			html += '<label  class="form-label">Year</label>';
-			html += '<input type="text" class="form-control datetimepicker" placeholder="Choose">';
-			html += '<span><i class="feather-calendar"></i></span>';
-			html += '</div>';
-			html += '<div class="input-block col-lg-1 mb-0">';
-			html += '<a href="javascript:void(0);" class="btn trash-icon"><i class="far fa-trash-alt"></i></a>';
-			html += '</div>';
-			html += '</div>';
-		   
-			$('.select').select2({
-				minimumResultsForSearch: -1,
-				width: '100%'
-			});
-			$('#certi_add_row').append(html);
-			$(".trash-icon").click(function(){
-				$(this).parent().parent().addClass("d-none");
-				return false;
-			  });
-		});
+    $("#certi_add").click(function () {
+        var nextDiv = $(this).closest('div.multiple').next();
+        while(nextDiv){
+            if (nextDiv.is('[hidden]')){
+                nextDiv.removeAttr('hidden')
+                break;
+            }
+            nextDiv = nextDiv.next()
+        }
+    });
 
-		
+    $(".hide_certi_row").click(function () {
+        var nextDiv = $(this).closest('div.multiple');
+        nextDiv.prop('hidden', true);
+        nextDiv.find('input, select').val("")
+        nextDiv.find('span.select2-selection__rendered').html("Select").attr('title', 'Select')
+    });
+
 	// Experience add freelancer profile
 
-	$(".add-exp").click(function () {
-        var html = '';
-        html += '<div class="form-row align-items-center skill-cont">';
-		html += '<div class="input-block col-lg-3">';
-        html += '<label class="form-label">Company Name</label>';
-        html += '<input type="text" class="form-control">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-3">';
-        html += '<label class="form-label">Position</label>';
-        html += '<input type="text" class="form-control">';
-        html += '</div>';
-		html += '<div class="input-block col-lg-3 floating-icon">';
-		html += '<label  class="form-label">Start Date</label>';
-		html += '<input type="text" class="form-control datetimepicker" placeholder="Choose">';
-		html += '<span><i class="feather-calendar"></i></span>';
-		html += '</div>';
-		html += '<div class="input-block col-lg-2 floating-icon">';
-		html += '<label  class="form-label">End Date</label>';
-		html += '<input type="text" class="form-control datetimepicker" placeholder="Choose">';
-		html += '<span><i class="feather-calendar"></i></span>';
-		html += '</div>';
-		html += '<div class="input-block col-lg-1 mb-0">';
-		html += '<a href="javascript:void(0);" class="btn trash-icon"><i class="far fa-trash-alt"></i></a>';
-		html += '</div>';
-		html += '</div>';
-       
-
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#exp_add_row').append(html);
-		$(".trash-icon").click(function(){
-			$(this).parent().parent().addClass("d-none");
-			return false;
-		  });
+    $("#exp_add").click(function () {
+        var nextDiv = $(this).closest('div.multiple').next();
+        while(nextDiv){
+            if (nextDiv.is('[hidden]')){
+                nextDiv.removeAttr('hidden')
+                break;
+            }
+            nextDiv = nextDiv.next()
+        }
     });
-	
-	// Experience Add Row
 
-    $("#experience_add").click(function () {
-        var html = '';
-        html += '<div class="row" id="form-row">';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">Company Name</label>';
-        html += '<input type="text" name="experience["company_name"][]" class="form-control">';
-        html += '</div>';
-        html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block">';
-        html += '<label class="focus-label">Position</label>';
-        html += '<select name="experience["position"][]" class="form-control select-level select-edu select">';
-        html += '<option value="0">Select</option>';
-        html += '<option>Basic</option>';
-        html += '<option>Intermediate</option>';
-		html += '<option>Proficient</option>';
-        html += '</select>';
-        html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">Start Date</label>';
-        html += '<div class="cal-icon">';
-        html += '<input type="text" name="education["start_date"][]" class="form-control datetimepicker" placeholder="Choose">';
-        html += '</div>';
-        html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-6 col-lg-3">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">End Date</label>';
-        html += '<div class="cal-icon">';
-        html += '<input type="text" name="education["end_date"][]" class="form-control datetimepicker" placeholder="Choose">';
-        html += '</div>';
-        html += '<div class="new-addd">';
-        html += '<a  id="remove_row" class="remove_row"> Remove</a>';
-        html += '</div>';
-        html += '</div>';
-        html += '</div>';
-		html += '</div>';
+    $(".hide_exp_row").click(function () {
+        var nextDiv = $(this).closest('div.multiple');
+        nextDiv.prop('hidden', true);
+        nextDiv.find('input').val("")
+    });
 
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#experience_add_row').append(html);
-		$(".trash-icon").click(function(){
-			$(this).parent().parent().addClass("d-none");
-			return false;
-		  });
-    });	
-	
-	// Certification Add Row
-	
-    $("#certify_add").click(function () {
-        var html = '';
-        html += '<div class="row" id="form-row">';
-		html += '<div class="col-md-4 col-lg-4">';
-		html += '<div class="input-block">';
-		html += '<label class="focus-label">Certification or Award</label>';
-		html += '<select name="certification["award"][]" class="form-control select-level select-edu select">';
-		html += '<option value="0">Select</option>';
-		html += '<option value="1">Certification</option>';
-		html += '<option value="1">Award</option>';
-		html += '</select>';
-		html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-4 col-lg-4">';
-		html += '<div class="input-block">';
-		html += '<label class="focus-label">Certified from</label>';
-		html += '<input type="text" name="certification["certified_from"][]" class="form-control">';
-		html += '</div>';
-		html += '</div>';
-		html += '<div class="col-md-4 col-lg-4">';
-		html += '<div class="input-block">';
-		html += '<label class="focus-label">Year</label>';
-		html += '<div class="cal-icon">';
-		html += '<input type="text" name="certification["year"][]" class="form-control datetimepicker" placeholder="Choose">';
-		html += '</div>	';
-		html += '<div class="new-addd">';
-        html += '<a  id="remove_row" class="remove_row"> Remove</a>';
-		html += '</div>	';
-		html += '</div>	';
-		html += '</div>	';
-		
 
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-        $('#certify_add_row').append(html);
-		$(".trash-icon").click(function(){
-			$(this).parent().parent().addClass("d-none");
-			return false;
-		  });
-    });	
+
 
 		// Language add freelancer profile
-	
-		$(".lang-add").click(function () {
-			var html = '';
-			html += '<div class="form-row align-items-center skill-cont">';
-			html += '<div class="input-block col-md-6">';
-			html += '<label>Language</label>';
-			html += '<input type="text" class="form-control">';
-			html += '</div>';
-			html += '<div class="input-block col-md-5">';
-			html += '<label>Language Fluency</label>';
-			html += '<select class="form-control select">';
-			html += '<option value="0">Select</option>';
-			html += '<option value="1">Intermediate</option>';
-			html += '<option value="2">Expert</option>';
-			html += '</select>';
-			html += '</div>';
-			html += '<div class="input-block col-lg-1 mb-0">';
-			html += '<a href="javascript:void(0);" class="btn trash-icon"><i class="far fa-trash-alt"></i></a>';
-			html += '</div>';
-			html += '</div>';
-			
-			$('.select').select2({
-				minimumResultsForSearch: -1,
-				width: '100%'
-			});
-			$('#lang_add_row').append(html);
-			$(".trash-icon").click(function(){
-				$(this).parent().parent().addClass("d-none");
-				return false;
-			  });
-		});	
-
-	// Language Add Row
 
     $("#lang_add").click(function () {
-        var html = '';
-        html += '<div class="row" id="form-row">';
-		html += '<div class="col-md-6 col-lg-6">';
-        html += '<div class="input-block ">';
-        html += '<label class="focus-label">Language</label>';
-        html += '<input type="text" name="language[name][]" class="form-control">';
-        html += '</div>';
-        html += '</div>';
-		html += '<div class="col-md-6 col-lg-6">';
-        html += '<div class="input-block">';
-        html += '<label class="focus-label">Level</label>';
-        html += '<select name="experience["position"][]" class="form-control select-level select-edu select">';
-        html += '<option value="0">Choose Level</option>';
-        html += '<option>Basic</option>';
-        html += '<option>Intermediate</option>';
-		html += '<option>Proficient</option>';
-        html += '</select>';
-        html += '<div class="new-addd">';
-        html += '<a  id="remove_row" class="remove_row"> Remove</a>';
-        html += '</div>';
-        html += '</div>';
-        html += '</div>';
-		html += '</div>';
+        var nextDiv = $(this).closest('div.multiple').next();
+        while(nextDiv){
+            if (nextDiv.is('[hidden]')){
+                nextDiv.removeAttr('hidden')
+                nextDiv.find('input, select').prop('required', true);
+                break;
+            }
+            nextDiv = nextDiv.next()
+        }
 
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
+    });
 
-        $('#language_add_row').append(html);
-		$(".trash-icon").click(function(){
-			$(this).parent().parent().addClass("d-none");
-			return false;
-		  });
-    });	
+    $(".hide_lang_row").click(function () {
+        var nextDiv = $(this).closest('div.multiple');
+        nextDiv.prop('hidden', true);
+        nextDiv.find('input, select').prop('required', false);
+        nextDiv.find('input, select').val("")
+        nextDiv.find('span.select2-selection__rendered').html("Choose Level").attr('title', 'Choose Level')
+    });
 
-	
 
     // Sidebar Slimscroll
 
@@ -1905,7 +1649,7 @@ Version      : 1.0
 			$('.chat').addClass('show-chatbar');
 		}
 	});
-	
+
 	$(".left_sides").on('click', function () {
 		if ($(window).width() <= 991) {
 			$('.sidebar-group').removeClass('hide-left-sidebar');
@@ -1927,12 +1671,12 @@ Version      : 1.0
 		  iconElement.toggleClass('fa-regular fa');
 		}
 	  }
-	
+
 	function addLink(){
 		var filename = document.getElementById("FileUpload1");
 		document.getElementById("test").value = filename.value;
 	}
-		
+
 	$(".trash-icon").click(function(){
 		$(this).parent().parent().addClass("d-none");
 		return false;
@@ -1941,21 +1685,21 @@ Version      : 1.0
 		$(this).parent().parent().addClass("d-none");
 		return false;
 	  });
-	  
+
 
 	  // image file upload image
 		function readURL(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
-		
+
 				reader.onload = function (e) {
 					$('#blah').attr('src', e.target.result);
 				}
-		
+
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-		
+
 		$("#imgInp").change(function(){
 			readURL(this);
 		});
