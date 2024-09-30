@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\AuthLoginRequest;
 use App\Models\Company;
+use App\Models\Freelancer;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -31,9 +32,14 @@ final class AuthLoginController extends Controller
 
 
         Auth::login($user);
-
-        if (auth()->user()->userable_type == Company::class) {
+        $user = auth()->user();
+        if ($user->userable_type == Company::class) {
             return redirect()->to(route('dashboard'));
+        }
+        if($user->userable_type == Freelancer::class){
+            if($user->email_verified_at === null){
+                return redirect()->to(route('onboard-screen'));
+            }
         }
         return redirect()->to(route('freelancer-dashboard'));
     }

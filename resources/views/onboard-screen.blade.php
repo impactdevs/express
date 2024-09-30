@@ -537,10 +537,10 @@ $page = "onboard-screen"; ?>
                                     <div class="account-onborad complte-board back-home pb-0">
                                         <img src="{{URL::asset('/assets/img/icon/mail.png')}}" class="img-fluid" alt="icon">
                                         <h2>Email Verification</h2>
-                                        <h3>We have send a verification link to {{$user->email}} </h3>
+                                        <h3>We have sent a verification link to {{$user->email}} </h3>
                                         <p>Click on the link to complete the verification Process</p>
                                         <p>You might need to check your Spam folder</p>
-                                        <a href="javascript:void(0);" class="link-danger"><i
+                                        <a href="{{url('onboard-screen')}}" class="link-danger"><i
                                                 class="feather-refresh-cw me-2 "></i> Resend Email</a>
                                     </div>
                                     <div class="account-onborad complte-board back-home">

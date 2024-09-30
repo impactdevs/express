@@ -38,7 +38,7 @@ class FreelancerController extends Controller
         }
         $user = $request->user();
         if($user->email_verified_at){
-            return redirect()->to(route('login'));
+            return redirect()->to(route('freelancer-dashboard'));
         }
 
         $freelancer = $request->user()->freelancer;
@@ -116,10 +116,15 @@ class FreelancerController extends Controller
         $output = [];
 
         if(array_key_exists('social_media', $validated)){
+            $social_media = [];
             foreach ($validated['social_media'] as $i => $iValue) {
-                $validated['social_media'][$i] = array_merge($validated['social_media'][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+                if($validated['social_media'][$i]['handle']){
+                    $social_media = array_merge($validated['social_media'][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+                }
             }
-            $output['social_media'] = SocialMedia::insert($validated['social_media']);
+            if(count($social_media) > 0){
+                $output['social_media'] = SocialMedia::insert($social_media);
+            }
         }
         unset($validated['social_media']);
         $freelancer->fill($validated);
