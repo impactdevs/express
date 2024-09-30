@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Skill
- * 
+ *
  * @property int $id
  * @property int $freelancer
  * @property string $level
  * @property string $skill
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  *
  * @package App\Models
  */
@@ -35,16 +35,16 @@ class Skill extends Model
 		'freelancer',
 		'level',
 		'skill'
-	]; 
+	];
 
-	const validators = [
+	const createRules = [
 		'freelancer' => ['required', 'exists:freelancers,id'],
 		'level' => ['required', 'string', 'min:1', 'max:20'],
 		'skill' => ['required', 'string', 'min:1', 'max:50']
 	];
 
 
-	const updateValidators = [
+	const updateRules = [
 		'freelancer' => ['exists:freelancers,id'],
 		'level' => ['string', 'min:1', 'max:20'],
 		'skill' => ['string', 'min:1', 'max:50']

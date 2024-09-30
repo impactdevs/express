@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class SocialMedia
- * 
+ *
  * @property int $id
  * @property int $freelancer
  * @property string $platform
  * @property string $handle
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  *
  * @package App\Models
  */
@@ -35,16 +35,16 @@ class SocialMedia extends Model
 		'freelancer',
 		'platform',
 		'handle'
-	]; 
+	];
 
-	const validators = [
+	const createRules = [
 		'freelancer' => ['required', 'exists:freelancers,id'],
 		'platform' => ['required', 'string', 'min:1', 'max:30'],
 		'handle' => ['required', 'string', 'min:1', 'max:255']
 	];
 
 
-	const updateValidators = [
+	const updateRules = [
 		'freelancer' => ['exists:freelancers,id'],
 		'platform' => ['string', 'min:1', 'max:30'],
 		'handle' => ['string', 'min:1', 'max:255']

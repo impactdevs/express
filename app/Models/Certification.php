@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Certification
- * 
+ *
  * @property int $id
  * @property string $name
  * @property int $freelancer
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon $certified_on
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  *
  * @package App\Models
  */
@@ -40,9 +40,9 @@ class Certification extends Model
 		'certification_type',
 		'certified_from',
 		'certified_on'
-	]; 
+	];
 
-	const validators = [
+	const createRules = [
 		'name' => ['required', 'string', 'min:1', 'max:255'],
 		'freelancer' => ['required', 'exists:freelancers,id'],
 		'certification_type' => ['required', 'string', 'min:1', 'max:50'],
@@ -51,7 +51,7 @@ class Certification extends Model
 	];
 
 
-	const updateValidators = [
+	const updateRules = [
 		'name' => ['string', 'min:1', 'max:255'],
 		'freelancer' => ['exists:freelancers,id'],
 		'certification_type' => ['string', 'min:1', 'max:50'],

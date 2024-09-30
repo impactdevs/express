@@ -63,7 +63,7 @@ class Freelancer extends Model
 		'zip_code'
 	];
 
-	const validators = [
+	const createRules = [
 		'user' => ['required', 'exists:users,id', 'unique:freelancers'],
 		'phone' => ['required', 'string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['required', 'string', 'min:1', 'max:50'],
@@ -77,7 +77,7 @@ class Freelancer extends Model
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
 	];
 
-	const updateValidators = [
+	const updateRules = [
 		'user' => ['exists:users,id', 'unique:freelancers'],
 		'phone' => ['string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['string', 'min:1', 'max:50'],

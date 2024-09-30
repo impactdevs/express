@@ -149,7 +149,7 @@ class GenerateModels extends Command
 
                     // Read the file content
                     $content = file_get_contents($filePath);
-                    if (str_contains($content, 'validators')) {
+                    if (str_contains($content, 'createRules')) {
                         continue;
                     }
 
@@ -182,7 +182,7 @@ class GenerateModels extends Command
                         $newLine = trim($line);
                         if ($newLine !== '') {
                             if (str_starts_with($newLine, '[')) {
-                                $validatorStr .= $spacer . "const validators = " . $newLine . "\n";
+                                $validatorStr .= $spacer . "const createRules = " . $newLine . "\n";
                             } else if (str_starts_with($newLine, ']')) {
                                 $validatorStr .= $spacer . $newLine . ";\n";
                             } else {
@@ -218,7 +218,7 @@ class GenerateModels extends Command
         // Replace the matched strings with an empty space
         $replacedString = preg_replace($pattern, '', $string);
 
-        return str_replace('validators', 'updateValidators', $replacedString);
+        return str_replace('createRules', 'updateRules', $replacedString);
     }
 
     protected function addUniqueConstraint(string $table, string $validatorStr): string

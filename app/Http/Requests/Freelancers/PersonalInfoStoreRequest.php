@@ -32,7 +32,7 @@ final class PersonalInfoStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return array_merge(Freelancer::validators,[
+        return array_merge(Freelancer::createRules,[
             'date_of_birth' => ['required', 'date_format:d/m/Y'],
             'profile_picture' => ['nullable', 'image', 'mimes:jpg,bmp,png,jpeg,svg,webp', 'extensions:jpg,bmp,png,jpeg,svg,webp', 'max:2048'],
         ]);

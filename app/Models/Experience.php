@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Experience
- * 
+ *
  * @property int $id
  * @property int $freelancer
  * @property string $organisation
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon $end_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  *
  * @package App\Models
  */
@@ -41,9 +41,9 @@ class Experience extends Model
 		'position',
 		'start_date',
 		'end_date'
-	]; 
+	];
 
-	const validators = [
+	const createRules = [
 		'freelancer' => ['required', 'exists:freelancers,id'],
 		'organisation' => ['required', 'string', 'min:1', 'max:255'],
 		'position' => ['required', 'string', 'min:1', 'max:255'],
@@ -52,7 +52,7 @@ class Experience extends Model
 	];
 
 
-	const updateValidators = [
+	const updateRules = [
 		'freelancer' => ['exists:freelancers,id'],
 		'organisation' => ['string', 'min:1', 'max:255'],
 		'position' => ['string', 'min:1', 'max:255'],
