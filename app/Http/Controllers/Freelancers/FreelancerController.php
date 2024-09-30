@@ -19,6 +19,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 
@@ -54,6 +55,10 @@ class FreelancerController extends Controller
           }
         }else{
             $step = OnboardStep::PERSONAL_INFO->value;
+        }
+
+        if($step === OnboardStep::SEND_EMAIL->value){
+            $user->sendEmailVerificationNotification();
         }
 
         return view('onboard-screen', ['step'=>$step]);

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthLoginController;
 use App\Http\Controllers\Auth\AuthRegisterController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Freelancers\FreelancerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
@@ -27,6 +28,13 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 Route::post('/register', AuthRegisterController::class)->name('register');
+
+Route::middleware('auth')->group(function () {
+    Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+        ->middleware(['signed', 'throttle:6,1'])
+        ->name('verification.verify');
+
+});
 
 
 Route::get('index_admin', [CustomAuthController::class, 'dashboard']);
