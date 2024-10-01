@@ -24,19 +24,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        /**
-         * profile_picture
-         * phone_number
-         *
-         * company_name
-         * tagline
-         * established_on
-         * company_owner_name
-         * industry
-         * website: nullable
-         * teamsize
-         * description
- */
 
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
@@ -71,5 +58,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('employers');
+        Schema::dropIfExists('industries');
+        Schema::dropIfExists('team_sizes');
     }
 };
