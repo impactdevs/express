@@ -7,10 +7,25 @@
 				<li class="{{ Request::is('admin/index_admin') ? 'active' : '' }}">
 					<a href="{{ url('admin/index_admin') }}"><i data-feather="home"></i> <span>Dashboard</span></a>
 				</li>
-				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
-					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Categories</span></a>
+
+				<li class="{{ Request::is('admin/index') ? 'active' : '' }}">
+					<a href="{{ route('admin.index') }}"><i data-feather="copy"></i> <span>Admins</span></a>
 				</li>
-				<li class="{{ Request::is('admin/projects') ? 'active' : '' }}">
+				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Roles</span></a>
+				</li>
+								<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Employers</span></a>
+				</li>
+
+				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Freelancers</span></a>
+				</li>
+
+				{{-- <li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Categories</span></a>
+				</li> --}}
+				{{-- <li class="{{ Request::is('admin/projects') ? 'active' : '' }}">
 					<a href="{{ url('admin/projects') }}"><i data-feather="database"></i> <span>Projects</span></a>
 				</li>
 				<li class="{{ Request::is('admin/users','admin/activities','admin/user-active','admin/user-inactive','admin/user-suspended','admin/user-administrator','admin/user-profile') ? 'active' : '' }}" >
@@ -45,8 +60,8 @@
 				</li>
 				<li class="{{ Request::is('admin/change-password','admin/delete-account','admin/email-settings','admin/localization-details','admin/others-settings','admin/payment-settings','admin/seo-settings','admin/settings','admin/social-links','admin/social-settings','admin/tax-types') ? 'active' : '' }}">
 					<a href="{{ url('admin/settings') }}"><i data-feather="settings"></i> <span>Settings</span></a>
-				</li>
-				<li class="menu-title"><span>UI Interface</span></li>
+				</li> --}}
+				{{-- <li class="menu-title"><span>UI Interface</span></li>
 				<li class="{{ Request::is('admin/components') ? 'active' : '' }}">
 					<a href="{{ url('admin/components') }}"><i data-feather="pocket"></i> <span>Components</span></a>
 				</li>
@@ -67,7 +82,7 @@
 						<li><a class="{{ Request::is('admin/tables-basic') ? 'active' : '' }}" href="{{ url('admin/tables-basic') }}">Basic Tables</a></li>
 						<li><a class="{{ Request::is('admin/data-tables') ? 'active' : '' }}" href="{{ url('admin/data-tables') }}">Data Table</a></li>
 					</ul>
-				</li>
+				</li> --}}
 			</ul>
 		</div>
 	</div>
