@@ -32,10 +32,10 @@ class CustomAuthController extends Controller
 
     );
         $credentials = $request->only('email', 'password');
-          if ($credentials['email']=='admin@example.com' && $credentials['password']=='123456'){
-        return redirect()->intended('admin/index_admin')
-                        ->withSuccess('Signed in');
-        }
+        //   if ($credentials['email']=='admin@example.com' && $credentials['password']=='123456'){
+        // return redirect()->intended('admin/index_admin')
+        //                 ->withSuccess('Signed in');
+        // }
         if (Auth::attempt($credentials)) {
             return redirect()->intended('admin/index_admin')
                         ->withSuccess('Signed in');

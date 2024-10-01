@@ -18,6 +18,8 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
+include_once __DIR__ . '/custom/web/admin_routes.php';
+
 // Auth-related routes
 Route::get('/login', function () {
     return view('login');
@@ -37,12 +39,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('index_admin', [CustomAuthController::class, 'dashboard']);
-Route::get('admin/login', [CustomAuthController::class, 'index'])->name('admin/login');
-Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('admin/register', [CustomAuthController::class, 'registration'])->name('admin/register');
-Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+// Route::get('index_admin', [CustomAuthController::class, 'dashboard']);
+// Route::get('admin/login', [CustomAuthController::class, 'index'])->name('admin/login');
+// Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+// Route::get('admin/register', [CustomAuthController::class, 'registration'])->name('admin/register');
+// Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::post('onboard', [FreelancerController::class, 'store'])->name('onboard');
 Route::get('/onboard-screen', [FreelancerController::class, 'index'])->name('onboard-screen');
