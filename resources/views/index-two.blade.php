@@ -1,7 +1,7 @@
 <?php $page="index-two";?>
 @extends('layout.mainlayout')
-@section('content')	
-	
+@section('content')
+
 				<!-- Home Banner -->
 				<section class="section home-banner row-middle home-two">
 					<div class="container">
@@ -9,7 +9,7 @@
 							<div class=" col-lg-6 col-md-12">
 								<div class="banner-content aos" data-aos="fade-up">
 									<div class="market-place">
-										<h3>With the world's #1 Developers Marketplace</h3> 
+										<h3>With the world's #1 Developers Marketplace</h3>
 									</div>
 									<h1>Get the perfect <br>Developers & Projects</h1>
 									<form class="form"  name="store" id="store" action="project">
@@ -48,7 +48,7 @@
 					</div>
 				</section>
 				<!-- /Home Banner -->
-		
+
 				<!-- Our Feature -->
 				<section class="section update-project">
 					<div class="container">
@@ -60,8 +60,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">					
-									
+						<div class="row">
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -77,7 +77,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -93,7 +93,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -109,7 +109,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -125,7 +125,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -141,7 +141,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -157,7 +157,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -173,7 +173,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -189,7 +189,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -205,7 +205,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -221,7 +221,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -237,7 +237,7 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<!-- Updated Item -->
 							<div class="col-xl-3 col-md-6">
 								<div class="aos" data-aos="fade-up">
@@ -253,18 +253,18 @@
 								</div>
 							</div>
 							<!-- /Updated Item -->
-							
+
 							<div class="col-xl-12">
 								<div class="more-project text-center aos" data-aos="fade-up">
 									<a href="{{url('project')}}" class="btn btn-primary">View More Projects</a>
 								</div>
-							</div>			
+							</div>
 						</div>
 					</div>
-				</section>	
-				<!-- /Our Feature -->	
-				
-				<!-- Our Platform -->	
+				</section>
+				<!-- /Our Feature -->
+
+				<!-- Our Platform -->
 				<section class="section platform">
 					<div class="container">
 						<div class="row">
@@ -284,12 +284,12 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</section>
-				<!-- /Our Platform -->		
-				
+				<!-- /Our Platform -->
+
 				<!-- Feature -->
 				<section class="section feature-project home-two-projects">
 					<div class="container">
@@ -302,7 +302,7 @@
 							</div>
 						</div>
 						<div class="row">
-						
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -332,7 +332,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -362,7 +362,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -384,7 +384,7 @@
 											<a href="{{url('project')}}">
 												<img src="{{URL::asset('/assets/img/icon/logo-icon-01.svg')}}" class="me-1" alt="icon">
 												<span>AMAZE TECH</span>
-											</a>	
+											</a>
 											</div>
 											<a href="{{url('project-details')}}" class="bid-now">Buy Now <i class="feather-arrow-right ms-1"></i></a>
 										</div>
@@ -392,7 +392,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -422,7 +422,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -452,7 +452,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<!--- Project Item  -->
 							<div class="col-lg-4 col-md-6 d-flex">
 								<div class="project-item feature-project-item aos" data-aos="fade-up">
@@ -482,7 +482,7 @@
 								</div>
 							</div>
 							<!--- /Project Item  -->
-							
+
 							<div class="col-xl-12">
 								<div class="more-project text-center aos" data-aos="fade-up">
 									<a href="{{url('project')}}" class="btn btn-primary">View More Projects</a>
@@ -492,7 +492,7 @@
 					</div>
 				</section>
 				<!--- /Feature  -->
-				
+
 				<!-- Feature Developer -->
 				<section class="section feature-developer home-two-developers">
 					<div class="container">
@@ -738,14 +738,14 @@
 										</div>
 										<p>from 4227 reviews</p>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
 				<!-- /Feature Developer -->
-	
+
 				<!-- Top skill -->
 				<section class="section top-skill">
 					<div class="container">
@@ -958,7 +958,7 @@
 					</div>
 				</section>
 				<!-- /Top skill -->
-				
+
 				<!-- Great About -->
 				<section class="section great-about">
 					<div class="container">
@@ -1018,7 +1018,7 @@
 					</div>
 				</section>
 				<!-- /Great About -->
-				
+
 				<!-- About Project -->
 				<section class="section about-project">
 					<div class="about-position">
@@ -1057,7 +1057,7 @@
 					</div>
 				</section>
 				<!-- /About Project -->
-				
+
 				<!-- Job Location -->
 				<section class="section job-location home-two-jobsec">
 					<div class="container">
@@ -1183,7 +1183,7 @@
 					</div>
 				</section>
 				<!-- /Job Location -->
-			
+
 				<!-- Review -->
 				<section class="section review review-two">
 					<div class="container">
@@ -1278,8 +1278,8 @@
 					</div>
 				</section>
 				<!-- / Review -->
-				
-				<!-- Company Hire -->
+
+				<!-- Employer Hire -->
 				<section class="section top-company-two border-bottom-0">
 					<div class="container">
 						<div class="row">
@@ -1318,11 +1318,11 @@
 						</div>
 					</div>
 				</section>
-				<!-- / Company Hire -->
-			
+				<!-- / Employer Hire -->
+
 				<!-- News -->
 				<section class="section blog-tricks">
-					<div class="container">				
+					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="section-header section-header-two text-center aos" data-aos="fade-up">
@@ -1386,14 +1386,14 @@
 									</div>
 								</div>
 							</div>
-						</div>	
+						</div>
 					</div>
 				</section>
 				<!-- / News -->
-				
+
 				<!-- News -->
 				<section class="section job-register-two">
-					<div class="container">				
+					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="register-job-blk justify-content-center">
@@ -1406,7 +1406,7 @@
 										<img src="{{URL::asset('/assets/img/bg/job-sec-bg-02.png')}}" class="img-fluid job-left-bg" alt="Img">
 									</div>
 								</div>
-								<div class="sign-in-btn text-center mt-5 aos" data-aos="fade-up"> 
+								<div class="sign-in-btn text-center mt-5 aos" data-aos="fade-up">
 									<a href="{{url('login')}}" class="btn btn-primary">Register Kofejob </a>
 								</div>
 							</div>

@@ -1,7 +1,7 @@
 <?php $page="index-four";?>
 @extends('layout.mainlayout')
-@section('content')		
-	
+@section('content')
+
 			<!-- Home Banner -->
 			<section class="section home-banner home-four row-middle">
 				<div class="banner-float-img">
@@ -13,7 +13,7 @@
 							<div class="banner-blk-four aos" data-aos="fade-up">
 								<div class="banner-content">
 									<div class="banner-note">
-										<h5 class="mb-0">With the world's #1 Developers Marketplace</h5> 
+										<h5 class="mb-0">With the world's #1 Developers Marketplace</h5>
 									</div>
 									<h1>Kofejob is a Community <br>for Freelancers</h1>
 									<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.</p>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="register-profesion aos" data-aos="fade-right">
-						
+
 						<div class="avatar-group">
                             <div class="avatar avatar-xs group_img group_header">
                                 <img class="avatar-img rounded-circle" alt="User Image" src="{{URL::asset('/assets/img/user/avatar-1.jpg')}}">
@@ -74,7 +74,7 @@
                             <div class="avatar avatar-xs group_img group_header">
                                 <img class="avatar-img rounded-circle" alt="User Image" src="{{URL::asset('/assets/img/user/avatar-3.jpg')}}">
                             </div>
-							
+
                         </div>
 						<div class="profesion-content course-count">
 							<p>Join Over 4000+ Students</p>
@@ -84,7 +84,7 @@
 				</div>
 			</section>
 			<!-- /Home Banner -->
-			
+
 			<!-- Browse Categories -->
 			<section class="section browse-categories">
 				<div class="container">
@@ -196,20 +196,20 @@
 				</div>
 			</section>
 			<!-- /Browse Categories -->
-			
-	
+
+
 			<section class="section projects">
 				<div class="container">
-					<div class="row">					
+					<div class="row">
 						<div class="col-md-12 col-sm-12 col-12 mx-auto text-center">
 							<div class="section-header aos " data-aos="fade-up">
 								<h2 class="header-title">What’s great about it?</h2>
 								<p>All the features of kofejob below</p>
 							</div>
-						</div>	
-					</div>	
+						</div>
+					</div>
 					<div class="row row-gap">
-						<!-- Feature Item --> 
+						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1000">
 							<div class="feature-items">
 								<div class="feature-icon">
@@ -222,7 +222,7 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-						
+
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1500">
 							<div class="feature-items ">
@@ -236,7 +236,7 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-						
+
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2000">
 							<div class="feature-items ">
@@ -249,7 +249,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- /Feature Item -->	
+						<!-- /Feature Item -->
 
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2500">
@@ -264,21 +264,21 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-												
+
 					</div>
 				</div>
 			</section>
 
 			<!-- Update -->
 			<section class="section feature-counts">
-				<div class="container">				
+				<div class="container">
 					<div class="row">
 						<div class="col-12 aos " data-aos="fade-up">
 							<div class="register-job-blk">
 								<div class="job-content-blk text-center aos  " data-aos="fade-up">
 									<h2>Want to Get Special Offers & Updates?</h2>
 									<p>Quisque pretium dolor turpis, quis blandit turpis semper ut. Nam malesuada eros nec luctus laoreet.</p>
-									
+
 								</div>
 								<div class="home-four-viewall">
 									<a href="{{url('register')}}" class="home-four-viewall-btn" >Register Kofejob <i class="feather-arrow-right ms-2"></i></a>
@@ -290,7 +290,7 @@
 				</div>
 			</section>
 			<!-- /Update -->
-			
+
 			<!-- Feature Developers -->
 			<section class="section feaure-for-developer">
 				<div class="container">
@@ -303,13 +303,13 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div id="dev-slider" class="owl-carousel popular-slider developers-slider owl-theme  aos" data-aos="fade-up">
 						<div class="project-item project-item-feature aos" data-aos="fade-up" >
 							<a href="{{url('developer-details')}}"><div class="project-img heart-blk">
 								<img src="{{URL::asset('/assets/img/developer/developer-05.jpg')}}" alt="Img" class="img-fluid">
 								<span class="hour-dollr develop-dollr">$64 <small>/ hr</small></span>
-							</div>	
+							</div>
 						</a>
 							<div class="developer-detail-box">
 								<div class="developer-detail-card">
@@ -337,13 +337,13 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="project-item project-item-feature aos" data-aos="fade-up" >
 							<a href="{{url('developer-details')}}"><div class="project-img heart-blk">
 								<img src="{{URL::asset('/assets/img/developer/developer-06.jpg')}}" alt="Img" class="img-fluid">
 								<span class="hour-dollr develop-dollr">$54 <small>/ hr</small></span>
-							</div>	
+							</div>
 						</a>
 							<div class="developer-detail-box">
 								<div class="developer-detail-card">
@@ -371,13 +371,13 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="project-item project-item-feature aos" data-aos="fade-up" >
 							<a href="{{url('developer-details')}}"><div class="project-img heart-blk">
 								<img src="{{URL::asset('/assets/img/developer/developer-07.jpg')}}" alt="Img" class="img-fluid">
 								<span class="hour-dollr develop-dollr">$35 <small>/ hr</small></span>
-							</div>	
+							</div>
 						</a>
 							<div class="developer-detail-box">
 								<div class="developer-detail-card">
@@ -405,13 +405,13 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="project-item project-item-feature aos" data-aos="fade-up" >
 							<a href="{{url('developer-details')}}"><div class="project-img heart-blk">
 								<img src="{{URL::asset('/assets/img/developer/developer-08.jpg')}}" alt="Img" class="img-fluid">
 								<span class="hour-dollr develop-dollr">$68 <small>/ hr</small></span>
-							</div>	
+							</div>
 						</a>
 							<div class="developer-detail-box">
 								<div class="developer-detail-card">
@@ -439,13 +439,13 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="project-item project-item-feature aos" data-aos="fade-up" >
 							<a href="{{url('developer-details')}}"><div class="project-img heart-blk">
 								<img src="{{URL::asset('/assets/img/developer/developer-08.jpg')}}" alt="Img" class="img-fluid">
 								<span class="hour-dollr develop-dollr">$64 <small>/ hr</small></span>
-							</div>	
+							</div>
 						</a>
 							<div class="developer-detail-box">
 								<div class="developer-detail-card">
@@ -473,7 +473,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div class="home-four-viewall">
@@ -482,7 +482,7 @@
 				</div>
 			</section>
 			<!-- Feature Developers -->
-			
+
 			<!-- Marketplace -->
 			<section class="section join-marketplace">
 				<div class="container">
@@ -512,7 +512,7 @@
 				</div>
 			</section>
 			<!-- /Marketplace -->
-			
+
 			<!-- Popular Projects -->
 			<section class="section popular-projects">
 				<div class="container">
@@ -523,7 +523,7 @@
 									<h2 class="header-title">Popular Projects near you  </h2>
 									<p>Bid and stary the new Jobs </p>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -644,7 +644,7 @@
 				</div>
 			</section>
 			<!-- /Popular Projects -->
-			
+
 			<!-- Our Feature -->
 			<section class="section projects">
 				<div class="container">
@@ -656,8 +656,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="row row-gap">					
-								
+					<div class="row row-gap">
+
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6">
 							<div class="great-card aos" data-aos="fade-up">
@@ -671,7 +671,7 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-						
+
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6">
 							<div class="great-card  aos" data-aos="fade-up">
@@ -685,7 +685,7 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-						
+
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6">
 							<div class="great-card  aos" data-aos="fade-up">
@@ -698,7 +698,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- /Feature Item -->	
+						<!-- /Feature Item -->
 
 						<!-- Feature Item -->
 						<div class="col-xl-3 col-md-6">
@@ -713,12 +713,12 @@
 							</div>
 						</div>
 						<!-- /Feature Item -->
-												
+
 					</div>
 				</div>
-			</section>	
+			</section>
 			<!-- /Our Feature -->
-			
+
 			<!-- Job Location -->
 			<section class="section review">
 				<div class="container">
@@ -729,7 +729,7 @@
 									<h2 class="header-title">Jobs by Location</h2>
 									<p>Find your favourite jobs and get the benefits of yourself</p>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -782,7 +782,7 @@
 				</div>
 			</section>
 			<!-- /Job Location -->
-			
+
 			<!-- Review -->
 			<section class="section testimonial-section review review-four">
 				<div class="container">
@@ -795,7 +795,7 @@
 						</div>
 					</div>
 					<div id="testimonial-slider" class="owl-carousel owl-theme testimonial-slider aos" data-aos="fade-up">
-								
+
 						<!-- Review Widget -->
 						<div class="review-blog">
 							<div class="review-top d-flex align-items-center">
@@ -804,10 +804,10 @@
 								</div>
 								<div class="review-info">
 									<h3><a href="{{url('review')}}">Durso Raeen</a></h3>
-									<h5>Project Lead</h5>								
-									
+									<h5>Project Lead</h5>
+
 								</div>
-								
+
 							</div>
 							<div class="review-content">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat orci enim, mattis nibh aliquam dui, nibh faucibus aenean.</p>
@@ -821,7 +821,7 @@
 							</div>
 						</div>
 						<!-- / Review Widget -->
-						
+
 						<!-- Review Widget -->
 						<div class="review-blog">
 							<div class="review-top d-flex align-items-center">
@@ -830,10 +830,10 @@
 								</div>
 								<div class="review-info">
 									<h3><a href="{{url('review')}}">Camelia Rennesa</a></h3>
-									<h5>Project Lead</h5>								
-									
+									<h5>Project Lead</h5>
+
 								</div>
-								
+
 							</div>
 							<div class="review-content">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat orci enim, mattis nibh aliquam dui, nibh faucibus aenean.</p>
@@ -847,7 +847,7 @@
 							</div>
 						</div>
 						<!-- /Review Widget -->
-						
+
 						<!-- Review Widget -->
 						<div class="review-blog">
 							<div class="review-top d-flex align-items-center">
@@ -856,10 +856,10 @@
 								</div>
 								<div class="review-info">
 									<h3><a href="{{url('review')}}">Brayan</a></h3>
-									<h5>Team Lead</h5>								
-									
+									<h5>Team Lead</h5>
+
 								</div>
-								
+
 							</div>
 							<div class="review-content">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat orci enim, mattis nibh aliquam dui, nibh faucibus aenean.</p>
@@ -873,7 +873,7 @@
 							</div>
 						</div>
 						<!-- /Review Widget -->
-						
+
 						<!-- Review Widget -->
 						<div class="review-blog">
 							<div class="review-top d-flex align-items-center">
@@ -882,10 +882,10 @@
 								</div>
 								<div class="review-info">
 									<h3><a href="{{url('review')}}">Davis Payerf</a></h3>
-									<h5>Project Lead</h5>								
-									
+									<h5>Project Lead</h5>
+
 								</div>
-								
+
 							</div>
 							<div class="review-content">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat orci enim, mattis nibh aliquam dui, nibh faucibus aenean.</p>
@@ -903,7 +903,7 @@
 				</div>
 			</section>
 			<!-- / Review -->
-			
+
 			<!-- Platform Location -->
 			<section class="section platform-location">
 				<div class="container">
@@ -926,7 +926,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="col-lg-6 col-md-12 d-flex align-items-center">
 							<div class="market-place-group aos" data-aos="fade-up">
@@ -944,7 +944,7 @@
 			</section>
 			<!-- /Platform Location -->
 
-			<!-- Company Hire -->
+			<!-- Employer Hire -->
 			<section class="section top-company-four">
 				<div class="container">
 					<div class="row">
@@ -954,7 +954,7 @@
 									<h2 class="header-title">Trusted by the world’s best  </h2>
 									<p>Top companies </p>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -986,7 +986,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- / Company Hire -->
+			<!-- / Employer Hire -->
 
 			<section class="faq-section-three bg-white" id="faq">
 				<div class="container">
@@ -1003,8 +1003,8 @@
 								<div id="faqOne" class="card-collapse collapse show" data-bs-parent="#accordionExample">
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 								</div>
-							</div>	
-							<div class="faq-card aos  " data-aos="fade-up">																																
+							</div>
+							<div class="faq-card aos  " data-aos="fade-up">
 								<h4 class="faq-title">
 									<a class="collapsed" data-bs-toggle="collapse" href="#faqtwo" aria-expanded="false">2. What are the costs to buy a house?</a>
 								</h4>
@@ -1019,7 +1019,7 @@
 								<div id="faqthree" class="card-collapse collapse" data-bs-parent="#accordionExample">
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 								</div>
-							</div>	
+							</div>
 							<div class="faq-card aos  " data-aos="fade-up">
 								<h4 class="faq-title">
 									<a class="collapsed" data-bs-toggle="collapse" href="#faqfour" aria-expanded="false">4. What are the costs to buy a house?</a>
@@ -1035,18 +1035,18 @@
 								<div id="faqfive" class="card-collapse collapse" data-bs-parent="#accordionExample">
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 								</div>
-							</div>	
+							</div>
 						</div>
-						
+
 						<div class="col-lg-6">
 							<div class="faq-imgs">
 								<img src="{{URL::asset('/assets/img/faqs.jpg')}}" alt="img">
 							</div>
 						</div>
-					</div>	
-				</div>				
+					</div>
+				</div>
 			</section>
-			
+
 			<!-- Blog -->
 			<section class="section blog-article">
 				<div class="container">
@@ -1057,7 +1057,7 @@
 									<h2 class="header-title">Our Blog  </h2>
 									<p>Read Our Article To Get Tricks </p>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -1072,7 +1072,7 @@
 									<div class="article-blog-content">
 										<span> <i class="feather-calendar"></i> 13, Dec2022</span>
 										<h4><a href="{{url('blog-details')}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet.</a></h4>
-										
+
 									</div>
 								</div>
 							</div>
@@ -1087,7 +1087,7 @@
 									<div class="article-blog-content">
 										<span><i class="feather-calendar"></i>12, Dec2022</span>
 										<h4><a href="{{url('blog-details')}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet.</a></h4>
-										
+
 									</div>
 								</div>
 							</div>
@@ -1102,7 +1102,7 @@
 									<div class="article-blog-content">
 										<span><i class="feather-calendar"></i>10, Dec2022</span>
 										<h4><a href="{{url('blog-details')}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet.</a></h4>
-										
+
 									</div>
 								</div>
 							</div>
@@ -1111,5 +1111,5 @@
 				</div>
 			</section>
 			<!-- /Popular Projects -->
-			
+
 @endsection

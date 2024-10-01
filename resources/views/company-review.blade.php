@@ -1,23 +1,23 @@
 <?php $page="company-review";?>
 @extends('layout.mainlayout')
-@section('content')		
-@component('components.breadcrumb')                
+@section('content')
+@component('components.breadcrumb')
     @slot('li_1') Home @endslot
     @slot('li_2') Employers @endslot
     @slot('li_3') COMPANY PROFILE @endslot
-@endcomponent	
+@endcomponent
 
-@component('components.tab-details')                
+@component('components.tab-details')
 @endcomponent
 										<!-- Page Content -->
 			<div class="content">
-				<div class="container">	
-					
+				<div class="container">
+
 					<div class="row">
 						<div class="col-lg-8 col-md-12">
-							
+
 							<div class="pro-view">
-								
+
 								<!-- Tab Detail -->
 								<nav class="provider-tabs mb-4 abouts-view">
 									<ul class="nav nav-tabs nav-tabs-solid nav-justified">
@@ -48,12 +48,12 @@
 									</ul>
 								</nav>
 								<!-- /Tab Detail -->
-								
+
 								<!-- Reviews Tab Content -->
 								<div class="pro-post widget-box company-post" >
 									<h3 class="pro-title">Reviews</h3>
 									<div class="reviews company-review">
-										<div class="review-content no-padding">		
+										<div class="review-content no-padding">
 											<h4>This seller was great overall. </h4>
 											<p class="mb-0">Fast and clear. European visual concepts. Easy to communicate TOP</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -62,8 +62,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">javiervalino</a></h3>
-													<h5>Today • 09:35 PM</h5>	
-												</div>					
+													<h5>Today • 09:35 PM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -73,8 +73,8 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>	
-										<div class="review-content no-padding">		
+										</div>
+										<div class="review-content no-padding">
 											<h4>This seller was great overall. </h4>
 											<p class="mb-0">This seller was great overall. One thing I noticed was that there was one logo out of the 4 I got that stood out amongst the others. Now I loved that one logo but the other ones did not look like much thought were put into them and they were a little disappointing. It is understandable for the price for them to only put effort into one logo, which like I said I loved. I think it would be better to tell this seller to make one good logo and to provide 3 other logos that work off the one good logo. Maybe make that one good logo and then change colors and fonts for the other 3. But overall this seller was great!</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -83,8 +83,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">trentburns</a></h3>
-													<h5>Yesterday • 09:35 PM</h5>	
-												</div>					
+													<h5>Yesterday • 09:35 PM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -94,8 +94,8 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>		
-										<div class="review-content no-padding">		
+										</div>
+										<div class="review-content no-padding">
 											<h4>Great help given and work</h4>
 											<p class="mb-0">Great help given and work was done as asked on time! :)</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -104,8 +104,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">mabdz</a></h3>
-													<h5>Sep 3 • 6:57 AM</h5>	
-												</div>					
+													<h5>Sep 3 • 6:57 AM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -115,8 +115,8 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>	
-										<div class="review-content no-padding">		
+										</div>
+										<div class="review-content no-padding">
 											<h4>very quick & smart.</h4>
 											<p class="mb-0">very quick & smart. Recommend him for any web related work</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -125,8 +125,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">creativerr</a></h3>
-													<h5>Aug 12 • 9:37 AM</h5>	
-												</div>					
+													<h5>Aug 12 • 9:37 AM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -136,8 +136,8 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>	
-										<div class="review-content no-padding">		
+										</div>
+										<div class="review-content no-padding">
 											<h4>always amaze me with his skills</h4>
 											<p class="mb-0">always amaze me with his skills. Recommend this top rated seller for anyone. Absolute best of best</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -146,8 +146,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">adirajulk</a></h3>
-													<h5>Aug 3 • 6:57 AM</h5>	
-												</div>					
+													<h5>Aug 3 • 6:57 AM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -157,8 +157,8 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>	
-										<div class="review-content no-padding">		
+										</div>
+										<div class="review-content no-padding">
 											<h4>They delivered great work! The delivery was prompt and the communication was excellent. </h4>
 											<p class="mb-0">They delivered great work! The delivery was prompt and the communication was excellent. I will be using them in the future and recommend them to anyone who needs their services!</p>
 											<div class="review-top tab-reviews d-flex align-items-center">
@@ -167,8 +167,8 @@
 												</div>
 												<div class="review-info">
 													<h3><a href="{{url('company-profile')}}">james</a></h3>
-													<h5>Aug 2 • 7:57 AM</h5>	
-												</div>					
+													<h5>Aug 2 • 7:57 AM</h5>
+												</div>
 												<div class="rating">
 													<i class="fas fa-star filled"></i>
 													<i class="fas fa-star filled"></i>
@@ -178,14 +178,14 @@
 													<span class="average-rating">4.7</span>
 												</div>
 											</div>
-										</div>	
+										</div>
 										<div class="col-md-12 text-center">
 											<a href="javascript:void(0);" class="btn more-btn"><img src="{{URL::asset('/assets/img/loader-icon.svg')}}" height="24" alt="User Image">Load More </a>
 										</div>
 									</div>
 								</div>
 								<!-- /Reviews Tab Content -->
-								
+
 								<!-- Post a comment -->
 								<div class="pro-post widget-box company-post post-comment" >
 									<h3 class="pro-title">Post a comment</h3>
@@ -220,14 +220,14 @@
 									</form>
 								</div>
 								<!-- /Post a comment -->
-								
+
 							</div>
 						</div>
-					
-						<!-- profile Sidebar -->
-						<div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar company-profile">	
 
-							<!-- About Widget -->	
+						<!-- profile Sidebar -->
+						<div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar company-profile">
+
+							<!-- About Widget -->
 							<div class="pro-post widget-box about-widget profile-overview">
 								<div class="profile-head">
 									<h4 class="pro-title mb-0">Profile Overview</h4>
@@ -245,8 +245,8 @@
 								</div>
 							</div>
 							<!-- /About Widget -->
-							
-							<!-- Company Location -->	
+
+							<!-- Employer Location -->
 							<div class="pro-post widget-box location-widget">
 								<div class="profile-head">
 									<h4 class="pro-title">Company Location</h4>
@@ -255,9 +255,9 @@
 									<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" ></iframe>
 								</div>
 							</div>
-							<!-- /Company Location -->
-							
-							<!-- Working Widget -->	
+							<!-- /Employer Location -->
+
+							<!-- Working Widget -->
 							<div class="pro-post widget-box  working-days">
 								<div class="profile-head">
 									<h4 class="pro-title mb-0">Working Days</h4>
@@ -272,9 +272,9 @@
 									<li><p>Sunday </p><h6><span>Close</span></h6></li>
 								</ul>
 							</div>
-							<!-- /Working Widget -->	
-							
-							<!-- Social Widget -->	
+							<!-- /Working Widget -->
+
+							<!-- Social Widget -->
 							<div class="pro-post widget-box social-widget">
 								<div class="profile-head">
 									<h4 class="pro-title">SOCIAL LINKS</h4>
@@ -288,14 +288,14 @@
 								</ul>
 							</div>
 							<!-- /Social Widget -->
-						
+
 						</div>
 						<!-- /Profile Sidebar -->
-						
+
 					</div>
 				</div>
-			</div>		
+			</div>
 			<!-- /Page Content -->
-@component('components.modal-popup')                
-@endcomponent				
+@component('components.modal-popup')
+@endcomponent
 @endsection

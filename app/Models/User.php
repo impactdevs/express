@@ -24,6 +24,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property string $userable_type
  * @property int $userable_id
  *
+ * @property Employer $employer
  * @property Freelancer $freelancer
  *
  * @package App\Models
@@ -96,5 +97,10 @@ class User extends Authenticatable implements Auditable
     public function freelancer(): HasOne
     {
         return $this->hasOne(Freelancer::class, 'user');
+    }
+
+    public function employer(): HasOne
+    {
+        return $this->hasOne(Employer::class, 'user');
     }
 }

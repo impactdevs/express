@@ -79,15 +79,6 @@ return new class extends Migration
             $table->string('level', 30);
             $table->timestamps();
         });
-
-        Schema::create('social_media', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->string('platform', 30);
-            $table->string('handle');
-            $table->timestamps();
-        });
     }
 
     /**
@@ -95,7 +86,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('social_media');
         Schema::dropIfExists('languages');
         Schema::dropIfExists('experience');
         Schema::dropIfExists('certifications');

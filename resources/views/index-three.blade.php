@@ -1,7 +1,7 @@
 <?php $page="index-three";?>
 @extends('layout.mainlayout')
-@section('content')	
-	
+@section('content')
+
 	<!-- Home Banner  -->
 	<div class="home-banner home-three">
 		<div class="dot-slider slider">
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<!-- /Banner Images -->
-			
+
 			<!-- Banner Images -->
 			<div class="profile-widget-slide">
 				<div class="slide-pro-img">
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<!-- /Banner Images -->
-			
+
 			<!-- Banner Images -->
 			<div class="profile-widget-slide">
 				<div class="slide-pro-img">
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<!-- /Banner Images -->
-			
+
 			<!-- Banner Images -->
 			<div class="profile-widget-slide">
 				<div class="slide-pro-img">
@@ -44,12 +44,12 @@
 				</div>
 			</div>
 			<!-- /Banner Images -->
-			
-		</div>	
+
+		</div>
 		<div class="container">
 			<div class="banner-kofe">
 				<div class="banner-content aos" data-aos="fade-up">
-					<h5>With the world's #1 Developers Marketplace</h5> 
+					<h5>With the world's #1 Developers Marketplace</h5>
 					<h1>The Largest Online Learning <span> Platform For Drive Your</span> Career.</h1>
 					<p>We are experienced in educationl platform and skilled strategies for the success of our online learning.</p>
 					<form class="form"  name="store" id="store" action="project">
@@ -80,10 +80,10 @@
 				</div>
 			</div>
 		</div>
-	</div>			
+	</div>
 	<!-- /Home Banner -->
-	
-	
+
+
 	<!-- Different Categories -->
 	<section class="section different-categories">
 		<div class="container">
@@ -251,7 +251,7 @@
 		</div>
 	</section>
 	<!-- /Different Categories -->
-	
+
 	<!-- Marketplace -->
 	<section class="section best-marketplace">
 		<div class="container">
@@ -283,7 +283,7 @@
 	</section>
 	<!-- /Marketplace -->
 
-	<!-- Company Hire -->
+	<!-- Employer Hire -->
 	<section class="section company-hire">
 		<div class="container">
 			<div class="row">
@@ -322,15 +322,15 @@
 			</div>
 		</div>
 	</section>
-	<!-- / Company Hire -->
-	
+	<!-- / Employer Hire -->
+
 	<!-- Trending Projects -->
 	<section class="section trend-projects trend-projects-three">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-12 mx-auto">
 					<div class="section-header section-header-three aos" data-aos="fade-up">
-						<span class="badge title-badge">Trending Projects</span>	
+						<span class="badge title-badge">Trending Projects</span>
 						<h2 class="header-title">Recently Update jobs  for you</h2>
 					</div>
 				</div>
@@ -659,20 +659,20 @@
 		</div>
 	</section>
 	<!-- Trending Projects -->
-	
+
 	<!-- Our Feature -->
 	<section class="section feature-count feature-count-three">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-12 mx-auto">
-					<div class="section-header section-header-three feature-count-head aos" data-aos="fade-up">	
+					<div class="section-header section-header-three feature-count-head aos" data-aos="fade-up">
 						<h2 class="header-title">Achievement We Have Earned</h2>
 						<p>At Freelancer, we believe that talent is borderless and opportunity should be too.</p>
 					</div>
 				</div>
 			</div>
-			<div class="row section-bottom-cards">					
-						
+			<div class="row section-bottom-cards">
+
 				<!-- Feature Item -->
 				<div class="col-xl-3 col-md-6">
 					<div class="feature-item freelance-count aos" data-aos="fade-up">
@@ -686,7 +686,7 @@
 					</div>
 				</div>
 				<!-- /Feature Item -->
-				
+
 				<!-- Feature Item -->
 				<div class="col-xl-3 col-md-6">
 					<div class="feature-item aos" data-aos="fade-up">
@@ -700,7 +700,7 @@
 					</div>
 				</div>
 				<!-- /Feature Item -->
-				
+
 				<!-- Feature Item -->
 				<div class="col-xl-3 col-md-6">
 					<div class="feature-item comp-project aos" data-aos="fade-up">
@@ -713,7 +713,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- /Feature Item -->	
+				<!-- /Feature Item -->
 
 				<!-- Feature Item -->
 				<div class="col-xl-3 col-md-6">
@@ -728,10 +728,10 @@
 					</div>
 				</div>
 				<!-- /Feature Item -->
-										
+
 			</div>
 		</div>
-	</section>	
+	</section>
 	<!-- /Our Feature -->
 
 	<!-- Feature Projects -->
@@ -740,7 +740,7 @@
 			<div class="row">
 				<div class="col-12 col-md-12 mx-auto">
 					<div class="section-header section-header-three justify-content-start text-start aos" data-aos="fade-up">
-						<span class="badge title-badge">Featured Developers</span>		
+						<span class="badge title-badge">Featured Developers</span>
 						<h2 class="header-title">We have over 1400+  Developers</h2>
 					</div>
 				</div>
@@ -756,7 +756,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Megan Torres</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Java Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -771,7 +771,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -784,7 +784,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Nicole Black</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Angular Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -799,7 +799,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -812,7 +812,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Shan Morris</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Html Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -827,7 +827,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -840,7 +840,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Harris Jod</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>React Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -855,7 +855,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -868,7 +868,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Megan Torres</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Java Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -883,7 +883,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -896,7 +896,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Nicole Black</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Angular Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -911,7 +911,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -924,7 +924,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Shan Morris</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Html Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -939,7 +939,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -952,7 +952,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Harris Jod</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>React Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -967,7 +967,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -980,7 +980,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Megan Torres</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Java Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -995,7 +995,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="project-item project-item-feature" >
@@ -1008,7 +1008,7 @@
 							<h4 class="d-flex"><a href="{{url('developer-details')}}">Nicole Black</a><img src="{{URL::asset('/assets/img/icon/verify-badge.svg')}}" class="ms-1" alt="Img"></h4>
 							<a href="javascript:void(0);" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
 						</div>
-						
+
 						<p>Angular Developer</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="rating mb-0">
@@ -1023,7 +1023,7 @@
 								<a href="{{url('developer-details')}}"><i class="feather feather-arrow-right"></i></a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -1037,13 +1037,13 @@
 		</div>
 	</section>
 	<!-- Feature Projects -->
-	
+
 	<!-- Review -->
 	<section class="section review-people review-people-three">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="section-header section-header-three text-center aos" data-aos="fade-up">	
+					<div class="section-header section-header-three text-center aos" data-aos="fade-up">
 						<span class="badge title-badge">Testimonials</span>
 						<h2 class="header-title">What our User Says</h2>
 					</div>
@@ -1064,7 +1064,7 @@
 								<i class="fas fa-star"></i>
 								<span class="average-rating">5.0(45)</span>
 							</div>
-							
+
 						</div>
 						<div class="review-content text-center">
 							<p>I've been using [Your Product/Service] for a year now, and it has exceeded my expectations. The quality and functionality are unmatched, and it has made my life so much easier.</p>
@@ -1092,7 +1092,7 @@
 								<i class="fas fa-star"></i>
 								<span class="average-rating">5.0(30)</span>
 							</div>
-							
+
 						</div>
 						<div class="review-content text-center">
 							<p>I had a problem with [Specific Issue], and the support team at [Your Company] went above and beyond to resolve it. Their dedication to customer satisfaction is truly impressive.</p>
@@ -1120,7 +1120,7 @@
 								<i class="fas fa-star"></i>
 								<span class="average-rating">5.0(13)</span>
 							</div>
-							
+
 						</div>
 						<div class="review-content text-center">
 							<p>I encountered an issue with [Your Product], and the customer support team provided a quick and effective solution. I'm impressed by their responsiveness.</p>
@@ -1354,7 +1354,7 @@
 
 	<!-- App Version -->
 	<section class="section next-job">
-		<div class="container">				
+		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="job-next-blk text-center aos" data-aos="fade-up">
@@ -1386,8 +1386,8 @@
 						<div id="faqOne" class="card-collapse collapse show" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
-					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">																																
+					</div>
+					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
 							<a class="collapsed" data-bs-toggle="collapse" href="#faqtwo" aria-expanded="false">2. What are the costs to buy a house?</a>
 						</h4>
@@ -1402,7 +1402,7 @@
 						<div id="faqthree" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
 							<a class="collapsed" data-bs-toggle="collapse" href="#faqfour" aria-expanded="false">4. What are the costs to buy a house?</a>
@@ -1418,9 +1418,9 @@
 						<div id="faqfive" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 				</div>
-				
+
 				<div class="col-lg-6">
 					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
@@ -1429,7 +1429,7 @@
 						<div id="faqsix" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
 							<a class="collapsed" data-bs-toggle="collapse" href="#faqseven" aria-expanded="false">7. What are the costs to buy a house?</a>
@@ -1445,7 +1445,7 @@
 						<div id="faqeight" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
 							<a class="collapsed" data-bs-toggle="collapse" href="#faqnine" aria-expanded="false">9. What are the costs to buy a house?</a>
@@ -1453,7 +1453,7 @@
 						<div id="faqnine" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 					<div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
 						<h4 class="faq-title">
 							<a class="collapsed" data-bs-toggle="collapse" href="#faqten" aria-expanded="false">10. What are the costs to buy a house?</a>
@@ -1461,18 +1461,18 @@
 						<div id="faqten" class="card-collapse collapse" data-bs-parent="#accordionExample">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,</p>
 						</div>
-					</div>	
+					</div>
 				</div>
-			</div>	
-		</div>				
+			</div>
+		</div>
 	</section>
-	
+
 	<!-- Blog -->
 	<section class="section news">
-		<div class="container">				
+		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-12 mx-auto">
-					<div class="section-header section-header-three aos" data-aos="fade-up">	
+					<div class="section-header section-header-three aos" data-aos="fade-up">
 						<span class="badge title-badge">Our Blog</span>
 						<h2 class="header-title">Read Our Article</h2>
 					</div>
@@ -1502,16 +1502,16 @@
 									<span><i class="feather-grid me-2"></i>Education</span>
 								</div>
 							</div>
-							
+
 							<div class="blog-content blog-trick-content">
 								<h3 class="blog-title"><a href="{{url('blog-details')}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet.</a></h3>
 								<p >Lorem ipsum dolor sit amet consectetur. Vitae amet cras nulla mi laoreet quis amet phasellus....</p>
-								
+
 							</div>
 							<a href="javascript:void(0);" class="more-option">Learn More<i class="feather feather-arrow-right ms-2"></i></a>
 						</div>
-					</div>	
-					<!-- Blog Post -->	
+					</div>
+					<!-- Blog Post -->
 				</div>
 				<div class="col-lg-6 col-md-12">
 					<!-- Blog Post -->
@@ -1545,10 +1545,10 @@
 								</div>
 							</div>
 						</div>
-						
-						
-					</div>	
-					<!-- Blog Post -->	
+
+
+					</div>
+					<!-- Blog Post -->
 
 					<!-- Blog Post -->
 					<div class="blog blog-trick aos" data-aos="fade-up">
@@ -1581,10 +1581,10 @@
 								</div>
 							</div>
 						</div>
-						
-						
-					</div>	
-					<!-- Blog Post -->	
+
+
+					</div>
+					<!-- Blog Post -->
 
 					<!-- Blog Post -->
 					<div class="blog blog-trick aos" data-aos="fade-up">
@@ -1617,18 +1617,18 @@
 								</div>
 							</div>
 						</div>
-						
-						
-					</div>	
-					<!-- Blog Post -->	
+
+
+					</div>
+					<!-- Blog Post -->
 				</div>
 				<div class="col-md-12">
 					<div class="next-job-btn mt-3">
 						<a href="{{url('blog-details')}}" class="btn btn-primary next-register me-3">View More Articles<i class="feather feather-arrow-right ms-2"></i></a>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 	</section>
-	<!-- / Blog -->		
+	<!-- / Blog -->
 @endsection

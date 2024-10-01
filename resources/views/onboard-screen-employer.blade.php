@@ -1,15 +1,29 @@
 <?php $page="onboard-screen-employer";?>
 @extends('layout.mainlayout')
-@section('content')		
+@section('content')
+    @php
+//        $jobTypes = App\Enums\JobTypes::cases();
+//        $degrees = App\Enums\Degrees::cases();
+//        $languageLevels = App\Enums\LanguageLevels::cases();
+//        $skillLevels = App\Enums\SkillLevels::cases();
+//        $certificationTypes = App\Enums\CertificationTypes::cases();
+//        $socialMedia = App\Enums\SocialMediaPlatforms::cases();
+//        $duplicateCount = 20;
+        $user = Auth::user();
+
+//        if (isset($step)){
+//          $countries = $step===OnboardStep::OTHER_INFO->value? App\Models\Country::all(['id', 'name', 'code']) : [];
+//        }
+    @endphp
 	<!-- Page Wrapper -->
 	<div class="page-wrapper board-screen">
 		<div class="content container-fluid">
 			<div class="acc-content">
-				
+
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="multistep-form"> 
-								
+						<div class="multistep-form">
+
 							<!-- Freelancer Multistep -->
 							<div class="multistep-progress" id="freelance_step">
 								<div class="container">
@@ -23,35 +37,35 @@
 											<div class="col-md-9">
 												<ul id="progressbar" class="progressbar">
 													<li class="progress-active">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-01.svg')}}" alt="Img"></div>	
+														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-01.svg')}}" alt="Img"></div>
 														<div class="steps-count">
 															<span>Step 1/5</span>
 															<h5>Account Type</h5>
-														</div>								
+														</div>
 													</li>
 													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-02.svg')}}" alt="Img"></div>		
+														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-02.svg')}}" alt="Img"></div>
 														<div class="steps-count">
 															<span>Step 2/5</span>
 															<h5>Personal info</h5>
 														</div>
 													</li>
 													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}" alt="Img"></div>		
+														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}" alt="Img"></div>
 														<div class="steps-count">
 															<span>Step 3/5</span>
-															<h5>Skills & Experience</h5>
+															<h5>Employer Info</h5>
 														</div>
 													</li>
 													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}" alt="Img"></div>		
+														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}" alt="Img"></div>
 														<div class="steps-count">
 															<span>Step 4/5</span>
 															<h5>Other Information</h5>
 														</div>
 													</li>
 													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}" alt="Img"></div>		
+														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}" alt="Img"></div>
 														<div class="steps-count">
 															<span>Step 5/5</span>
 															<h5>Email Verification</h5>
@@ -64,7 +78,17 @@
 								</div>
 							</div>
 							<!-- /Freelancer Multistep -->
-							
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
 							<!-- Accounting Onboard -->
 							<div  class="text-center on-board select-account group-select">
 								<div class="select-type">
@@ -89,12 +113,12 @@
 											</label>
 										</div>
 									</div>
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled>									
+									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled>
 									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 								</div>
 							</div>
 							<!-- /Accounting Onboard -->
-						
+
 							<!-- Personal Info -->
 							<div class="on-board field-card select-account select-btn">
 								<div class="text-center onboard-head">
@@ -102,62 +126,65 @@
 									<p>Tell a bit about yourself. This information will appear on your public profile, so that potential buyers can get to know you better.</p>
 								</div>
 								<div class="field-item personal-info space-info">
-									<form>
-										<div class="row">
-											<div class="col-md-12 col-lg-12">
-												<div class="pro-form-img">
-													<div class="profile-pic">
-														Profile Photo
-													</div>
-													<div class="upload-files">
-														<label class="file-upload image-upbtn ">
-															<i class="feather-upload me-2"></i>Upload Photo <input type="file">
-														</label>
-														<span>For better preview recommended size is 450px x 450px. Max size 5mb.</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6 col-lg-6">
-												<div class="input-block">
-													<label class="form-label">First Name</label>
-													<input type="text" class="form-control">
-												</div>
-											</div>
-											<div class="col-md-6 col-lg-6">
-												<div class="input-block">
-													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control">
-												</div>
-											</div>
-											<div class="col-md-6 col-lg-6">
-												<div class="input-block">
-													<label class="form-label">Phone Number</label>
-													<input type="text" class="form-control">
-												</div>
-											</div>
-											<div class="col-md-6 col-lg-6">
-												<div class="input-block">
-													<label class="form-label">Email Address</label>
-													<input type="text" class="form-control">
-												</div>
-											</div>
-										</div>
-									</form>
+
+
 								</div>
 								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 								</div>
 							</div>
 							<!-- /Personal Info -->
-							
+
 							<!-- Skills & Experience -->
 							<div class="on-board field-card select-account select-btn">
 								<div class="text-center onboard-head">
 									<h2>Employer Info</h2>
-									<p>This is your time to shine. Let potential buyers know what you do best and how you gained your skills, certifications and experience</p>
+									<p>Let everyone know who you are and what you deal in.</p>
 								</div>
 								<div class="field-item personal-info space-info">
+                                    <form action="{{url('onboard')}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        {{--                                        <input type="hidden" name="step" value="{{$step}}" />--}}
+
+                                            <div class="row">
+                                                <div class="col-md-12 col-lg-12">
+                                                    <div class="pro-form-img">
+                                                        <div class="profile-pic">
+                                                            Profile Photo
+                                                        </div>
+                                                        <div class="upload-files">
+                                                            <label class="file-upload image-upbtn ">
+                                                                <i class="feather-upload me-2"></i>Upload Photo <input
+                                                                    type="file" name="profile_picture" value="{{old('profile_picture')}}">
+                                                            </label>
+                                                            <span>For better preview recommended size is 450px x 450px. Max size 5mb.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Full Name</label>
+                                                        <input type="text" class="form-control"
+                                                               value="{{ $user->name }}" disabled readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Phone Number</label><span
+                                                            class="label-star"> *</span>
+                                                        <input type="tel" name="phone" class="form-control" value="{{old('phone')}}" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Email Address</label>
+                                                        <input type="text" class="form-control"
+                                                               value="{{$user->email}}" disabled readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
 									<form action="#">
 										<div class="row">
 											<div class="col-md-12">
@@ -165,96 +192,96 @@
 											</div>
 											<div class="col-md-6">
 												<div class="input-block">
-													<label class="form-label">Company Name</label>
-													<input type="text"  class="form-control">
+													<label class="form-label">Company Name</label><span class="label-star"> *</span>
+													<input type="text" class="form-control" name="company_name" required>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="input-block">
-													<label class="form-label">Tagline</label>
-													<input type="text"  class="form-control">
+													<label class="form-label">Tagline</label><span class="label-star"> *</span>
+													<input type="text"  class="form-control" name="tagline" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+                                                <div class="input-block">
+                                                    <label class="form-label">Established On</label><span
+                                                        class="label-star"> *</span>
+                                                    <div class="cal-icon">
+                                                        <input type="text" name="established_on"
+                                                               class="form-control datetimepicker" value="{{old('established_on')}}" placeholder="Choose"
+                                                               required>
+                                                    </div>
+                                                </div>
+
+											</div>
+											<div class="col-md-6">
+												<div class="input-block">
+													<label class="form-label">Company Owner Name</label><span class="label-star"> *</span>
+													<input type="text"  class="form-control" name="company_owner_name" required>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="input-block">
-													<label class="form-label">Established On</label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="form-label">Company Owner Name</label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="focus-label">Industry</label>
-													<select class="form-control select">
+													<label class="focus-label">Industry</label><span class="label-star"> *</span>
+													<select class="form-control select" name="industry" required>
 														<option value="0">Select</option>
 														<option value="1">Bachelor's degree</option>
 														<option value="1">Master's Degree</option>
 													</select>
 												</div>
 											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="form-label">Website</label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
 											<div class="col-md-12">
 												<div class="input-block">
-													<label class="form-label">Team Size</label>
+													<label class="form-label">Team Size</label><span class="label-star"> *</span>
 												</div>
 												<div class="check-radio">
 													<ul>
 														<li>
 															<label class="custom_radio me-4">
-																<input type="radio" name="budget" value="Yes" checked="">
+																<input type="radio" name="team_size" value="Yes" checked="">
 																<span class="checkmark"></span> It's just me
-															</label> 
+															</label>
 														</li>
 														<li>
 															<label class="custom_radio me-4">
-																<input type="radio" name="budget" >
+																<input type="radio" name="team_size" >
 																<span class="checkmark"></span>2-9 employees
-															</label> 
+															</label>
 														</li>
 														<li>
 															<label class="custom_radio me-4">
-																<input type="radio" name="budget" >
+																<input type="radio" name="team_size" >
 																<span class="checkmark"></span>10-99 employees
-															</label> 
+															</label>
 														</li>
 														<li>
 															<label class="custom_radio me-4">
-																<input type="radio" name="budget" >
+																<input type="radio" name="team_size" >
 																<span class="checkmark"></span>100-1000 employees
-															</label> 
+															</label>
 														</li>
 														<li>
 															<label class="custom_radio me-4">
-																<input type="radio" name="budget" >
+																<input type="radio" name="team_size" >
 																<span class="checkmark"></span>More than 1000 employees
-															</label> 
+															</label>
 														</li>
 													</ul>
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="input-block min-characters">
-													<label class="form-label">Describe Yourself</label>
-													<textarea class="form-control" rows="5" ></textarea>
+													<label class="form-label">Describe Your Company</label><span class="label-star"> *</span>
+													<textarea class="form-control" rows="5" name="description" required></textarea>
 												</div>
 											</div>
 										</div>
-										
+
 									</form>
-									
+
 								</div>
 								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
 								</div>
 							</div>
@@ -308,7 +335,7 @@
 													<input type="text"  class="form-control">
 												</div>
 											</div>
-											
+
 										</div>
 									</div>
 									<div>
@@ -608,9 +635,9 @@
 									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
 									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button" value="Submit">
 								</div>
-							</div>	
+							</div>
 							<!-- /Other Info -->
-							
+
 							<!-- Completeing Register -->
 							<div class="on-board field-card">
 								<div class="account-onborad complte-board back-home pb-0">
@@ -643,6 +670,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- /Page Wrapper -->
 @endsection

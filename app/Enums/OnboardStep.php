@@ -7,7 +7,8 @@ enum OnboardStep: int
 {
     case REGISTER_USER = 1;
     case PERSONAL_INFO = 2;
-    case SKILLS = 3;
-    case OTHER_INFO = 4;
-    case SEND_EMAIL = 5;
+    case EMPLOYER_INFO = 3;
+    case SKILLS = 4;
+    case OTHER_INFO = 5;
+    case SEND_EMAIL = 6;
 }
