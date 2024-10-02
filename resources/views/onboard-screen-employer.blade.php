@@ -1,83 +1,73 @@
-<?php $page="onboard-screen-employer";?>
+<?php use App\Enums\OnboardStep;
+
+$page = "onboard-screen-employer"; ?>
 @extends('layout.mainlayout')
 @section('content')
     @php
-//        $jobTypes = App\Enums\JobTypes::cases();
-//        $degrees = App\Enums\Degrees::cases();
-//        $languageLevels = App\Enums\LanguageLevels::cases();
-//        $skillLevels = App\Enums\SkillLevels::cases();
-//        $certificationTypes = App\Enums\CertificationTypes::cases();
-//        $socialMedia = App\Enums\SocialMediaPlatforms::cases();
-//        $duplicateCount = 20;
+        $socialMedia = App\Enums\SocialMediaPlatforms::cases();
         $user = Auth::user();
 
-//        if (isset($step)){
-//          $countries = $step===OnboardStep::OTHER_INFO->value? App\Models\Country::all(['id', 'name', 'code']) : [];
-//        }
+        if (isset($step)){
+          $countries = $step===OnboardStep::OTHER_INFO->value? App\Models\Country::all(['id', 'name', 'code']) : [];
+        }
     @endphp
-	<!-- Page Wrapper -->
-	<div class="page-wrapper board-screen">
-		<div class="content container-fluid">
-			<div class="acc-content">
+        <!-- Page Wrapper -->
+    <div class="page-wrapper board-screen">
+        <div class="content container-fluid">
+            <div class="acc-content">
 
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="multistep-form">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="multistep-form">
 
-							<!-- Freelancer Multistep -->
-							<div class="multistep-progress" id="freelance_step">
-								<div class="container">
-									<div class="first-progress" >
-										<div class="row align-items-center">
-											<div class="col-md-3">
-												<div class="board-logo">
-													<a href="{{url('index')}}"><img src="{{URL::asset('/assets/img/logo.svg')}}" alt="Img" class="img-fluid" ></a>
-												</div>
-											</div>
-											<div class="col-md-9">
-												<ul id="progressbar" class="progressbar">
-													<li class="progress-active">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-01.svg')}}" alt="Img"></div>
-														<div class="steps-count">
-															<span>Step 1/5</span>
-															<h5>Account Type</h5>
-														</div>
-													</li>
-													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-02.svg')}}" alt="Img"></div>
-														<div class="steps-count">
-															<span>Step 2/5</span>
-															<h5>Personal info</h5>
-														</div>
-													</li>
-													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}" alt="Img"></div>
-														<div class="steps-count">
-															<span>Step 3/5</span>
-															<h5>Employer Info</h5>
-														</div>
-													</li>
-													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}" alt="Img"></div>
-														<div class="steps-count">
-															<span>Step 4/5</span>
-															<h5>Other Information</h5>
-														</div>
-													</li>
-													<li class="">
-														<div class="multi-step"><img src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}" alt="Img"></div>
-														<div class="steps-count">
-															<span>Step 5/5</span>
-															<h5>Email Verification</h5>
-														</div>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Freelancer Multistep -->
+                            <!-- Freelancer Multistep -->
+                            <div class="multistep-progress" id="freelance_step">
+                                <div class="container">
+                                    <div class="first-progress">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="board-logo">
+                                                    <a href="{{url('index')}}"><img
+                                                            src="{{URL::asset('/assets/img/logo.svg')}}" alt="Img"
+                                                            class="img-fluid"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <ul id="progressbar" class="progressbar">
+                                                    <li @if($step===OnboardStep::EMPLOYER_INFO->value) class="progress-active" @endif>
+                                                        <div class="multi-step"><img
+                                                                src="{{URL::asset('/assets/img/icon/wizard-icon-03.svg')}}"
+                                                                alt="Img"></div>
+                                                        <div class="steps-count">
+                                                            <span>Step 2/4</span>
+                                                            <h5>Employer Info</h5>
+                                                        </div>
+                                                    </li>
+                                                    <li @if($step===OnboardStep::OTHER_INFO->value) class="progress-active" @endif>
+                                                        <div class="multi-step"><img
+                                                                src="{{URL::asset('/assets/img/icon/wizard-icon-04.svg')}}"
+                                                                alt="Img"></div>
+                                                        <div class="steps-count">
+                                                            <span>Step 3/4</span>
+                                                            <h5>Other Information</h5>
+                                                        </div>
+                                                    </li>
+                                                    <li @if($step===OnboardStep::SEND_EMAIL->value) class="progress-active" @endif>
+                                                        <div class="multi-step"><img
+                                                                src="{{URL::asset('/assets/img/icon/wizard-icon-05.svg')}}"
+                                                                alt="Img"></div>
+                                                        <div class="steps-count">
+                                                            <span>Step 4/4</span>
+                                                            <h5>Email Verification</h5>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Freelancer Multistep -->
 
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -89,63 +79,23 @@
                                 </div>
                             @endif
 
-							<!-- Accounting Onboard -->
-							<div  class="text-center on-board select-account group-select">
-								<div class="select-type">
-									<div class="account-onborad onboard-head">
-										<h2>Select Account Type</h2>
-										<p>Don’t worry, this can be changed later.</p>
-										<div class="select-box d-flex justify-content-center">
-											<input checked="checked" id="freelance"   type="radio" name="credit-card" value="visa">
-											<label class="employee-level free-lance-img accounts_type" data-id="freelance" for="freelance">
-												<a href="{{url('onboard-screen')}}">
-													<img src="{{URL::asset('/assets/img/select-04.png')}}" alt="Img" class="img-fluid" >
-													<span>Freelancer</span>
-												</a>
-											</label>
-											<input id="employee" class="accounts_type"  type="radio" name="credit-card" value="mastercard">
-											<label class="employee-level employee-img accounts_type" data-id="employee" for="employee">
-												<a href="{{url('onboard-screen-employer')}}"  >
-													<img src="{{URL::asset('/assets/img/icon/checks.svg')}}" alt="Img" class="checks-set" >
-													<img src="{{URL::asset('/assets/img/select-05.png')}}" alt="Img" class="img-fluid" >
-													<span>Employer</span>
-												</a>
-											</label>
-										</div>
-									</div>
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled>
-									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
-								</div>
-							</div>
-							<!-- /Accounting Onboard -->
 
-							<!-- Personal Info -->
-							<div class="on-board field-card select-account select-btn">
-								<div class="text-center onboard-head">
-									<h2>Personal Info</h2>
-									<p>Tell a bit about yourself. This information will appear on your public profile, so that potential buyers can get to know you better.</p>
-								</div>
-								<div class="field-item personal-info space-info">
-
-
-								</div>
-								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
-									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
-								</div>
-							</div>
-							<!-- /Personal Info -->
-
-							<!-- Skills & Experience -->
-							<div class="on-board field-card select-account select-btn">
-								<div class="text-center onboard-head">
-									<h2>Employer Info</h2>
-									<p>Let everyone know who you are and what you deal in.</p>
-								</div>
-								<div class="field-item personal-info space-info">
-                                    <form action="{{url('onboard')}}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        {{--                                        <input type="hidden" name="step" value="{{$step}}" />--}}
+                            <!-- Employer Info -->
+                            @if($step===OnboardStep::EMPLOYER_INFO->value)
+                                @php
+                                    $industries = App\Models\Industry::all(['id', 'name']);
+                                    $teamSizes = App\Models\TeamSize::all(['id', 'size']);
+                                @endphp
+                                <div class="on-board field-card select-account select-btn" style="display: block">
+                                    <div class="text-center onboard-head">
+                                        <h2>Employer Info</h2>
+                                        <p>Let everyone know who you are and what you deal in.</p>
+                                    </div>
+                                    <div class="field-item personal-info space-info">
+                                        <form action="{{url('onboard-employer')}}" method="post"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="step" value="{{$step}}"/>
 
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12">
@@ -156,8 +106,10 @@
                                                         <div class="upload-files">
                                                             <label class="file-upload image-upbtn ">
                                                                 <i class="feather-upload me-2"></i>Upload Photo <input
-                                                                    type="file" name="profile_picture" value="{{old('profile_picture')}}">
+                                                                    type="file" name="profile_picture"
+                                                                    value="{{old('profile_picture')}}" onchange="document.getElementById('upload-message').innerHTML = 'Photo uploaded successfully.';">
                                                             </label>
+                                                            <span id="upload-message" class="text-success"></span>
                                                             <span>For better preview recommended size is 450px x 450px. Max size 5mb.</span>
                                                         </div>
                                                     </div>
@@ -173,7 +125,8 @@
                                                     <div class="input-block">
                                                         <label class="form-label">Phone Number</label><span
                                                             class="label-star"> *</span>
-                                                        <input type="tel" name="phone" class="form-control" value="{{old('phone')}}" required>
+                                                        <input type="tel" name="phone" class="form-control"
+                                                               value="{{old('phone')}}" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-6">
@@ -184,492 +137,259 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    </form>
-									<form action="#">
-										<div class="row">
-											<div class="col-md-12">
-												<h4>Details</h4>
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="form-label">Company Name</label><span class="label-star"> *</span>
-													<input type="text" class="form-control" name="company_name" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="form-label">Tagline</label><span class="label-star"> *</span>
-													<input type="text"  class="form-control" name="tagline" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-                                                <div class="input-block">
-                                                    <label class="form-label">Established On</label><span
-                                                        class="label-star"> *</span>
-                                                    <div class="cal-icon">
-                                                        <input type="text" name="established_on"
-                                                               class="form-control datetimepicker" value="{{old('established_on')}}" placeholder="Choose"
+                                            <br/>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4>Details</h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Company Name</label><span
+                                                            class="label-star"> *</span>
+                                                        <input type="text" class="form-control" name="company_name"
                                                                required>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Tagline</label><span
+                                                            class="label-star"> *</span>
+                                                        <input type="text" class="form-control" name="tagline" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Established On</label><span
+                                                            class="label-star"> *</span>
+                                                        <div class="cal-icon">
+                                                            <input type="text" name="established_on"
+                                                                   class="form-control datetimepicker"
+                                                                   value="{{old('established_on')}}"
+                                                                   placeholder="Choose"
+                                                                   required>
+                                                        </div>
+                                                    </div>
 
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="form-label">Company Owner Name</label><span class="label-star"> *</span>
-													<input type="text"  class="form-control" name="company_owner_name" required>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="input-block">
-													<label class="focus-label">Industry</label><span class="label-star"> *</span>
-													<select class="form-control select" name="industry" required>
-														<option value="0">Select</option>
-														<option value="1">Bachelor's degree</option>
-														<option value="1">Master's Degree</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="input-block">
-													<label class="form-label">Team Size</label><span class="label-star"> *</span>
-												</div>
-												<div class="check-radio">
-													<ul>
-														<li>
-															<label class="custom_radio me-4">
-																<input type="radio" name="team_size" value="Yes" checked="">
-																<span class="checkmark"></span> It's just me
-															</label>
-														</li>
-														<li>
-															<label class="custom_radio me-4">
-																<input type="radio" name="team_size" >
-																<span class="checkmark"></span>2-9 employees
-															</label>
-														</li>
-														<li>
-															<label class="custom_radio me-4">
-																<input type="radio" name="team_size" >
-																<span class="checkmark"></span>10-99 employees
-															</label>
-														</li>
-														<li>
-															<label class="custom_radio me-4">
-																<input type="radio" name="team_size" >
-																<span class="checkmark"></span>100-1000 employees
-															</label>
-														</li>
-														<li>
-															<label class="custom_radio me-4">
-																<input type="radio" name="team_size" >
-																<span class="checkmark"></span>More than 1000 employees
-															</label>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="input-block min-characters">
-													<label class="form-label">Describe Your Company</label><span class="label-star"> *</span>
-													<textarea class="form-control" rows="5" name="description" required></textarea>
-												</div>
-											</div>
-										</div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Company Owner Name</label><span
+                                                            class="label-star"> *</span>
+                                                        <input type="text" class="form-control"
+                                                               name="company_owner_name"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-block">
+                                                        <label class="focus-label">Industry</label><span
+                                                            class="label-star"> *</span>
+                                                        <select class="form-control select" name="industry" required>
+                                                            <option value="" selected disabled hidden>Select</option>
+                                                            @foreach($industries as $teamSize)
+                                                                <option
+                                                                    value="{{$teamSize->id}}">{{$teamSize->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-block">
+                                                        <label class="form-label">Team Size</label><span
+                                                            class="label-star"> *</span>
+                                                    </div>
+                                                    <div class="check-radio">
+                                                        <ul>
+                                                            @foreach($teamSizes as $index => $teamSize)
+                                                                <li>
+                                                                    <label class="custom_radio me-4">
+                                                                        <input type="radio" name="team_size" value="{{$teamSize->id}}"
+                                                                               @if($index===0) checked @endif>
+                                                                        <span class="checkmark"></span> {{$teamSize->size}}
+                                                                    </label>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-block min-characters">
+                                                        <label class="form-label">Describe Your Company</label><span
+                                                            class="label-star"> *</span>
+                                                        <textarea class="form-control" rows="5" name="description"
+                                                                  required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <input class="btn btn-primary" type="submit" value="Next">
+                                            </div>
+                                        </form>
 
-									</form>
+                                    </div>
+                                </div>
+                            @endif
+                            <!-- Employer Info -->
 
-								</div>
-								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
-									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
-								</div>
-							</div>
-							<!-- /Skills & Experience -->
+                            <!-- Other Info -->
+                            @if($step===OnboardStep::OTHER_INFO->value)
+                                @php
+                                    $socialMedia = App\Enums\SocialMediaPlatforms::cases();
+                                    $countries = App\Models\Country::all(['id', 'name', 'code']);
+                                @endphp
+                                <div class="on-board field-card select-account select-btn" style="display: block">
+                                    <div class="text-center onboard-head">
+                                        <h2>Other info</h2>
+                                        <p>Don’t worry, this can be changed later.</p>
+                                    </div>
+                                    <form action="{{url('onboard-employer')}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="step" value="{{$step}}">
+                                        <div class="field-item personal-info">
+                                            <div class="media-set">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h4>Social Media</h4>
+                                                    </div>
 
-							<!-- Other Info -->
-							<div class="on-board field-card select-account select-btn">
-								<div class="text-center onboard-head">
-									<h2>Other info</h2>
-									<p>Don’t worry, this can be changed later.</p>
-								</div>
-								<div class="field-item personal-info">
-									<div class="media-set">
-										<div class="row">
-											<div class="col-md-12">
-												<h4>Social Media</h4>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">Facebook</label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">Instagram </label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">LinkedIn </label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">Behance </label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">Pinterest  </label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="input-block">
-													<label class="form-label">Twitter</label>
-													<input type="text"  class="form-control">
-												</div>
-											</div>
+                                                    @foreach($socialMedia as $socialMedium)
+                                                        <div class="col-md-4">
+                                                            <div class="input-block">
+                                                                <input type="hidden" name="social_media[platform][]"
+                                                                       value="{{$socialMedium->name}}">
+                                                                <label class="form-label">{{$socialMedium->value}} <i
+                                                                        class="fa-brands fa-{{$socialMedium->value}}"></i></label>
+                                                                <input type="text" name="social_media[handle][]"
+                                                                       class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="media-set">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h4>Location<span class="label-star"> *</span></h4>
+                                                        </div>
 
-										</div>
-									</div>
-									<div>
-										<div class="media-set">
-											<div class="row">
-												<div class="col-md-12">
-													<h4>Personal Website</h4>
-												</div>
-												<div class="col-md-12">
-													<div class="input-block">
-														<label class="form-label">Website Url</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media-set">
-											<div class="row">
-												<div class="col-md-12">
-													<h4>Location</h4>
-												</div>
-												<div class="col-md-12">
-													<div class="input-block">
-														<label class="form-label">Address</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="input-block">
-														<label class="form-label">City</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="input-block">
-														<label class="form-label">State / Province</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="input-block">
-														<label class="form-label">ZIP / Post Code</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="input-block">
-														<label class="form-label">ZIP / Post Code</label>
-														<select class="select">
-															<option>Select</option>
-															<option>US</option>
-															<option>UK</option>
-															<option>India</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media-set">
-											<div class="row">
-												<div class="col-md-12">
-													<h4>KYC Upload</h4>
-												</div>
-												<div class="col-md-6">
-													<div class="input-block">
-														<label class="form-label">Document Type</label>
-														<select class="select">
-															<option>Select</option>
-															<option>US</option>
-															<option>UK</option>
-															<option>India</option>
-														</select>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="input-block">
-														<label class="form-label">Document Number</label>
-														<input type="text"  class="form-control">
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="input-block">
-														<label class="form-label">Document Number</label>
-														<div class="upload-sets">
-															<label class="upload-filesview">
-																Browse File
-																<input type="file">
-															</label>
-															<h6>Or Drag & Drop here</h6>
-														</div>
-														<span class="text-success"><i class="fa fa-check-circle me-2" aria-hidden="true"></i>Passport.jpg')}} Uploaded Successfully</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media-set border-0">
-											<div class="row">
-												<div class="col-md-12">
-													<h4>Working Hours</h4>
-												</div>
-												<div class="col-md-6">
-													<div class="input-block d-flex">
-														<div class="form-check form-switch d-inline-block work-check position-relative">
-															<input type="checkbox" class="form-check-input" id="check_hour" checked="">
-														</div>
-														<label class="form-label ms-2">Same Every Day</label>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="checkout-hour">
-														<div class="other-info-list">
-															<ul>
-																<li class="active-hour">Mon</li>
-																<li class="active-hour">Tue</li>
-																<li class="active-hour">Wed</li>
-																<li class="active-hour">Thr</li>
-																<li class="active-hour">Fri</li>
-																<li>Sat</li>
-																<li>Sun</li>
-															</ul>
-														</div>
-													</div>
-													<div class="check-hour">
-														<div class="col-md-12">
-															<h4>Select Days</h4>
-														</div>
-														<div class="row">
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="active-hour m-0">Mon</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="active-hour m-0">Tue</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="active-hour m-0">Wed</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="active-hour m-0">Thur</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="active-hour m-0">Fri</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="m-0">Fri</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															 <div class="col-md-12">
-																<div class="row align-items-center">
-																	<div class="col-md-1">
-																		<div class="other-info-list">
-																			<ul>
-																				<li class="m-0">Sun</li>
-																			</ul>
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">Start Time  </label>
-																			<input type="text" class="form-control" Value="8:00">
-																		</div>
-																	</div>
-																	<div class="col-md-5">
-																		<div class="input-block">
-																			<label class="form-label">End Time  </label>
-																			<input type="text" class="form-control" Value="20:00">
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
-									<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button" value="Submit">
-								</div>
-							</div>
-							<!-- /Other Info -->
+                                                        <div class="col-md-3">
+                                                            <div class="input-block">
+                                                                <label class="form-label">Country</label>
 
-							<!-- Completeing Register -->
-							<div class="on-board field-card">
-								<div class="account-onborad complte-board back-home pb-0">
-									<img src="{{URL::asset('/assets/img/icon/mail.png')}}" class="img-fluid" alt="icon">
-									<h2>Email Verification</h2>
-									<h3>We have send a verification link to info@email.com </h3>
-									<p>Click on the link to complete the verification Process</p>
-									<p>You might need to check your Spam folder</p>
-									<a href="javascript:void(0);" class="link-danger"><i class="feather-refresh-cw me-2 "></i> Resend Email</a>
-								</div>
-								<div class="text-center">
-									<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
-								</div>
-							</div>
-							<!-- /Completeing Register -->
+                                                                <select class="form-control select-level select"
+                                                                        name="country" required>
+                                                                    <option value="" selected disabled hidden>Choose
+                                                                    </option>
+                                                                    @foreach($countries as $country)
+                                                                        <option
+                                                                            value="{{$country->id}}">{{$country->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="input-block">
+                                                                <label class="form-label">City</label>
+                                                                <input type="text" class="form-control" name="city"
+                                                                       required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="input-block">
+                                                                <label class="form-label">State / Province</label>
+                                                                <input type="text" class="form-control" name="state"
+                                                                       required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="input-block">
+                                                                <label class="form-label">ZIP / Post Code</label>
+                                                                <input type="text" class="form-control" name="zip_code"
+                                                                       required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="media-set">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h4>KYC Upload<span class="label-star"> *</span></h4>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input-block">
+                                                                <label class="form-label">Document Name</label>
+                                                                <input type="text" class="form-control" name="kyc_document_name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="input-block">
+                                                                <label class="form-label">Document</label>
+                                                                <div class="upload-sets">
+                                                                    <label class="upload-filesview">
+                                                                        Browse File
+                                                                        <input type="file" name="kyc_document" onchange="document.getElementById('upload-message').innerHTML = 'Document uploaded successfully.';" required>
+                                                                    </label>
+                                                                    <p id="upload-message" class="text-success"></p>
+                                                                    <h6>Or Drag & Drop here</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="media-set border-0">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h4>Working Hours<span class="label-star"> *</span></h4>
+                                                            <p>Describe your working days and time. Specify the timezone in which you work</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input-block">
+                                                                <label class="form-label">Working Time</label>
+                                                                <input type="text" class="form-control" name="working_hours" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <input class="btn btn-primary" type="submit"
+                                                   value="Next">
+                                        </div>
+                                    </form>
+                                </div>
+                            @endif
+                            <!-- /Other Info -->
 
-							<!-- Completeing Register -->
-							{{-- <div class="on-board field-card">
-								<div class="account-onborad complte-board back-home">
-									<img src="{{URL::asset('/assets/img/select-03.png')}}" class="img-fluid" alt="icon">
-									<h2>Hi, Eugene Forest</h2>
-									<p>Your onboarding process has been successfully completed. Please check your registered email for other information.</p>
-									<a href="{{url('onboard-screen')}}" class="btn btn-primary"> Back to Home</a>
-								</div>
-							</div>  --}}
-							<!-- /Completeing Register -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            <!-- Completeing Register -->
+                            @if($step===OnboardStep::SEND_EMAIL->value)
+                                <div class="on-board field-card" style="display: block">
+                                    <div class="account-onborad complte-board back-home pb-0">
+                                        <img src="{{URL::asset('/assets/img/icon/mail.png')}}" class="img-fluid" alt="icon">
+                                        <h2>Email Verification</h2>
+                                        <h3>We have sent a verification link to {{$user->email}} </h3>
+                                        <p>Click on the link to complete the verification Process</p>
+                                        <p>You might need to check your Spam folder</p>
+                                        <a href="{{url('onboard-screen-employer')}}" class="link-danger"><i
+                                                class="feather-refresh-cw me-2 "></i> Resend Email</a>
+                                    </div>
+                                    <div class="account-onborad complte-board back-home">
+                                        <img src="{{URL::asset('/assets/img/select-03.png')}}" class="img-fluid" alt="icon">
+                                        <h2>Hi, {{$user->name}}</h2>
+                                        <p>Your onboarding process has been successfully completed. Please check your
+                                            registered email for other information.</p>
+                                        <a href="{{url('onboard-screen-employer')}}" class="btn btn-primary"> Back to Home</a>
+                                    </div>
+                                </div>
+                            @endif
+                            <!-- Completeing Register -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- /Page Wrapper -->
+    <!-- /Page Wrapper -->
 @endsection

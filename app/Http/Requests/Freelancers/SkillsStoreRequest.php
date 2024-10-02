@@ -21,19 +21,19 @@ final class SkillsStoreRequest extends FreelancerValidationAbstractRequest
 
             "education.*.degree" => ['required'],
             "education.*.university_name" => ['required'],
-            "education.*.start_date" => ['required', 'date_format:d/m/Y'],
-            "education.*.end_date" => ['required', 'date_format:d/m/Y'],
+            "education.*.start_date" => ['required', 'date_format:Y-m-d'],
+            "education.*.end_date" => ['required', 'date_format:Y-m-d'],
 
             "experience.*.organisation" => ['required_with:experience.*.position'],
             "experience.*.position" => ['required_with:experience.*.start_date'],
-            "experience.*.start_date" => ['required_with:experience.*.end_date', 'date_format:d/m/Y'],
-            "experience.*.end_date" => ['required_with:experience.*.start_date', 'date_format:d/m/Y'],
+            "experience.*.start_date" => ['required_with:experience.*.end_date', 'date_format:Y-m-d'],
+            "experience.*.end_date" => ['required_with:experience.*.start_date', 'date_format:Y-m-d'],
 
 
             "certification.*.certification_type" => ['required_with:certification.*.name'],
             "certification.*.name" => ['required_with:certification.*.certified_from'],
             "certification.*.certified_from" => ['required_with:certification.*.certified_on'],
-            "certification.*.certified_on" => ['required_with:certification.*.certified_from', 'date_format:d/m/Y'],
+            "certification.*.certified_on" => ['required_with:certification.*.certified_from', 'date_format:Y-m-d'],
         ];
     }
 

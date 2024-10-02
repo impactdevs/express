@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Freelancers;
-use App\Models\Freelancer;
+namespace App\Http\Requests\Employers;
+use App\Models\Employer;
 use Illuminate\Foundation\Http\FormRequest;
 
-final class PersonalInfoStoreRequest extends FormRequest
+final class EmployerInfoStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,7 @@ final class PersonalInfoStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return array_merge(Freelancer::createRules,[
+        return array_merge(Employer::createRules,[
             'profile_picture' => ['nullable', 'image', 'mimes:jpg,bmp,png,jpeg,svg,webp', 'extensions:jpg,bmp,png,jpeg,svg,webp', 'max:2048'],
         ]);
     }

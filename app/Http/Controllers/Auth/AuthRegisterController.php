@@ -30,7 +30,7 @@ final class AuthRegisterController extends Controller
         Auth::login($user);
 
         if ($is_employer) {
-            return view('onboard-screen-employer');
+            return redirect()->to(route('onboard-screen-employer'));
         }
 
         return redirect()->to(route('onboard-screen'));
