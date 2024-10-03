@@ -8,7 +8,9 @@
             <div class="align-items-center justify-content-center">
                 <div class="login-right">
                     <div class="login-header text-center">
-                        <a href="{{ url('index') }}"><img src="{{ URL::asset('/assets/img/logo.svg') }}" alt="logo"
+                        <a href="{{ url('index') }}"><img src="{{ URL::asset('/assets/img/logo.png') }}" alt="logo"
+                              width="80px"
+                              height="80px"
                                 class="img-fluid"></a>
                         <h3>We love to see you joining our community</h3>
                         @if ($errors->any())

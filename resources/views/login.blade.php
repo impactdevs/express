@@ -11,7 +11,11 @@
 			<div class="align-items-center justify-content-center">
 				<div class="login-right">
 					<div class="login-header text-center">
-						<a href="{{url('index')}}"><img src="{{URL::asset('/assets/img/logo.svg')}}" alt="logo" class="img-fluid"></a>
+						<a href="{{url('index')}}"><img src="{{URL::asset('/assets/img/logo.png')}}" 
+						 width="80px"
+                          height="80px"
+						alt="logo" class="img-fluid"
+						></a>
 						<h3>Welcome! Nice to see you again</h3>
 
 					</div>

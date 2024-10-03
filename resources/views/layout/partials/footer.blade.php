@@ -8,7 +8,11 @@
 						<div class=" col-lg-4 col-md-12">
 							<div class="footer-bottom-logo">
 								<a href="{{url('index')}}" class="menu-logo">
-									<img src="{{URL::asset('/assets/img/logo.svg')}}" class="img-fluid" alt="Logo">
+									<img src="{{URL::asset('/assets/img/logo.png')}}" 
+									class="img-fluid" alt="Logo"
+									height="80px"
+									width="80px"
+									>
 								</a>
 								<p>We’re always in search for talented and motivated people. Don’t be shy introduce yourself!</p>
 								<ul>
@@ -94,7 +98,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="copyright-text text-center">
-									<p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> © KofeJob. All right reserved.</p>
+									<p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> © {{ env('APP_NAME') }}. All right reserved.</p>
 								</div>
 							</div>
 						</div>
