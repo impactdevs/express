@@ -56,7 +56,7 @@
 {{--							</div>--}}
 {{--						</div>--}}
 						<div class="row">
-							<div class="col-sm-8 dont-have d-flex  align-items-center">New to Kofejob <a href="{{url('register')}}" class="ms-2">Signup?</a></div>
+							<div class="col-sm-8 dont-have d-flex  align-items-center">New to {{ env('APP_NAME') }} <a href="{{url('register')}}" class="ms-2">Signup?</a></div>
 							<div class="col-sm-4 text-sm-end">
 								<a class="forgot-link" href="{{url('forgot-password')}}">Lost Password?</a>
 							</div>

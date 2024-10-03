@@ -1,6 +1,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-        <title>{{ config('app.name') }}</title>
+        <title>{{ env('APP_NAME') }}</title>
 
         <!-- Favicons -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/favicon.png') }}">

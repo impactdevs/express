@@ -1,6 +1,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-		<title>Kofejob - Bootstrap Admin HTML Template</title>
+		<title>{{ env('APP_NAME') }}</title>
 		
 		<!-- Favicon -->
 		  <link rel="shortcut icon" href="{{asset('assets_admin/img/favicon.png')}}">

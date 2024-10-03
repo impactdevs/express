@@ -11,8 +11,8 @@
 								<div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
 									<a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/avatar-1.jpg')}}" class="avatar-lg rounded-circle"></a>
 									<div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
-										<h3 class="mb-0"><a href="{{url('freelancer-profile')}}">Bruce Bush</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
-										<p class="mb-0">@brucebush</p>
+										<p class="mb-0"><a href="{{url('freelancer-profile')}}">{{ auth()->user()->name }}</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></p>
+										<p class="mb-0">@ {{ auth()->user()->email}}</p>
 									</div>
 								</div>
 								<div class="settings-menu">

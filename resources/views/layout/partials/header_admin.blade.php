@@ -7,10 +7,10 @@
 				<!-- Logo -->
 				<div class="header-left">
 					<a href="{{url('admin/index_admin')}}" class="logo">
-						<img src="{{ URL::asset('/assets_admin/img/logo.png')}}" alt="Logo">
+						<img src="{{ URL::asset('/assets_admin/img/logo.png')}}" alt="Logo" width="80" height="80">
 					</a>
 					<a href="{{url('admin/index_admin')}}" class="logo logo-small">
-						<img src="{{ URL::asset('/assets_admin/img/logo-small.png')}}" alt="Logo" width="30" height="30">
+						<img src="{{ URL::asset('/assets_admin/img/logo.png')}}" alt="Logo" width="80" height="80">
 					</a>
 					<!-- Sidebar Toggle -->
 					<a href="javascript:void(0);" id="toggle_btn">

@@ -41,6 +41,7 @@ final class AuthLoginController extends Controller
                 return redirect()->to(route('onboard-screen'));
             }
         }
+        //dd(auth()->user()->name);
         return redirect()->to(route('freelancer-dashboard'));
     }
 }
