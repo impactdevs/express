@@ -116,8 +116,9 @@ $page = "onboard-screen"; ?>
                                                         <div class="upload-files">
                                                             <label class="file-upload image-upbtn ">
                                                                 <i class="feather-upload me-2"></i>Upload Photo <input
-                                                                    type="file" name="profile_picture" value="{{old('profile_picture')}}">
+                                                                    type="file" name="profile_picture" value="{{old('profile_picture')}}" onchange="document.getElementById('upload-message').innerHTML = 'Photo uploaded successfully.';">
                                                             </label>
+                                                            <span id="upload-message" class="text-success"></span>
                                                             <span>For better preview recommended size is 450px x 450px. Max size 5mb.</span>
                                                         </div>
                                                     </div>

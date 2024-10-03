@@ -1,23 +1,23 @@
 <?php $page="company-project";?>
 @extends('layout.mainlayout')
-@section('content')		
-@component('components.breadcrumb')                
+@section('content')
+@component('components.breadcrumb')
     @slot('li_1') Home @endslot
     @slot('li_2') Employers @endslot
     @slot('li_3') COMPANY PROFILE @endslot
-@endcomponent	
+@endcomponent
 
-@component('components.tab-details')                
+@component('components.tab-details')
 @endcomponent
 	<!-- Page Content -->
 	<div class="content">
-		<div class="container">	
-			
+		<div class="container">
+
 			<div class="row">
 				<div class="col-lg-8 col-md-12">
-					
+
 					<div class="pro-view">
-						
+
 						<!-- Tab Detail -->
 						<nav class="provider-tabs mb-4 abouts-view">
 							<ul class="nav nav-tabs nav-tabs-solid nav-justified">
@@ -48,7 +48,7 @@
 							</ul>
 						</nav>
 						<!-- /Tab Detail -->
-						
+
 						<!-- Projects Tab Content -->
 						<div class="pro-post widget-box company-post" >
 							<h3 class="pro-title">Projects</h3>
@@ -497,7 +497,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<!-- Pagination -->
 							<div class="row">
 								<div class="col-md-12">
@@ -509,17 +509,17 @@
 								</div>
 							</div>
 							<!-- /Pagination -->
-							
+
 						</div>
 						<!-- /Projects Tab Content -->
-						
+
 					</div>
 				</div>
-			
-				<!-- profile Sidebar -->
-				<div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar company-profile">	
 
-					<!-- About Widget -->	
+				<!-- profile Sidebar -->
+				<div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar company-profile">
+
+					<!-- About Widget -->
 					<div class="pro-post widget-box about-widget profile-overview">
 						<div class="profile-head">
 							<h4 class="pro-title mb-0">Profile Overview</h4>
@@ -537,8 +537,8 @@
 						</div>
 					</div>
 					<!-- /About Widget -->
-					
-					<!-- Company Location -->	
+
+					<!-- Employer Location -->
 					<div class="pro-post widget-box location-widget">
 						<div class="profile-head">
 							<h4 class="pro-title">Company Location</h4>
@@ -547,9 +547,9 @@
 							<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" ></iframe>
 						</div>
 					</div>
-					<!-- /Company Location -->
-					
-					<!-- Working Widget -->	
+					<!-- /Employer Location -->
+
+					<!-- Working Widget -->
 					<div class="pro-post widget-box  working-days">
 						<div class="profile-head">
 							<h4 class="pro-title mb-0">Working Days</h4>
@@ -564,9 +564,9 @@
 							<li><p>Sunday </p><h6><span>Close</span></h6></li>
 						</ul>
 					</div>
-					<!-- /Working Widget -->	
-					
-					<!-- Social Widget -->	
+					<!-- /Working Widget -->
+
+					<!-- Social Widget -->
 					<div class="pro-post widget-box social-widget">
 						<div class="profile-head">
 							<h4 class="pro-title">SOCIAL LINKS</h4>
@@ -580,14 +580,14 @@
 						</ul>
 					</div>
 					<!-- /Social Widget -->
-				
+
 				</div>
 				<!-- /Profile Sidebar -->
-				
+
 			</div>
 		</div>
-	</div>		
-	<!-- /Page Content -->						
-@component('components.modal-popup')                
-@endcomponent			
+	</div>
+	<!-- /Page Content -->
+@component('components.modal-popup')
+@endcomponent
 @endsection
