@@ -3,10 +3,7 @@
 use App\Http\Controllers\Auth\AuthLoginController;
 use App\Http\Controllers\Auth\AuthRegisterController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Employers\EmployerController;
-use App\Http\Controllers\Freelancers\FreelancerController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +17,8 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 include_once __DIR__ . '/custom/web/admin_routes.php';
+include_once __DIR__ . '/custom/web/freelancer_routes.php';
+include_once __DIR__ . '/custom/web/employer_routes.php';
 
 // Auth-related routes
 Route::get('/login', function () {
@@ -47,10 +46,8 @@ Route::middleware('auth')->group(function () {
 // Route::post('admin/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 // Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-Route::post('/onboard', [FreelancerController::class, 'store'])->name('onboard');
-Route::get('/onboard-screen', [FreelancerController::class, 'index'])->name('onboard-screen');
-Route::post('/onboard-employer', [EmployerController::class, 'store'])->name('onboard-employer');
-Route::get('/onboard-screen-employer', [EmployerController::class, 'index'])->name('onboard-screen-employer');
+
+
 
 Route::get('/', function () {
     return view('index');
