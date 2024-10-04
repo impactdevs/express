@@ -8,7 +8,6 @@ use Illuminate\Routing\Controller;
 use App\Http\Requests\Employers\OtherInfoStoreRequest;
 use App\Http\Requests\Employers\EmployerInfoStoreRequest;
 use App\Models\SocialMedia;
-use DateTime;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,11 +17,6 @@ use Illuminate\Support\Facades\Session;
 
 class EmployerController extends Controller
 {
-   public function __construct()
-   {
-       $this->middleware('auth');
-   }
-
     public function index(Request $request): RedirectResponse|View
     {
         $step = session('step');
@@ -32,7 +26,7 @@ class EmployerController extends Controller
         }
         $user = $request->user();
         if($user->email_verified_at){
-            return redirect()->to(route('employer-dashboard'));
+            return redirect()->to(route('dashboard'));
         }
 
         $employer = $request->user()->employer;
@@ -57,7 +51,6 @@ class EmployerController extends Controller
     public function store_employer_info(EmployerInfoStoreRequest $request)
     {
         $data = $request->validated();
-//        $data['established_on'] = DateTime::createFromFormat('d/m/Y', $data['date_of_birth']);
         if($request->hasFile('profile_picture')) {
             $path = $request->file('profile_picture')?->store('profile_pictures');
             $data['profile_picture_path'] = $path;

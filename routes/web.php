@@ -33,9 +33,13 @@ Route::post('/register', AuthRegisterController::class)->name('register');
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['signed', 'throttle:6,1'])
+        ->middleware(['auth','signed', 'throttle:6,1'])
         ->name('verification.verify');
 
+    Route::post('/logout', function (){
+        Auth::logout();
+        return redirect('/login');
+    })->name('logout');
 });
 
 
@@ -134,9 +138,7 @@ Route::get('/invited-favourites', function () {
 Route::get('/completed-projects', function () {
     return view('completed-projects');
 })->name('completed-projects');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
 Route::get('/delete-account', function () {
     return view('delete-account');
 })->name('delete-account');
