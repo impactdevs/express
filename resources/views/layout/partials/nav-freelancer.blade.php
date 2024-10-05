@@ -13,13 +13,13 @@
   }
 @endphp
 
-<!-- Employer Navbar -->
+<!-- Freelancer Navbar -->
 <div class="col-xl-3 col-lg-4 theiaStickySidebar">
     <div class="settings-widget">
         <div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
-            <a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/table-avatar-03.jpg')}}" class="avatar-lg rounded-circle"></a>
+            <a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/avatar-1.jpg')}}" class="avatar-lg rounded-circle"></a>
             <div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
-                <h3 class="mb-0"><a href="{{url('profile-settings')}}">{{$user->name}}</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
+                <h3 class="mb-0"><a href="{{url('freelancer-profile')}}">{{$user->name}}</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
                 <p class="mb-0">{{$user->email}}</p>
             </div>
         </div>
@@ -27,8 +27,9 @@
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
                     <li class="nav-item">
-                        <a {!! linkParams('dashboard') !!}>
+                        <a {!! linkParams('freelancer-dashboard') !!}>
                             <img src="{{URL::asset('/assets/img/icon/sidebar-icon-01.svg')}}" alt="Img"> Dashboard
+
                         </a>
                     </li>
                     <li class="nav-item submenu">
@@ -38,22 +39,16 @@
                         </a>
                         <ul class="sub-menu-ul">
                             <li>
-                                <a {!! subLink('manage-projects') !!}>All Projects</a>
+                                <a {!! subLink('freelancer-project-proposals') !!}>My Proposal</a>
                             </li>
                             <li>
-                                <a {!! subLink('ongoing-projects') !!}>Ongoing Projects</a>
+                                <a {!! subLink('freelancer-ongoing-projects') !!}>Ongoing Projects</a>
                             </li>
                             <li>
-                                <a {!! subLink('completed-projects') !!}>Completed Projects</a>
+                                <a {!! subLink('freelancer-completed-projects') !!}>Completed Projects</a>
                             </li>
                             <li>
-                                <a {!! subLink('pending-projects') !!}>Pending Projects</a>
-                            </li>
-                            <li>
-                                <a {!! subLink('cancelled-projects') !!}>Cancelled Projects</a>
-                            </li>
-                            <li>
-                                <a {!! subLink('expired-projects') !!}>Expired Projects</a>
+                                <a {!! subLink('freelancer-cancelled-projects') !!}>Cancelled Projects</a>
                             </li>
                         </ul>
                     </li>
@@ -64,48 +59,63 @@
                         </a>
                         <ul class="sub-menu-ul">
                             <li>
-                                <a {!! subLink('favourites') !!}>Bookmarked Projects</a>
+                                <a {!! subLink('freelancer-favourites') !!}>Bookmarked Projects</a>
                             </li>
                             <li>
-                                <a {!! subLink('invited-favourites') !!}>Invitations</a>
+                                <a {!! subLink('freelancer-invitations') !!}>Invitations</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a {!! linkParams('review') !!}>
+                        <a {!! linkParams('freelancer-review') !!}>
                             <img src="{{URL::asset('/assets/img/icon/sidebar-icon-04.svg')}}" alt="Img"> Reviews
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a {!! linkParams('freelancer-portfolio') !!}>
+                            <img src="{{URL::asset('/assets/img/icon/sidebar-icon-05.svg')}}" alt="Img"> Portfolio
+                        </a>
+                    </li>
                     <li class="nav-item" hidden>
-                        <a {!! linkParams('chats') !!}>
+                        <a {!! linkParams('freelancer-chats') !!}>
                             <img src="{{URL::asset('/assets/img/icon/sidebar-icon-06.svg')}}" alt="Img"> Chat
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a {!! linkParams('deposit-funds') !!}>
+                        <a {!! linkParams('freelancer-withdraw-money') !!}>
                             <img src="{{URL::asset('/assets/img/icon/sidebar-icon-07.svg')}}" alt="Img"> Payments
                         </a>
                     </li>
-                    <li class="nav-item submenu">
+                    <li class="nav-item">
+                        <a {!! linkParams('freelancer-payout') !!}>
+                            <img src="{{URL::asset('/assets/img/icon/sidebar-icon-08.svg')}}" alt="Img"> Payout
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a {!! linkParams('freelancer-withdraw-money') !!}>
+                            <img src="{{URL::asset('/assets/img/icon/sidebar-icon-09.svg')}}" alt="Img"> Statement
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="javascript:void(0);" class="nav-link">
                             <img src="{{URL::asset('/assets/img/icon/sidebar-icon-10.svg')}}" alt="Img">  Settings
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="sub-menu-ul">
                             <li>
-                                <a {!! subLink('profile-settings') !!}>Profile</a>
+                                <a {!! subLink('freelancer-profile-settings') !!}>Profile Setting</a>
                             </li>
                             <li>
-                                <a {!! subLink('membership-plans') !!}>Plan & Billing</a>
+                                <a {!! subLink('freelancer-membership') !!}>Plan & Billing</a>
                             </li>
                             <li>
-                                <a {!! subLink('verify-identity') !!}>Verify Identity</a>
+                                <a {!! subLink('freelancer-verify-identity') !!}>Verify Identity</a>
                             </li>
                             <li>
-                                <a {!! subLink('change-password') !!}>Change Password</a>
+                                <a {!! subLink('freelancer-change-password') !!}>Changes Password</a>
                             </li>
                             <li>
-                                <a {!! subLink('delete-account') !!}>Delete Account</a>
+                                <a {!! subLink('freelancer-delete-account') !!}>Delete Account</a>
                             </li>
                         </ul>
                     </li>
@@ -123,4 +133,4 @@
         </div>
     </div>
 </div>
-<!-- Employer Navbar -->
+<!-- Freelancer Navbar -->

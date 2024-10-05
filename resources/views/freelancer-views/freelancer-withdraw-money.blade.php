@@ -7,7 +7,7 @@
 			<div class="content content-page bookmark">
 				<div class="container">
 					<div class="row">
-                        @include('layout.partials.nav-employer')
+                        @include('layout.partials.nav-freelancer')
 						<div class="col-xl-9 col-lg-8">
 							<div class="dashboard-sec payout-section freelancer-statements">
 								<div class="page-title portfolio-title">

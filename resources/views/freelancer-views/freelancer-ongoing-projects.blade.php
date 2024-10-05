@@ -6,7 +6,7 @@
 		<div class="content content-page">
 			<div class="container">
 				<div class="row">
-                    @include('layout.partials.nav-employer')
+                    @include('layout.partials.nav-freelancer')
 					<div class="col-xl-9 col-lg-8">
 						<div class="page-title">
 							<h3>Ongoing Projects</h3>

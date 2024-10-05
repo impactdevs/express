@@ -13,7 +13,7 @@ class UserIsFreelancer
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param Closure(Request): (Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -22,7 +22,7 @@ class UserIsFreelancer
             return redirect('/404-page');
         }
         if(!Session::has('freelancer')){
-            if($user->freelancer()->exists() && $user->email_verified_at){
+            if($user->email_verified_at && $user->freelancer()->exists()){
                 Session::put('freelancer', $user->freelancer);
             }else if (!($request->path() === 'onboard' || $request->path() === 'onboard-screen')) {
                 return redirect('/onboard-screen');

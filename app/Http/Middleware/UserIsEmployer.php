@@ -13,7 +13,7 @@ class UserIsEmployer
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param Closure(Request): (Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -22,7 +22,7 @@ class UserIsEmployer
             return redirect('/404-page');
         }
         if(!Session::has('employer')){
-            if($user->employer()->exists() && $user->email_verified_at){
+            if($user->email_verified_at && $user->employer()->exists()){
                 Session::put('employer', $user->employer);
             }else if (!($request->path() === 'onboard-employer' || $request->path() === 'onboard-screen-employer')) {
                 return redirect('/onboard-screen-employer');
