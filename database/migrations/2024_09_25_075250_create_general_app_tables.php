@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->timestamps();
         });
+        Schema::create('currencies', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('symbol');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,6 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('currencies');
         Schema::dropIfExists('countries');
     }
 };
