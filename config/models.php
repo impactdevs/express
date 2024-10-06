@@ -285,6 +285,18 @@ return [
             'password_resets',
             'personal_access_tokens',
             'password_reset_tokens',
+            'sessions',
+            'job_batches',
+            'jobs',
+            'audits',
+            'cache',
+            'cache_locks',
+            'failed_jobs',
+            'roles',
+            'model_has_roles',
+            'model_has_permissions',
+            'role_has_permissions',
+            'permissions',
         ],
 
         /*

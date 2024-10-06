@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user')->unique();
-            $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('phone', 20);
             $table->string('job_type', 50);
             $table->string('job_title', 50);
             $table->date('date_of_birth');
             $table->longText('description');
             $table->string('profile_picture_path')->nullable();
-            $table->foreignId('country')->nullable();
-            $table->foreign('country')->references('id')->on('countries');
+            $table->foreignId('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
@@ -73,8 +73,6 @@ return new class extends Migration
 
         Schema::create('user_languages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('freelancer_id')->nullable();
-            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->foreignId('freelancer_id')->nullable();
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->string('name');

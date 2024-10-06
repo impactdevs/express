@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\SubIndustryController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::prefix('admin')->group(function () {
@@ -15,4 +18,6 @@ Route::prefix('admin')->group(function () {
     Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
     Route::resource('admin', AdminController::class);
+    Route::resource("industries", IndustryController::class);
+    Route::resource("sub-industries", SubIndustryController::class);
 });

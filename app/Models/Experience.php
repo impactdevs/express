@@ -12,16 +12,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Experience
- *
+ * 
  * @property int $id
- * @property int $freelancer
+ * @property int $freelancer_id
  * @property string $organisation
  * @property string $position
  * @property Carbon $start_date
  * @property Carbon $end_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
+ * @property Freelancer $freelancer
  *
  * @package App\Models
  */
@@ -30,21 +31,21 @@ class Experience extends Model
 	protected $table = 'experience';
 
 	protected $casts = [
-		'freelancer' => 'int',
+		'freelancer_id' => 'int',
 		'start_date' => 'datetime',
 		'end_date' => 'datetime'
 	];
 
 	protected $fillable = [
-		'freelancer',
+		'freelancer_id',
 		'organisation',
 		'position',
 		'start_date',
 		'end_date'
-	];
+	]; 
 
 	const createRules = [
-		'freelancer' => ['required', 'exists:freelancers,id'],
+		'freelancer_id' => ['required', 'exists:freelancers,id'],
 		'organisation' => ['required', 'string', 'min:1', 'max:255'],
 		'position' => ['required', 'string', 'min:1', 'max:255'],
 		'start_date' => ['required', 'date'],
@@ -53,7 +54,7 @@ class Experience extends Model
 
 
 	const updateRules = [
-		'freelancer' => ['exists:freelancers,id'],
+		'freelancer_id' => ['exists:freelancers,id'],
 		'organisation' => ['string', 'min:1', 'max:255'],
 		'position' => ['string', 'min:1', 'max:255'],
 		'start_date' => ['date'],
@@ -62,6 +63,6 @@ class Experience extends Model
 
 	public function freelancer(): BelongsTo
 	{
-		return $this->belongsTo(Freelancer::class, 'freelancer');
+		return $this->belongsTo(Freelancer::class);
 	}
 }

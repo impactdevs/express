@@ -41,6 +41,6 @@ class TeamSize extends Model
 
 	public function employer(): HasOne
 	{
-		return $this->hasOne(Employer::class, 'team_size');
+		return $this->hasOne(Employer::class);
 	}
 }

@@ -12,16 +12,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Education
- *
+ * 
  * @property int $id
- * @property int $freelancer
+ * @property int $freelancer_id
  * @property string $degree
  * @property string $university_name
  * @property Carbon $start_date
  * @property Carbon $end_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
+ * @property Freelancer $freelancer
  *
  * @package App\Models
  */
@@ -30,21 +31,21 @@ class Education extends Model
 	protected $table = 'education';
 
 	protected $casts = [
-		'freelancer' => 'int',
+		'freelancer_id' => 'int',
 		'start_date' => 'datetime',
 		'end_date' => 'datetime'
 	];
 
 	protected $fillable = [
-		'freelancer',
+		'freelancer_id',
 		'degree',
 		'university_name',
 		'start_date',
 		'end_date'
-	];
+	]; 
 
 	const createRules = [
-		'freelancer' => ['required', 'exists:freelancers,id'],
+		'freelancer_id' => ['required', 'exists:freelancers,id'],
 		'degree' => ['required', 'string', 'min:1', 'max:50'],
 		'university_name' => ['required', 'string', 'min:1', 'max:255'],
 		'start_date' => ['required', 'date'],
@@ -53,7 +54,7 @@ class Education extends Model
 
 
 	const updateRules = [
-		'freelancer' => ['exists:freelancers,id'],
+		'freelancer_id' => ['exists:freelancers,id'],
 		'degree' => ['string', 'min:1', 'max:50'],
 		'university_name' => ['string', 'min:1', 'max:255'],
 		'start_date' => ['date'],
@@ -62,6 +63,6 @@ class Education extends Model
 
 	public function freelancer(): BelongsTo
 	{
-		return $this->belongsTo(Freelancer::class, 'freelancer');
+		return $this->belongsTo(Freelancer::class);
 	}
 }
