@@ -27,6 +27,7 @@
                     </div>
                 </div>
             </div>
+            <!--Header-->
 
               @if(session('success'))
                 <div class="alert alert-success">

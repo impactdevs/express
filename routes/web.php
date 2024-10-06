@@ -3,7 +3,11 @@
 use App\Http\Controllers\Auth\AuthLoginController;
 use App\Http\Controllers\Auth\AuthRegisterController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +53,10 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/', static fn() => view('index'))->name('pagee');
-Route::get('/home', static fn() => view('index'))->name('pagee');
+
+Route::get('/',[HomeController::class,  'index']);
+Route::get('/home', [HomeController::class,  'index']);
+// Route::get('/home', static fn() => view('index'))->name('pagee');
 Route::get('/index', static fn() => view('index'))->name('pagee');
 Route::get('/404-page', static fn() => view('404-page'))->name('404-page');
 Route::get('/about', static fn() => view('about'))->name('about');

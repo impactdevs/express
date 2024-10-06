@@ -114,26 +114,26 @@ class Employer extends Model
 
 	public function country(): BelongsTo
 	{
-		return $this->belongsTo(Country::class, 'country');
+		return $this->belongsTo(Country::class);
 	}
 
 	public function industry(): BelongsTo
 	{
-		return $this->belongsTo(Industry::class, 'industry');
+		return $this->belongsTo(Industry::class);
 	}
 
 	public function team_size(): BelongsTo
 	{
-		return $this->belongsTo(TeamSize::class, 'team_size');
+		return $this->belongsTo(TeamSize::class );
 	}
 
 	public function user(): BelongsTo
 	{
-		return $this->belongsTo(User::class, 'user');
+		return $this->belongsTo(User::class);
 	}
 
 	public function social_media(): HasMany
 	{
-		return $this->hasMany(SocialMedia::class, 'employer');
+		return $this->hasMany(SocialMedia::class);
 	}
 }
