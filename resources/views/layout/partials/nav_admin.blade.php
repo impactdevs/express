@@ -8,7 +8,7 @@
 					<a href="{{ url('admin/index_admin') }}"><i data-feather="home"></i> <span>Dashboard</span></a>
 				</li>
 
-				<li class="{{ Request::is('admin/index') ? 'active' : '' }}">
+				<li class="{{ Request::is('admin.index') ? 'active' : '' }}">
 					<a href="{{ route('admin.index') }}"><i data-feather="copy"></i> <span>Admins</span></a>
 				</li>
 				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
@@ -22,9 +22,14 @@
 					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Freelancers</span></a>
 				</li>
 
-				{{-- <li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
-					<a href="{{ url('admin/categories') }}"><i data-feather="copy"></i> <span>Categories</span></a>
-				</li> --}}
+				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ route('industries.index') }}"><i data-feather="copy"></i> <span>Industries</span></a>
+				</li> 
+
+				<li class="{{ Request::is('admin/categories','admin/sub-category') ? 'active' : '' }}">
+					<a href="{{ route('sub-industries.index') }}"><i data-feather="copy"></i> <span>Sub Industries</span></a>
+				</li> 
+
 				{{-- <li class="{{ Request::is('admin/projects') ? 'active' : '' }}">
 					<a href="{{ url('admin/projects') }}"><i data-feather="database"></i> <span>Projects</span></a>
 				</li>

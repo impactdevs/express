@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             TeamSizeSeeder::class,
             IndustrySeeder::class,
+            AdminSeeder::class
         ]);
     }
 }

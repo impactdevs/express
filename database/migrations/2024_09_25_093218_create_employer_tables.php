@@ -20,10 +20,20 @@ return new class extends Migration
         Schema::create('industries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('logo')->nullable();
             $table->string('description');
             $table->timestamps();
         });
-
+  
+        Schema::create('sub_industries', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('logo')->nullable();
+            $table->string('description');
+            $table->foreignId('industry');
+            $table->foreign('industry')->references('id')->on('industries');
+            $table->timestamps();
+        });
 
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
