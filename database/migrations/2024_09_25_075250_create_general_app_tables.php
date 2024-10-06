@@ -17,11 +17,24 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->timestamps();
         });
+
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('symbol');
-            $table->string('description');
+            $table->string('abbr');
+            $table->timestamps();
+        });
+
+        Schema::create('languages', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('skills', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
