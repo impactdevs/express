@@ -1,0 +1,838 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Currency;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
+
+class CurrencySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $currencies = [
+            [
+                "name" => "United Arab Emirates dirham",
+                "symbol" => "د.إ",
+                "abbr" => "AED"
+            ],
+            [
+                "name" => "Afghan afghani",
+                "symbol" => "؋",
+                "abbr" => "AFN"
+            ],
+            [
+                "name" => "Albanian lek",
+                "symbol" => "L",
+                "abbr" => "ALL"
+            ],
+            [
+                "name" => "Armenian dram",
+                "symbol" => "֏",
+                "abbr" => "AMD"
+            ],
+            [
+                "name" => "Netherlands Antillean guilder",
+                "symbol" => "ƒ",
+                "abbr" => "ANG"
+            ],
+            [
+                "name" => "Angolan kwanza",
+                "symbol" => "Kz",
+                "abbr" => "AOA"
+            ],
+            [
+                "name" => "Argentine peso",
+                "symbol" => "$",
+                "abbr" => "ARS"
+            ],
+            [
+                "name" => "Australian dollar",
+                "symbol" => "$",
+                "abbr" => "AUD"
+            ],
+            [
+                "name" => "Aruban florin",
+                "symbol" => "ƒ",
+                "abbr" => "AWG"
+            ],
+            [
+                "name" => "Azerbaijani manat",
+                "symbol" => "₼",
+                "abbr" => "AZN"
+            ],
+            [
+                "name" => "Bosnia and Herzegovina convertible mark",
+                "symbol" => "KM",
+                "abbr" => "BAM"
+            ],
+            [
+                "name" => "Barbadian dollar",
+                "symbol" => "$",
+                "abbr" => "BBD"
+            ],
+            [
+                "name" => "Bangladeshi taka",
+                "symbol" => "৳",
+                "abbr" => "BDT"
+            ],
+            [
+                "name" => "Bulgarian lev",
+                "symbol" => "лв",
+                "abbr" => "BGN"
+            ],
+            [
+                "name" => "Bahraini dinar",
+                "symbol" => ".د.ب",
+                "abbr" => "BHD"
+            ],
+            [
+                "name" => "Burundian franc",
+                "symbol" => "Fr",
+                "abbr" => "BIF"
+            ],
+            [
+                "name" => "Bermudian dollar",
+                "symbol" => "$",
+                "abbr" => "BMD"
+            ],
+            [
+                "name" => "Brunei dollar",
+                "symbol" => "$",
+                "abbr" => "BND"
+            ],
+            [
+                "name" => "Bolivian boliviano",
+                "symbol" => "Bs.",
+                "abbr" => "BOB"
+            ],
+            [
+                "name" => "Brazilian real",
+                "symbol" => "R$",
+                "abbr" => "BRL"
+            ],
+            [
+                "name" => "Bahamian dollar",
+                "symbol" => "$",
+                "abbr" => "BSD"
+            ],
+            [
+                "name" => "Bhutanese ngultrum",
+                "symbol" => "Nu.",
+                "abbr" => "BTN"
+            ],
+            [
+                "name" => "Botswana pula",
+                "symbol" => "P",
+                "abbr" => "BWP"
+            ],
+            [
+                "name" => "Belarusian ruble",
+                "symbol" => "Br",
+                "abbr" => "BYN"
+            ],
+            [
+                "name" => "Belize dollar",
+                "symbol" => "$",
+                "abbr" => "BZD"
+            ],
+            [
+                "name" => "Canadian dollar",
+                "symbol" => "$",
+                "abbr" => "CAD"
+            ],
+            [
+                "name" => "Congolese franc",
+                "symbol" => "FC",
+                "abbr" => "CDF"
+            ],
+            [
+                "name" => "Swiss franc",
+                "symbol" => "Fr",
+                "abbr" => "CHF"
+            ],
+            [
+                "name" => "Cook Islands dollar",
+                "symbol" => "$",
+                "abbr" => "CKD"
+            ],
+            [
+                "name" => "Chilean peso",
+                "symbol" => "$",
+                "abbr" => "CLP"
+            ],
+            [
+                "name" => "Chinese yuan",
+                "symbol" => "¥",
+                "abbr" => "CNY"
+            ],
+            [
+                "name" => "Colombian peso",
+                "symbol" => "$",
+                "abbr" => "COP"
+            ],
+            [
+                "name" => "Costa Rican colón",
+                "symbol" => "₡",
+                "abbr" => "CRC"
+            ],
+            [
+                "name" => "Cuban convertible peso",
+                "symbol" => "$",
+                "abbr" => "CUC"
+            ],
+            [
+                "name" => "Cuban peso",
+                "symbol" => "$",
+                "abbr" => "CUP"
+            ],
+            [
+                "name" => "Cape Verdean escudo",
+                "symbol" => "Esc",
+                "abbr" => "CVE"
+            ],
+            [
+                "name" => "Czech koruna",
+                "symbol" => "Kč",
+                "abbr" => "CZK"
+            ],
+            [
+                "name" => "Djiboutian franc",
+                "symbol" => "Fr",
+                "abbr" => "DJF"
+            ],
+            [
+                "name" => "Danish krone",
+                "symbol" => "kr",
+                "abbr" => "DKK"
+            ],
+            [
+                "name" => "Dominican peso",
+                "symbol" => "$",
+                "abbr" => "DOP"
+            ],
+            [
+                "name" => "Algerian dinar",
+                "symbol" => "دج",
+                "abbr" => "DZD"
+            ],
+            [
+                "name" => "Egyptian pound",
+                "symbol" => "E£",
+                "abbr" => "EGP"
+            ],
+            [
+                "name" => "Eritrean nakfa",
+                "symbol" => "Nfk",
+                "abbr" => "ERN"
+            ],
+            [
+                "name" => "Ethiopian birr",
+                "symbol" => "Br",
+                "abbr" => "ETB"
+            ],
+            [
+                "name" => "Euro",
+                "symbol" => "€",
+                "abbr" => "EUR"
+            ],
+            [
+                "name" => "Fijian dollar",
+                "symbol" => "$",
+                "abbr" => "FJD"
+            ],
+            [
+                "name" => "Falkland Islands pound",
+                "symbol" => "£",
+                "abbr" => "FKP"
+            ],
+            [
+                "name" => "Faroese króna",
+                "symbol" => "kr",
+                "abbr" => "FOK"
+            ],
+            [
+                "name" => "British pound",
+                "symbol" => "£",
+                "abbr" => "GBP"
+            ],
+            [
+                "name" => "lari",
+                "symbol" => "₾",
+                "abbr" => "GEL"
+            ],
+            [
+                "name" => "Guernsey pound",
+                "symbol" => "£",
+                "abbr" => "GGP"
+            ],
+            [
+                "name" => "Ghanaian cedi",
+                "symbol" => "₵",
+                "abbr" => "GHS"
+            ],
+            [
+                "name" => "Gibraltar pound",
+                "symbol" => "£",
+                "abbr" => "GIP"
+            ],
+            [
+                "name" => "dalasi",
+                "symbol" => "D",
+                "abbr" => "GMD"
+            ],
+            [
+                "name" => "Guinean franc",
+                "symbol" => "Fr",
+                "abbr" => "GNF"
+            ],
+            [
+                "name" => "Guatemalan quetzal",
+                "symbol" => "Q",
+                "abbr" => "GTQ"
+            ],
+            [
+                "name" => "Guyanese dollar",
+                "symbol" => "$",
+                "abbr" => "GYD"
+            ],
+            [
+                "name" => "Hong Kong dollar",
+                "symbol" => "$",
+                "abbr" => "HKD"
+            ],
+            [
+                "name" => "Honduran lempira",
+                "symbol" => "L",
+                "abbr" => "HNL"
+            ],
+            [
+                "name" => "Haitian gourde",
+                "symbol" => "G",
+                "abbr" => "HTG"
+            ],
+            [
+                "name" => "Hungarian forint",
+                "symbol" => "Ft",
+                "abbr" => "HUF"
+            ],
+            [
+                "name" => "Indonesian rupiah",
+                "symbol" => "Rp",
+                "abbr" => "IDR"
+            ],
+            [
+                "name" => "Israeli new shekel",
+                "symbol" => "₪",
+                "abbr" => "ILS"
+            ],
+            [
+                "name" => "Manx pound",
+                "symbol" => "£",
+                "abbr" => "IMP"
+            ],
+            [
+                "name" => "Indian rupee",
+                "symbol" => "₹",
+                "abbr" => "INR"
+            ],
+            [
+                "name" => "Iraqi dinar",
+                "symbol" => "ع.د",
+                "abbr" => "IQD"
+            ],
+            [
+                "name" => "Iranian rial",
+                "symbol" => "﷼",
+                "abbr" => "IRR"
+            ],
+            [
+                "name" => "Icelandic króna",
+                "symbol" => "kr",
+                "abbr" => "ISK"
+            ],
+            [
+                "name" => "Jersey pound",
+                "symbol" => "£",
+                "abbr" => "JEP"
+            ],
+            [
+                "name" => "Jamaican dollar",
+                "symbol" => "$",
+                "abbr" => "JMD"
+            ],
+            [
+                "name" => "Jordanian dinar",
+                "symbol" => "د.ا",
+                "abbr" => "JOD"
+            ],
+            [
+                "name" => "Japanese yen",
+                "symbol" => "¥",
+                "abbr" => "JPY"
+            ],
+            [
+                "name" => "Kenyan shilling",
+                "symbol" => "Sh",
+                "abbr" => "KES"
+            ],
+            [
+                "name" => "Kyrgyzstani som",
+                "symbol" => "с",
+                "abbr" => "KGS"
+            ],
+            [
+                "name" => "Cambodian riel",
+                "symbol" => "៛",
+                "abbr" => "KHR"
+            ],
+            [
+                "name" => "Kiribati dollar",
+                "symbol" => "$",
+                "abbr" => "KID"
+            ],
+            [
+                "name" => "Comorian franc",
+                "symbol" => "Fr",
+                "abbr" => "KMF"
+            ],
+            [
+                "name" => "North Korean won",
+                "symbol" => "₩",
+                "abbr" => "KPW"
+            ],
+            [
+                "name" => "South Korean won",
+                "symbol" => "₩",
+                "abbr" => "KRW"
+            ],
+            [
+                "name" => "Kuwaiti dinar",
+                "symbol" => "د.ك",
+                "abbr" => "KWD"
+            ],
+            [
+                "name" => "Cayman Islands dollar",
+                "symbol" => "$",
+                "abbr" => "KYD"
+            ],
+            [
+                "name" => "Kazakhstani tenge",
+                "symbol" => "₸",
+                "abbr" => "KZT"
+            ],
+            [
+                "name" => "Lao kip",
+                "symbol" => "₭",
+                "abbr" => "LAK"
+            ],
+            [
+                "name" => "Lebanese pound",
+                "symbol" => "ل.ل",
+                "abbr" => "LBP"
+            ],
+            [
+                "name" => "Sri Lankan rupee",
+                "symbol" => "Rs  රු",
+                "abbr" => "LKR"
+            ],
+            [
+                "name" => "Liberian dollar",
+                "symbol" => "$",
+                "abbr" => "LRD"
+            ],
+            [
+                "name" => "Lesotho loti",
+                "symbol" => "L",
+                "abbr" => "LSL"
+            ],
+            [
+                "name" => "Libyan dinar",
+                "symbol" => "ل.د",
+                "abbr" => "LYD"
+            ],
+            [
+                "name" => "Moroccan dirham",
+                "symbol" => "DH",
+                "abbr" => "MAD"
+            ],
+            [
+                "name" => "Moldovan leu",
+                "symbol" => "L",
+                "abbr" => "MDL"
+            ],
+            [
+                "name" => "Malagasy ariary",
+                "symbol" => "Ar",
+                "abbr" => "MGA"
+            ],
+            [
+                "name" => "denar",
+                "symbol" => "den",
+                "abbr" => "MKD"
+            ],
+            [
+                "name" => "Burmese kyat",
+                "symbol" => "Ks",
+                "abbr" => "MMK"
+            ],
+            [
+                "name" => "Mongolian tögrög",
+                "symbol" => "₮",
+                "abbr" => "MNT"
+            ],
+            [
+                "name" => "Macanese pataca",
+                "symbol" => "P",
+                "abbr" => "MOP"
+            ],
+            [
+                "name" => "Mauritanian ouguiya",
+                "symbol" => "UM",
+                "abbr" => "MRU"
+            ],
+            [
+                "name" => "Mauritian rupee",
+                "symbol" => "₨",
+                "abbr" => "MUR"
+            ],
+            [
+                "name" => "Maldivian rufiyaa",
+                "symbol" => ".ރ",
+                "abbr" => "MVR"
+            ],
+            [
+                "name" => "Malawian kwacha",
+                "symbol" => "MK",
+                "abbr" => "MWK"
+            ],
+            [
+                "name" => "Mexican peso",
+                "symbol" => "$",
+                "abbr" => "MXN"
+            ],
+            [
+                "name" => "Malaysian ringgit",
+                "symbol" => "RM",
+                "abbr" => "MYR"
+            ],
+            [
+                "name" => "Mozambican metical",
+                "symbol" => "MT",
+                "abbr" => "MZN"
+            ],
+            [
+                "name" => "Namibian dollar",
+                "symbol" => "$",
+                "abbr" => "NAD"
+            ],
+            [
+                "name" => "Nigerian naira",
+                "symbol" => "₦",
+                "abbr" => "NGN"
+            ],
+            [
+                "name" => "Nicaraguan córdoba",
+                "symbol" => "C$",
+                "abbr" => "NIO"
+            ],
+            [
+                "name" => "Norwegian krone",
+                "symbol" => "kr",
+                "abbr" => "NOK"
+            ],
+            [
+                "name" => "Nepalese rupee",
+                "symbol" => "₨",
+                "abbr" => "NPR"
+            ],
+            [
+                "name" => "New Zealand dollar",
+                "symbol" => "$",
+                "abbr" => "NZD"
+            ],
+            [
+                "name" => "Omani rial",
+                "symbol" => "ر.ع.",
+                "abbr" => "OMR"
+            ],
+            [
+                "name" => "Panamanian balboa",
+                "symbol" => "B/.",
+                "abbr" => "PAB"
+            ],
+            [
+                "name" => "Peruvian sol",
+                "symbol" => "S/ ",
+                "abbr" => "PEN"
+            ],
+            [
+                "name" => "Papua New Guinean kina",
+                "symbol" => "K",
+                "abbr" => "PGK"
+            ],
+            [
+                "name" => "Philippine peso",
+                "symbol" => "₱",
+                "abbr" => "PHP"
+            ],
+            [
+                "name" => "Pakistani rupee",
+                "symbol" => "₨",
+                "abbr" => "PKR"
+            ],
+            [
+                "name" => "Polish złoty",
+                "symbol" => "zł",
+                "abbr" => "PLN"
+            ],
+            [
+                "name" => "Paraguayan guaraní",
+                "symbol" => "₲",
+                "abbr" => "PYG"
+            ],
+            [
+                "name" => "Qatari riyal",
+                "symbol" => "ر.ق",
+                "abbr" => "QAR"
+            ],
+            [
+                "name" => "Romanian leu",
+                "symbol" => "lei",
+                "abbr" => "RON"
+            ],
+            [
+                "name" => "Serbian dinar",
+                "symbol" => "дин.",
+                "abbr" => "RSD"
+            ],
+            [
+                "name" => "Russian ruble",
+                "symbol" => "₽",
+                "abbr" => "RUB"
+            ],
+            [
+                "name" => "Rwandan franc",
+                "symbol" => "Fr",
+                "abbr" => "RWF"
+            ],
+            [
+                "name" => "Saudi riyal",
+                "symbol" => "ر.س",
+                "abbr" => "SAR"
+            ],
+            [
+                "name" => "Solomon Islands dollar",
+                "symbol" => "$",
+                "abbr" => "SBD"
+            ],
+            [
+                "name" => "Seychellois rupee",
+                "symbol" => "₨",
+                "abbr" => "SCR"
+            ],
+            [
+                "name" => "Sudanese pound",
+                "symbol" => "ج.س",
+                "abbr" => "SDG"
+            ],
+            [
+                "name" => "Swedish krona",
+                "symbol" => "kr",
+                "abbr" => "SEK"
+            ],
+            [
+                "name" => "Singapore dollar",
+                "symbol" => "$",
+                "abbr" => "SGD"
+            ],
+            [
+                "name" => "Saint Helena pound",
+                "symbol" => "£",
+                "abbr" => "SHP"
+            ],
+            [
+                "name" => "Sierra Leonean leone",
+                "symbol" => "Le",
+                "abbr" => "SLL"
+            ],
+            [
+                "name" => "Somali shilling",
+                "symbol" => "Sh",
+                "abbr" => "SOS"
+            ],
+            [
+                "name" => "Surinamese dollar",
+                "symbol" => "$",
+                "abbr" => "SRD"
+            ],
+            [
+                "name" => "South Sudanese pound",
+                "symbol" => "£",
+                "abbr" => "SSP"
+            ],
+            [
+                "name" => "São Tomé and Príncipe dobra",
+                "symbol" => "Db",
+                "abbr" => "STN"
+            ],
+            [
+                "name" => "Syrian pound",
+                "symbol" => "£",
+                "abbr" => "SYP"
+            ],
+            [
+                "name" => "Swazi lilangeni",
+                "symbol" => "L",
+                "abbr" => "SZL"
+            ],
+            [
+                "name" => "Thai baht",
+                "symbol" => "฿",
+                "abbr" => "THB"
+            ],
+            [
+                "name" => "Tajikistani somoni",
+                "symbol" => "ЅМ",
+                "abbr" => "TJS"
+            ],
+            [
+                "name" => "Turkmenistan manat",
+                "symbol" => "m",
+                "abbr" => "TMT"
+            ],
+            [
+                "name" => "Tunisian dinar",
+                "symbol" => "د.ت",
+                "abbr" => "TND"
+            ],
+            [
+                "name" => "Tongan paʻanga",
+                "symbol" => "T$",
+                "abbr" => "TOP"
+            ],
+            [
+                "name" => "Turkish lira",
+                "symbol" => "₺",
+                "abbr" => "TRY"
+            ],
+            [
+                "name" => "Trinidad and Tobago dollar",
+                "symbol" => "$",
+                "abbr" => "TTD"
+            ],
+            [
+                "name" => "Tuvaluan dollar",
+                "symbol" => "$",
+                "abbr" => "TVD"
+            ],
+            [
+                "name" => "New Taiwan dollar",
+                "symbol" => "$",
+                "abbr" => "TWD"
+            ],
+            [
+                "name" => "Tanzanian shilling",
+                "symbol" => "Sh",
+                "abbr" => "TZS"
+            ],
+            [
+                "name" => "Ukrainian hryvnia",
+                "symbol" => "₴",
+                "abbr" => "UAH"
+            ],
+            [
+                "name" => "Ugandan shilling",
+                "symbol" => "Sh",
+                "abbr" => "UGX"
+            ],
+            [
+                "name" => "United States dollar",
+                "symbol" => "$",
+                "abbr" => "USD"
+            ],
+            [
+                "name" => "Uruguayan peso",
+                "symbol" => "$",
+                "abbr" => "UYU"
+            ],
+            [
+                "name" => "Uzbekistani soʻm",
+                "symbol" => "so'm",
+                "abbr" => "UZS"
+            ],
+            [
+                "name" => "Venezuelan bolívar soberano",
+                "symbol" => "Bs.S.",
+                "abbr" => "VES"
+            ],
+            [
+                "name" => "Vietnamese đồng",
+                "symbol" => "₫",
+                "abbr" => "VND"
+            ],
+            [
+                "name" => "Vanuatu vatu",
+                "symbol" => "Vt",
+                "abbr" => "VUV"
+            ],
+            [
+                "name" => "Samoan tālā",
+                "symbol" => "T",
+                "abbr" => "WST"
+            ],
+            [
+                "name" => "Central African CFA franc",
+                "symbol" => "Fr",
+                "abbr" => "XAF"
+            ],
+            [
+                "name" => "Eastern Caribbean dollar",
+                "symbol" => "$",
+                "abbr" => "XCD"
+            ],
+            [
+                "name" => "West African CFA franc",
+                "symbol" => "Fr",
+                "abbr" => "XOF"
+            ],
+            [
+                "name" => "CFP franc",
+                "symbol" => "₣",
+                "abbr" => "XPF"
+            ],
+            [
+                "name" => "Yemeni rial",
+                "symbol" => "﷼",
+                "abbr" => "YER"
+            ],
+            [
+                "name" => "South African rand",
+                "symbol" => "R",
+                "abbr" => "ZAR"
+            ],
+            [
+                "name" => "Zambian kwacha",
+                "symbol" => "ZK",
+                "abbr" => "ZMW"
+            ],
+            [
+                "name" => "Zimbabwean dollar",
+                "symbol" => "$",
+                "abbr" => "ZWL"
+            ]
+        ];
+
+
+        $now = Carbon::now();
+        foreach ($currencies as $i => $currency) {
+            $currencies[$i] = array_merge($currency, ['created_at' => $now, 'updated_at' => $now]);
+        }
+
+        Currency::insert($currencies);
+
+    }
+}

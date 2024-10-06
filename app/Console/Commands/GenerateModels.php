@@ -182,7 +182,7 @@ class GenerateModels extends Command
                         $newLine = trim($line);
                         if ($newLine !== '') {
                             if (str_starts_with($newLine, '[')) {
-                                $validatorStr .= $spacer . "const createRules = " . $newLine . "\n";
+                                $validatorStr .= $spacer . "public const createRules = " . $newLine . "\n";
                             } else if (str_starts_with($newLine, ']')) {
                                 $validatorStr .= $spacer . $newLine . ";\n";
                             } else {

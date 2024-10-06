@@ -11,58 +11,55 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class Education
+ * Class FreelancerSkill
  *
  * @property int $id
  * @property int $freelancer_id
- * @property string $degree
- * @property string $university_name
- * @property Carbon $start_date
- * @property Carbon $end_date
+ * @property int $skill_id
+ * @property string $level
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
  * @property Freelancer $freelancer
+ * @property Skill $skill
  *
  * @package App\Models
  */
-class Education extends Model
+class FreelancerSkill extends Model
 {
-	protected $table = 'education';
+	protected $table = 'freelancer_skills';
 
 	protected $casts = [
 		'freelancer_id' => 'int',
-		'start_date' => 'datetime',
-		'end_date' => 'datetime'
+		'skill_id' => 'int'
 	];
 
 	protected $fillable = [
 		'freelancer_id',
-		'degree',
-		'university_name',
-		'start_date',
-		'end_date'
+		'skill_id',
+		'level'
 	];
 
 	public const createRules = [
 		'freelancer_id' => ['required', 'exists:freelancers,id'],
-		'degree' => ['required', 'string', 'min:1', 'max:50'],
-		'university_name' => ['required', 'string', 'min:1', 'max:255'],
-		'start_date' => ['required', 'date'],
-		'end_date' => ['required', 'date']
+		'skill_id' => ['required', 'exists:skills,id'],
+		'level' => ['required', 'string', 'min:1', 'max:20']
 	];
 
 
 	public const updateRules = [
 		'freelancer_id' => ['exists:freelancers,id'],
-		'degree' => ['string', 'min:1', 'max:50'],
-		'university_name' => ['string', 'min:1', 'max:255'],
-		'start_date' => ['date'],
-		'end_date' => ['date']
+		'skill_id' => ['exists:skills,id'],
+		'level' => ['string', 'min:1', 'max:20']
 	];
 
 	public function freelancer(): BelongsTo
 	{
 		return $this->belongsTo(Freelancer::class);
+	}
+
+	public function skill(): BelongsTo
+	{
+		return $this->belongsTo(Skill::class);
 	}
 }

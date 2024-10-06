@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Freelancer;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('user_id')->unique();
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignIdFor(User::class);
+            $table->foreignId('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('phone', 20);
             $table->string('job_type', 50);
             $table->string('job_title', 50);
@@ -32,21 +29,20 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('skills', function (Blueprint $table) {
+        Schema::create('freelancer_skills', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('freelancer_id');
-            // $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
+            $table->foreignId('freelancer_id');
+            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignId('skill_id');
+            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
             $table->string('level', 20);
-            $table->string('skill', 50);
             $table->timestamps();
         });
 
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('freelancer');
-            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
+            $table->foreignId('freelancer_id');
+            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->string('degree', 50);
             $table->string('university_name');
             $table->date('start_date');
@@ -57,9 +53,8 @@ return new class extends Migration
         Schema::create('certifications', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            // $table->foreignId('freelancer');
-            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
+            $table->foreignId('freelancer_id');
+            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->string('certification_type', 50);
             $table->string('certified_from');
             $table->date('certified_on');
@@ -68,9 +63,8 @@ return new class extends Migration
 
         Schema::create('experience', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('freelancer');
-            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
+            $table->foreignId('freelancer_id');
+            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->string('organisation');
             $table->string('position');
             $table->date('start_date');
@@ -78,12 +72,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('freelancer_languages', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('freelancer');
-            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
-            $table->string('name');
+            $table->foreignId('freelancer_id')->nullable();
+            $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignId('language_id');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->string('level', 30);
             $table->timestamps();
         });
@@ -94,11 +88,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('freelancer_languages');
         Schema::dropIfExists('experience');
         Schema::dropIfExists('certifications');
         Schema::dropIfExists('education');
-        Schema::dropIfExists('skills');
+        Schema::dropIfExists('freelancer_skills');
         Schema::dropIfExists('freelancers');
     }
 };

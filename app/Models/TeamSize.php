@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class TeamSize
- * 
+ *
  * @property int $id
  * @property string $size
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Employer $employer
  *
  * @package App\Models
@@ -28,19 +28,19 @@ class TeamSize extends Model
 
 	protected $fillable = [
 		'size'
-	]; 
+	];
 
-	const createRules = [
+	public const createRules = [
 		'size' => ['required', 'string', 'min:1', 'max:255']
 	];
 
 
-	const updateRules = [
+	public const updateRules = [
 		'size' => ['string', 'min:1', 'max:255']
 	];
 
 	public function employer(): HasOne
 	{
-		return $this->hasOne(Employer::class, 'team_size');
+		return $this->hasOne(Employer::class);
 	}
 }

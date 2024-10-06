@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -74,9 +75,9 @@ class User extends Authenticatable implements Auditable
         ];
     }
 
-    const createRules = [
+    public const createRules = [
         'name' => ['required', 'string', 'min:1', 'max:255'],
-        'email' => ['required', 'string', 'min:1', 'max:255', 'unique:users'],
+        'email' => ['required', 'email', 'min:1', 'max:255', 'unique:users'],
         'email_verified_at' => ['nullable', 'date', 'after_or_equal:1970-01-01 00:00:01', 'before_or_equal:2038-01-19 03:14:07'],
         'password' => ['required', 'string', 'min:1', 'max:255'],
         'remember_token' => ['nullable', 'string', 'min:1', 'max:100'],
@@ -84,9 +85,9 @@ class User extends Authenticatable implements Auditable
         'userable_id' => ['required', 'integer', 'min:0', 'max:18446744073709551615']
     ];
 
-    const updateRules = [
+    public const updateRules = [
         'name' => ['string', 'min:1', 'max:255'],
-        'email' => ['string', 'min:1', 'max:255', 'unique:users'],
+        'email' => ['email', 'min:1', 'max:255', 'unique:users'],
         'email_verified_at' => ['nullable', 'date', 'after_or_equal:1970-01-01 00:00:01', 'before_or_equal:2038-01-19 03:14:07'],
         'password' => ['string', 'min:1', 'max:255'],
         'remember_token' => ['nullable', 'string', 'min:1', 'max:100'],
@@ -94,14 +95,14 @@ class User extends Authenticatable implements Auditable
         'userable_id' => ['integer', 'min:0', 'max:18446744073709551615']
     ];
 
-    public function freelancer(): HasOne
-    {
-        return $this->hasOne(Freelancer::class, 'user');
-    }
-
     public function employer(): HasOne
     {
-        return $this->hasOne(Employer::class, 'user');
+        return $this->hasOne(Employer::class);
+    }
+
+    public function freelancer(): HasOne
+    {
+        return $this->hasOne(Freelancer::class);
     }
 
     // Inverse relationship for the polymorphic association
