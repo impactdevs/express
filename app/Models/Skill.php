@@ -12,14 +12,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Skill
- *
+ * 
  * @property int $id
- * @property int $freelancer
+ * @property int $freelancer_id
  * @property string $level
  * @property string $skill
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
+ * @property Freelancer $freelancer
  *
  * @package App\Models
  */
@@ -28,30 +29,30 @@ class Skill extends Model
 	protected $table = 'skills';
 
 	protected $casts = [
-		'freelancer' => 'int'
+		'freelancer_id' => 'int'
 	];
 
 	protected $fillable = [
-		'freelancer',
+		'freelancer_id',
 		'level',
 		'skill'
-	];
+	]; 
 
 	const createRules = [
-		'freelancer' => ['required', 'exists:freelancers,id'],
+		'freelancer_id' => ['required', 'exists:freelancers,id'],
 		'level' => ['required', 'string', 'min:1', 'max:20'],
 		'skill' => ['required', 'string', 'min:1', 'max:50']
 	];
 
 
 	const updateRules = [
-		'freelancer' => ['exists:freelancers,id'],
+		'freelancer_id' => ['exists:freelancers,id'],
 		'level' => ['string', 'min:1', 'max:20'],
 		'skill' => ['string', 'min:1', 'max:50']
 	];
 
 	public function freelancer(): BelongsTo
 	{
-		return $this->belongsTo(Freelancer::class, 'freelancer');
+		return $this->belongsTo(Freelancer::class);
 	}
 }

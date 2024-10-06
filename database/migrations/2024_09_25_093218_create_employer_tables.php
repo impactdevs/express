@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
-  
+
         Schema::create('sub_industries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -37,24 +37,24 @@ return new class extends Migration
 
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user')->unique();
-            $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('company_name');
             $table->string('tagline');
             $table->string('company_owner_name');
             $table->string('phone', 20);
-            $table->foreignId('industry')->unique();
-            $table->foreign('industry')->references('id')->on('industries');
-            $table->foreignId('team_size')->unique();
-            $table->foreign('team_size')->references('id')->on('team_sizes');
+            $table->foreignId('industry_id')->unique();
+            $table->foreign('industry_id')->references('id')->on('industries');
+            $table->foreignId('team_size_id')->unique();
+            $table->foreign('team_size_id')->references('id')->on('team_sizes');
             $table->date('established_on');
             $table->longText('description');
             $table->string('profile_picture_path')->nullable();
             $table->string('working_hours')->nullable();
             $table->string('kyc_document_name')->nullable();
             $table->string('kyc_document_path')->nullable();
-            $table->foreignId('country')->nullable();
-            $table->foreign('country')->references('id')->on('countries');
+            $table->foreignId('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();

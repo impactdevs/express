@@ -14,11 +14,10 @@ return new class extends Migration
     {
         Schema::create('social_media', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('freelancer')->nullable();
-            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignIdFor(Freelancer::class);
-            $table->foreignId('employer')->nullable();
-            $table->foreign('employer')->references('id')->on('employers')->onDelete('cascade');
+            $table->foreignId('freelancer_id')->nullable();
+            $table->foreign('freelancer_id')->references('id')->on('freelancers');
+            $table->foreignId('employer_id')->nullable();
+            $table->foreign('employer_id')->references('id')->on('employers')->onDelete('cascade');
             $table->string('platform', 30);
             $table->string('handle');
             $table->timestamps();

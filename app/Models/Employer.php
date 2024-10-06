@@ -14,28 +14,32 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Employer
- * 
+ *
  * @property int $id
- * @property int $user
+ * @property int $user_id
  * @property string $company_name
  * @property string $tagline
  * @property string $company_owner_name
  * @property string $phone
- * @property int $industry
- * @property int $team_size
+ * @property int $industry_id
+ * @property int $team_size_id
  * @property Carbon $established_on
  * @property string $description
  * @property string|null $profile_picture_path
  * @property string|null $working_hours
  * @property string|null $kyc_document_name
  * @property string|null $kyc_document_path
- * @property int|null $country
+ * @property int|null $country_id
  * @property string|null $state
  * @property string|null $city
  * @property string|null $zip_code
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
+ * @property Country|null $country
+ * @property Industry $industry
+ * @property TeamSize $team_size
+ * @property User $user
  * @property Collection|SocialMedia[] $social_media
  *
  * @package App\Models
@@ -47,66 +51,66 @@ class Employer extends Model
 	protected $casts = [
 		'user_id' => 'int',
 		'industry_id' => 'int',
-		'team_size' => 'int',
+		'team_size_id' => 'int',
 		'established_on' => 'datetime',
-		'country' => 'int'
+		'country_id' => 'int'
 	];
 
 	protected $fillable = [
-		'user',
+		'user_id',
 		'company_name',
 		'tagline',
 		'company_owner_name',
 		'phone',
-		'industry',
-		'team_size',
+		'industry_id',
+		'team_size_id',
 		'established_on',
 		'description',
 		'profile_picture_path',
 		'working_hours',
 		'kyc_document_name',
 		'kyc_document_path',
-		'country',
+		'country_id',
 		'state',
 		'city',
 		'zip_code'
-	]; 
+	];
 
 	const createRules = [
-		'user' => ['required', 'exists:users,id', 'unique:employers'],
+		'user_id' => ['required', 'exists:users,id', 'unique:employers'],
 		'company_name' => ['required', 'string', 'min:1', 'max:255'],
 		'tagline' => ['required', 'string', 'min:1', 'max:255'],
 		'company_owner_name' => ['required', 'string', 'min:1', 'max:255'],
-		'phone' => ['required', 'string', 'min:1', 'max:20'],
-		'industry' => ['required', 'exists:industries,id', 'unique:employers'],
-		'team_size' => ['required', 'exists:team_sizes,id', 'unique:employers'],
+		'phone' => ['required', 'string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
+		'industry_id' => ['required', 'exists:industries,id', 'unique:employers'],
+		'team_size_id' => ['required', 'exists:team_sizes,id', 'unique:employers'],
 		'established_on' => ['required', 'date'],
 		'description' => ['required'],
 		'profile_picture_path' => ['nullable', 'string', 'min:1', 'max:255'],
 		'working_hours' => ['nullable', 'string', 'min:1', 'max:255'],
 		'kyc_document_name' => ['nullable', 'string', 'min:1', 'max:255'],
 		'kyc_document_path' => ['nullable', 'string', 'min:1', 'max:255'],
-		'country' => ['nullable', 'exists:countries,id'],
+		'country_id' => ['nullable', 'exists:countries,id'],
 		'state' => ['nullable', 'string', 'min:1', 'max:255'],
 		'city' => ['nullable', 'string', 'min:1', 'max:255'],
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
 	];
 
 	const updateRules = [
-		'user' => ['exists:users,id', 'unique:employers'],
+		'user_id' => ['exists:users,id', 'unique:employers'],
 		'company_name' => ['string', 'min:1', 'max:255'],
 		'tagline' => ['string', 'min:1', 'max:255'],
 		'company_owner_name' => ['string', 'min:1', 'max:255'],
-		'phone' => ['string', 'min:1', 'max:20'],
-		'industry' => ['exists:industries,id', 'unique:employers'],
-		'team_size' => ['exists:team_sizes,id', 'unique:employers'],
+		'phone' => ['string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
+		'industry_id' => ['exists:industries,id', 'unique:employers'],
+		'team_size_id' => ['exists:team_sizes,id', 'unique:employers'],
 		'established_on' => ['date'],
 		'description' => [],
 		'profile_picture_path' => ['nullable', 'string', 'min:1', 'max:255'],
 		'working_hours' => ['nullable', 'string', 'min:1', 'max:255'],
 		'kyc_document_name' => ['nullable', 'string', 'min:1', 'max:255'],
 		'kyc_document_path' => ['nullable', 'string', 'min:1', 'max:255'],
-		'country' => ['nullable', 'exists:countries,id'],
+		'country_id' => ['nullable', 'exists:countries,id'],
 		'state' => ['nullable', 'string', 'min:1', 'max:255'],
 		'city' => ['nullable', 'string', 'min:1', 'max:255'],
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
@@ -114,26 +118,26 @@ class Employer extends Model
 
 	public function country(): BelongsTo
 	{
-		return $this->belongsTo(Country::class, 'country');
+		return $this->belongsTo(Country::class);
 	}
 
 	public function industry(): BelongsTo
 	{
-		return $this->belongsTo(Industry::class, 'industry');
+		return $this->belongsTo(Industry::class);
 	}
 
 	public function team_size(): BelongsTo
 	{
-		return $this->belongsTo(TeamSize::class, 'team_size');
+		return $this->belongsTo(TeamSize::class);
 	}
 
 	public function user(): BelongsTo
 	{
-		return $this->belongsTo(User::class, 'user');
+		return $this->belongsTo(User::class);
 	}
 
 	public function social_media(): HasMany
 	{
-		return $this->hasMany(SocialMedia::class, 'employer');
+		return $this->hasMany(SocialMedia::class);
 	}
 }

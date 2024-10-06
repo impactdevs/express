@@ -46,11 +46,11 @@ class Country extends Model
 
 	public function employers(): HasMany
 	{
-		return $this->hasMany(Employer::class, 'country');
+		return $this->hasMany(Employer::class);
 	}
 
 	public function freelancers(): HasMany
 	{
-		return $this->hasMany(Freelancer::class, 'country');
+		return $this->hasMany(Freelancer::class);
 	}
 }

@@ -36,3 +36,4 @@ function assoc_from_array($array): array
     }
     return $outputArray;
 }
+

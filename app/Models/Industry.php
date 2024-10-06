@@ -51,7 +51,7 @@ class Industry extends Model
 
 	public function employer(): HasOne
 	{
-		return $this->hasOne(Employer::class, 'industry');
+		return $this->hasOne(Employer::class);
 	}
 
 	public function sub_industries(): HasMany
