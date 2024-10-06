@@ -36,36 +36,3 @@ function assoc_from_array($array): array
     }
     return $outputArray;
 }
-
-
-
-//$outputArray = [];
-
-//foreach ($validated as $targetKey => $value1){
-//    $keysToCombine = array_keys($value1);
-//    $finishedIndexes = [];
-//    foreach ($validated[$targetKey] as $key => $values) {
-//        foreach ($values as $index => $value) {
-//            if(in_array($index, $finishedIndexes, true)){
-//                continue;
-//            }
-//            $subArray = [];
-//            $are_all_null = true;
-//            foreach ($keysToCombine as $combineKey) {
-//                $subArray[$combineKey] = $validated[$targetKey][$combineKey][$index]??null;
-//                if($are_all_null && !is_null($subArray[$combineKey])){
-//                    $are_all_null = false;
-//                }
-//            }
-//            if(!$are_all_null){
-//                $outputArray[$targetKey][] = $subArray;
-//            }
-//            $finishedIndexes[] = $index;
-//        }
-//    }
-//}
-
-
-
-
-

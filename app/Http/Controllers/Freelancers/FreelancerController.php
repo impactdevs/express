@@ -14,7 +14,6 @@ use App\Models\Freelancer;
 use App\Models\Language;
 use App\Models\Skill;
 use App\Models\SocialMedia;
-use DateTime;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -67,7 +66,6 @@ class FreelancerController extends Controller
     public function store_personal_info(PersonalInfoStoreRequest $request)
     {
         $data = $request->validated();
-//        $data['date_of_birth'] = DateTime::createFromFormat('d/m/Y', $data['date_of_birth']);
         if($request->hasFile('profile_picture')) {
             $path = $request->file('profile_picture')?->store('profile_pictures');
             $data['profile_picture_path'] = $path;
@@ -87,14 +85,6 @@ class FreelancerController extends Controller
         foreach ($validated as $key => $iValue) {
             foreach ($iValue as $i => $v) {
                 $validated[$key][$i] = array_merge($validated[$key][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
-
-//                if(in_array($key, ['certification', 'education', 'experience'])){
-//                    foreach (['start_date', 'end_date', 'certified_on'] as $date_field ){
-//                        if(array_key_exists($date_field, $validated[$key][$i])){
-//                            $validated[$key][$i][$date_field] = DateTime::createFromFormat('d/m/Y', $validated[$key][$i][$date_field]);
-//                        }
-//                    }
-//                }
             }
         }
 

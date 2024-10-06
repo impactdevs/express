@@ -1,122 +1,13 @@
 <?php $page="manage-projects";?>
 @extends('layout.mainlayout')
-@section('content')		
-	
+@section('content')
 
-			<!-- Page Content -->			
+
+			<!-- Page Content -->
 			<div class="content content-page">
 				<div class="container">
 					<div class="row">
-						
-						<!-- sidebar -->
-						<div class="col-xl-3 col-lg-4 theiaStickySidebar">
-							<div class="settings-widget">
-								<div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
-									<a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/table-avatar-03.jpg')}}" class="avatar-lg rounded-circle"></a>
-									<div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
-										<h3 class="mb-0"><a href="{{url('profile-settings')}}">Walter Griffin</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
-										<p class="mb-0">@waltergriffin</p>
-									</div>
-								</div>
-								<div class="settings-menu">
-									<div id="sidebar-menu" class="sidebar-menu">
-										<ul>
-											<li class="nav-item">
-												<a href="{{url('dashboard')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-01.svg')}}" alt="Img"> Dashboard
-												</a>
-											</li>
-											<li class="nav-item submenu">
-												<a href="{{url('freelancer-project-proposals')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-02.svg')}}" alt="Img"> Projects
-													<span class="menu-arrow"></span>
-												</a>
-												<ul class="sub-menu-ul">
-													<li>
-														<a href="{{url('manage-projects')}}">All Projects</a>
-													</li>
-													<li>
-														<a href="{{url('ongoing-projects')}}">Ongoing Projects</a>
-													</li>
-													<li>
-														<a href="{{url('completed-projects')}}" class="active">Completed Projects</a>
-													</li>
-													<li>
-														<a href="{{url('pending-projects')}}">Pending Projects</a>
-													</li>
-													<li>
-														<a href="{{url('cancelled-projects')}}">Cancelled Projects</a>
-													</li>
-													<li>
-														<a href="{{url('expired-projects')}}">Expired Projects</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item submenu">
-												<a href="{{url('freelancer-favourites')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-03.svg')}}" alt="Img"> Favourites
-													<span class="menu-arrow"></span>
-												</a>
-												<ul class="sub-menu-ul">
-													<li>
-														<a href="{{url('favourites')}}">Bookmarked Projects</a>
-													</li>
-													<li>
-														<a href="{{url('invited-favourites')}}">Invitations</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item">
-												<a href="{{url('review')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-04.svg')}}" alt="Img"> Reviews
-												</a>
-											</li>
-											<li class="nav-item">
-												<a href="{{url('chats')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-06.svg')}}" alt="Img"> Chat
-												</a>
-											</li>
-											<li class="nav-item">
-												<a href="{{url('deposit-funds')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-07.svg')}}" alt="Img"> Payments
-												</a>
-											</li>
-											<li class="nav-item">
-												<a href="javascript:void(0);" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-10.svg')}}" alt="Img">  Settings
-													<span class="menu-arrow"></span>
-												</a>
-												<ul class="sub-menu-ul">
-													<li>
-														<a href="{{url('profile-settings')}}">Profile</a>
-													</li>
-													<li>
-														<a href="{{url('membership-plans')}}">Plan & Billing</a>
-													</li>
-													<li>
-														<a href="{{url('verify-identity')}}">Verify Identity</a>
-													</li>
-													<li>
-														<a href="{{url('change-password')}}">Change Password</a>
-													</li>
-													<li>
-														<a href="{{url('delete-account')}}">Delete Account</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item">
-												<a href="{{url('index')}}" class="nav-link">
-													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-11.svg')}}" alt="Img"> Logout
-												</a>
-											</li>
-										</ul>
-									</div>
-									
-								</div>
-							</div>					
-						</div>
-						<!-- /sidebar -->
-						
+                        @include('layout.partials.nav-employer')
 						<div class="col-xl-9 col-lg-8">
 							<div class="page-title">
 								<h3>Completed Projects</h3>
@@ -132,10 +23,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">Website Designer Required For Directory Theme</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -179,7 +70,7 @@
 																</li>
 															</ul>
 														</div>
-														
+
 													</div>
 												</div>
 											</div>
@@ -199,7 +90,7 @@
 								</div>
 							</div>
 							<!-- /project list -->
-							
+
 							<!-- project list -->
 							<div class="my-projects-list ongoing-projects">
 								<div class="row">
@@ -211,10 +102,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">Landing Page Redesign / Sales Page Redesign</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -250,7 +141,7 @@
 																	</div>
 																</li>
 															</ul>
-														</div>														
+														</div>
 													</div>
 												</div>
 											</div>
@@ -282,10 +173,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">WooCommerce Product Page Back Up Restoration</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -329,7 +220,7 @@
 																</li>
 															</ul>
 														</div>
-														
+
 													</div>
 												</div>
 											</div>
@@ -361,10 +252,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">Laravel Backend Developer to finish ongoing project</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -408,7 +299,7 @@
 																</li>
 															</ul>
 														</div>
-														
+
 													</div>
 												</div>
 											</div>
@@ -440,10 +331,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">3D Renders and Amazon Product Store images/Video</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -487,7 +378,7 @@
 																</li>
 															</ul>
 														</div>
-														
+
 													</div>
 												</div>
 											</div>
@@ -519,10 +410,10 @@
 														<span class="tech-name-badge">Dreamguystech</span>
 														<div class="d-flex justify-content-between align-items-start">
 															<div class="employee-project-card">
-																
+
 																<h3 class="proposals-title">Website Designer Required For Directory Theme</h3>
 																<ul>
-																	
+
 																	<li>
 																		<div class="proposal-job-type">
 																			<h4 class="title-info">Project type</h4>
@@ -566,7 +457,7 @@
 																</li>
 															</ul>
 														</div>
-														
+
 													</div>
 												</div>
 											</div>
@@ -586,7 +477,7 @@
 								</div>
 							</div>
 							<!-- /project list -->
-							
+
 							<div class="row">
 								<div class="col-md-12">
 									<ul class="paginations list-pagination">
@@ -601,15 +492,15 @@
 									</ul>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
-			</div>	
-			
-			<!-- /Page Content -->
-   
+			</div>
 
-@component('components.modal-popup')                
-@endcomponent		
+			<!-- /Page Content -->
+
+
+@component('components.modal-popup')
+@endcomponent
 @endsection

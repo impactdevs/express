@@ -1,12 +1,13 @@
-<?php $page="milestones";?>
+<?php $page="freelancer-project-proposals";?>
 @extends('layout.mainlayout')
 @section('content')
+
 
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container">
 					<div class="row">
-                        @include('layout.partials.nav-employer')
+                        @include('layout.partials.nav-freelancer')
 						<div class="col-xl-9 col-lg-8">
 							<div class="page-title">
 								<h3>Manage Projects</h3>
@@ -14,19 +15,19 @@
 							<nav class="user-tabs mb-4">
 								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
 									<li class="nav-item">
-										<a class="nav-link active" href="{{url('view-project-detail')}}">Overview & Discussions</a>
+										<a class="nav-link active" href="{{url('freelancer-view-project-detail')}}">Overview & Discussions</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('milestones')}}">Milestones</a>
+										<a class="nav-link" href="{{url('freelancer-milestones')}}">Milestones</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('tasks')}}">Tasks</a>
+										<a class="nav-link" href="{{url('freelancer-task')}}">Tasks</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('files')}}">Files</a>
+										<a class="nav-link" href="{{url('freelancer-files')}}">Files</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('project-payment')}}">Payments</a>
+										<a class="nav-link" href="{{url('freelancer-payment')}}">Payments</a>
 									</li>
 								</ul>
 							</nav>
@@ -56,9 +57,9 @@
 													<li>
 														<div class="proposal-img">
 															<div class="proposal-client d-flex align-items-center">
-																<img src="{{URL::asset('/assets/img/user/table-avatar-03.jpg')}}" alt="Img" class="img-fluid me-2">
+																<img src="{{URL::asset('/assets/img/user/table-avatar-02.jpg')}}" alt="Img" class="img-fluid me-2">
 																<div>
-																	<h4>Hannah Finn</h4>
+																	<h4>Hayley Melba</h4>
 																	<span>10 Oct 2023<i class="fa-solid fa-star"></i>5.0</span>
 																</div>
 															</div>
@@ -66,8 +67,8 @@
 													</li>
 													<li>
 														<div class="project-action text-center overview-action">
-															<a href="javascript:void(0);" class="projects-btn ">Is job completed?</a>
-															<a href="{{url('chats')}}" class="btn-text mb-0">Chat Now</a>
+															<a href="{{url('freelancer-view-project-detail')}}" class="projects-btn ">Is job completed?</a>
+															<a href="javascript:void(0);" class="btn-text mb-0">Chat Now</a>
 														</div>
 													</li>
 												</ul>
@@ -110,6 +111,5 @@
 				</div>
 			</div>
 			<!-- /Page Content -->
-
 
 @endsection

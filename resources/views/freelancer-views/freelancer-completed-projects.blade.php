@@ -1,12 +1,13 @@
 <?php $page="freelancer-project-proposals";?>
 @extends('layout.mainlayout')
-@section('content')		
+@section('content')
 
 
-			<!-- Page Content -->			
+			<!-- Page Content -->
 			<div class="content content-page">
 				<div class="container">
 					<div class="row">
+
 						<div class="col-xl-3 col-lg-4 theiaStickySidebar">
 							<div class="settings-widget">
 								<div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
@@ -22,7 +23,7 @@
 											<li class="nav-item">
 												<a href="{{url('freelancer-dashboard')}}" class="nav-link">
 													<img src="{{URL::asset('/assets/img/icon/sidebar-icon-01.svg')}}" alt="Img"> Dashboard
-													
+
 												</a>
 											</li>
 											<li class="nav-item submenu">
@@ -119,17 +120,18 @@
 											</li>
 										</ul>
 									</div>
-									
+
 								</div>
-							</div>					
+							</div>
 						</div>
+
 						<div class="col-xl-9 col-lg-8">
 							<div class="page-title">
 								<h3>Completed Projects</h3>
 							</div>
 							<!-- Proposals list -->
 							<div class="proposals-section">
-								
+
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
 									<div class="project-proposals align-items-center freelancer">
@@ -137,7 +139,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">3D Renders and Amazon Product Store images/Video</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -180,7 +182,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
+								<!-- Proposals -->
 
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
@@ -189,7 +191,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">Landing Page Redesign / Sales Page Redesign (Not Entire Web)</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -225,7 +227,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
+								<!-- Proposals -->
 
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
@@ -234,7 +236,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">WooCommerce Product Page Back Up Restoration</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -270,7 +272,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
+								<!-- Proposals -->
 
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
@@ -279,7 +281,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">Full-stack Developer to help us to build our</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -315,7 +317,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
+								<!-- Proposals -->
 
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
@@ -324,7 +326,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">Video animator to bring some illustrations to life</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -360,7 +362,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
+								<!-- Proposals -->
 
 								<!-- Proposals -->
 								<div class="freelancer-proposals proposal-ongoing">
@@ -369,7 +371,7 @@
 											<div class="proposals-details">
 												<h3 class="proposals-title">Food Delivery Mobile App</h3>
 												<ul>
-													
+
 													<li>
 														<div class="proposal-client-price">
 															<h4 class="title-info">Client Price</h4>
@@ -405,17 +407,17 @@
 										</div>
 									</div>
 								</div>
-								<!-- Proposals --> 
-								
+								<!-- Proposals -->
+
 							</div>
 							<!-- /Proposals list -->
-							
+
 						</div>
 					</div>
 				</div>
-			</div>				
+			</div>
 			<!-- /Page Content -->
 			@component('components.modal-popup')
-				
+
 			@endcomponent
 @endsection

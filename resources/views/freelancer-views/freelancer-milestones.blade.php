@@ -1,129 +1,13 @@
 <?php $page="freelancer-project-proposals";?>
 @extends('layout.mainlayout')
-@section('content')		
+@section('content')
 
 
 				<!-- Page Content -->
 				<div class="content">
 					<div class="container">
 						<div class="row">
-							<div class="col-xl-3 col-lg-4 theiaStickySidebar">
-								<div class="settings-widget">
-									<div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
-										<a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/avatar-1.jpg')}}" class="avatar-lg rounded-circle"></a>
-										<div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
-											<h3 class="mb-0"><a href="{{url('freelancer-profile')}}">Bruce Bush</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
-											<p class="mb-0">@brucebush</p>
-										</div>
-									</div>
-									<div class="settings-menu">
-										<div id="sidebar-menu" class="sidebar-menu">
-											<ul>
-												<li class="nav-item">
-													<a href="{{url('freelancer-dashboard')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-01.svg')}}" alt="Img"> Dashboard
-														
-													</a>
-												</li>
-												<li class="nav-item submenu">
-													<a href="{{url('freelancer-project-proposals')}}" class="nav-link active">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-02.svg')}}" alt="Img"> Projects
-														<span class="menu-arrow"></span>
-													</a>
-													<ul class="sub-menu-ul">
-														<li>
-															<a href="{{url('freelancer-project-proposals')}}" class="active">My Proposal</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-ongoing-projects')}}">Ongoing Projects</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-completed-projects')}}">Completed Projects</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-cancelled-projects')}}">Cancelled Projects</a>
-														</li>
-													</ul>
-												</li>
-												<li class="nav-item submenu">
-													<a href="{{url('freelancer-favourites')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-03.svg')}}" alt="Img"> Favourites
-														<span class="menu-arrow"></span>
-													</a>
-													<ul class="sub-menu-ul">
-														<li>
-															<a href="{{url('freelancer-favourites')}}">Bookmarked Projects</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-invitations')}}">Invitations</a>
-														</li>
-													</ul>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-review')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-04.svg')}}" alt="Img"> Reviews
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-portfolio')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-05.svg')}}" alt="Img"> Portfolio
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-chats')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-06.svg')}}" alt="Img"> Chat
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-withdraw-money')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-07.svg')}}" alt="Img"> Payments
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-payout')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-08.svg')}}" alt="Img"> Payout
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('freelancer-withdraw-money')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-09.svg')}}" alt="Img"> Statement
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="javascript:void(0);" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-10.svg')}}" alt="Img">  Settings
-														<span class="menu-arrow"></span>
-													</a>
-													<ul class="sub-menu-ul">
-														<li>
-															<a href="{{url('freelancer-profile-settings')}}">Profile Setting</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-membership')}}">Plan & Billing</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-verify-identity')}}">Verify Identity</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-change-password')}}">Changes Password</a>
-														</li>
-														<li>
-															<a href="{{url('freelancer-delete-account')}}">Delete Account</a>
-														</li>
-													</ul>
-												</li>
-												<li class="nav-item">
-													<a href="{{url('index')}}" class="nav-link">
-														<img src="{{URL::asset('/assets/img/icon/sidebar-icon-11.svg')}}" alt="Img"> Logout
-													</a>
-												</li>
-											</ul>
-										</div>
-										
-									</div>
-								</div>					
-							</div>
-	
+                            @include('layout.partials.nav-freelancer')
 							<div class="col-xl-9 col-lg-8">
 								<div class="page-title">
 									<h3>Manage Projects</h3>
@@ -147,7 +31,7 @@
 										</li>
 									</ul>
 								</nav>
-								
+
 								<!-- project list -->
 								<div class="my-projects-view">
 									<div class="row">
@@ -156,7 +40,7 @@
 												<h4 class="mb-0">Milestones</h4>
 												<a href="#add-milestone" class="login-btn btn-primary" data-bs-toggle="modal">Add Milestone</a>
 											</div>
-											
+
 											<div class="table-responsive table-box manage-projects-table">
 												<table class="table table-center table-hover datatable no-sort">
 													<thead class="thead-pink">
@@ -180,7 +64,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">45%</p>
-																</div>															
+																</div>
 															</td>
 															<td>29 Sep 2023</td>
 															<td>29 Sep 2023</td>
@@ -196,7 +80,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -213,7 +97,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">50%</p>
-																</div>															
+																</div>
 															</td>
 															<td>25 Sep 2023</td>
 															<td>25 Sep 2023</td>
@@ -229,7 +113,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -246,7 +130,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">100%</p>
-																</div>															
+																</div>
 															</td>
 															<td>17 Sep 2023</td>
 															<td>17 Sep 2023</td>
@@ -262,7 +146,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -279,7 +163,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">50%</p>
-																</div>															
+																</div>
 															</td>
 															<td>11 Sep 2023</td>
 															<td>11 Sep 2023</td>
@@ -295,7 +179,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -312,7 +196,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">100%</p>
-																</div>															
+																</div>
 															</td>
 															<td>05 Sep 2023</td>
 															<td>05 Sep 2023</td>
@@ -328,7 +212,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -345,7 +229,7 @@
 																		<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 																	</div>
 																	<p class="mb-0 orange-text text-center ms-3">100%</p>
-																</div>															
+																</div>
 															</td>
 															<td>01 Sep 2023</td>
 															<td>01 Sep 2023</td>
@@ -361,7 +245,7 @@
 																			<option value="">Cancel</option>
 																		</select>
 																	</div>
-																	
+
 																	<div class="edit-delete-action">
 																		<a href="#edit-milestone" class="me-2" data-bs-toggle="modal"><i class="feather-edit-2"></i></a>
 																		<a href="javascript:void(0);"><i class="feather-trash-2"></i></a>
@@ -374,18 +258,18 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 								<!-- project list -->
-							
-							</div>							
+
+							</div>
 						</div>
 					</div>
-				</div>	
-				
+				</div>
+
 				<!-- /Page Content -->
 				@component('components.modal-popup')
-					
+
 				@endcomponent
 
 @endsection
