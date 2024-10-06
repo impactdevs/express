@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Industry;
 use App\Models\SubIndustry;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
