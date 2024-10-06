@@ -45,8 +45,8 @@ class Employer extends Model
 	protected $table = 'employers';
 
 	protected $casts = [
-		'user' => 'int',
-		'industry' => 'int',
+		'user_id' => 'int',
+		'industry_id' => 'int',
 		'team_size' => 'int',
 		'established_on' => 'datetime',
 		'country' => 'int'

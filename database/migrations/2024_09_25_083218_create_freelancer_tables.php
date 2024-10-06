@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Freelancer;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user')->unique();
-            $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreignId('user_id')->unique();
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignIdFor(User::class);
             $table->string('phone', 20);
             $table->string('job_type', 50);
             $table->string('job_title', 50);
             $table->date('date_of_birth');
             $table->longText('description');
             $table->string('profile_picture_path')->nullable();
-            $table->foreignId('country')->nullable();
-            $table->foreign('country')->references('id')->on('countries');
+            $table->foreignId('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
@@ -31,8 +34,9 @@ return new class extends Migration
 
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            // $table->foreignId('freelancer_id');
+            // $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignIdFor(Freelancer::class);
             $table->string('level', 20);
             $table->string('skill', 50);
             $table->timestamps();
@@ -40,8 +44,9 @@ return new class extends Migration
 
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            // $table->foreignId('freelancer');
+            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignIdFor(Freelancer::class);
             $table->string('degree', 50);
             $table->string('university_name');
             $table->date('start_date');
@@ -52,8 +57,9 @@ return new class extends Migration
         Schema::create('certifications', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            // $table->foreignId('freelancer');
+            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignIdFor(Freelancer::class);
             $table->string('certification_type', 50);
             $table->string('certified_from');
             $table->date('certified_on');
@@ -62,8 +68,9 @@ return new class extends Migration
 
         Schema::create('experience', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            // $table->foreignId('freelancer');
+            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignIdFor(Freelancer::class);
             $table->string('organisation');
             $table->string('position');
             $table->date('start_date');
@@ -73,8 +80,9 @@ return new class extends Migration
 
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('freelancer');
-            $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            // $table->foreignId('freelancer');
+            // $table->foreign('freelancer')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignIdFor(Freelancer::class);
             $table->string('name');
             $table->string('level', 30);
             $table->timestamps();

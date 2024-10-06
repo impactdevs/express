@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::create('industries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique('name');
             $table->string('logo')->nullable();
             $table->string('description');
             $table->timestamps();
@@ -30,8 +30,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo')->nullable();
             $table->string('description');
-            $table->foreignId('industry');
-            $table->foreign('industry')->references('id')->on('industries');
+            $table->foreignId('industry_id');
+            $table->foreign('industry_id')->references('id')->on('industries');
             $table->timestamps();
         });
 

@@ -38,14 +38,13 @@ class Industry extends Model
 	]; 
 
 	const createRules = [
-		'name' => ['required', 'string', 'min:1', 'max:255'],
+		'name' => ['required', 'string', 'min:1', 'max:255', 'unique:industries'],
 		'logo' => ['nullable', 'string', 'min:1', 'max:255'],
 		'description' => ['required', 'string', 'min:1', 'max:255']
 	];
 
-
 	const updateRules = [
-		'name' => ['string', 'min:1', 'max:255'],
+		'name' => ['string', 'min:1', 'max:255', 'unique:industries'],
 		'logo' => ['nullable', 'string', 'min:1', 'max:255'],
 		'description' => ['string', 'min:1', 'max:255']
 	];
@@ -57,6 +56,6 @@ class Industry extends Model
 
 	public function sub_industries(): HasMany
 	{
-		return $this->hasMany(SubIndustry::class, 'industry');
+		return $this->hasMany(SubIndustry::class);
 	}
 }

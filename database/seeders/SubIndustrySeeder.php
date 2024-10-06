@@ -155,7 +155,7 @@ class SubIndustrySeeder extends Seeder
             $ind = Industry::where('name', $industry)->first();
             if($ind){
                 foreach ($subs as $sub) {
-                    $subIndustries[] = array_merge($sub, ['industry' => $ind->id, 'created_at' => $now, 'updated_at' => $now]);
+                    $subIndustries[] = array_merge($sub, ['industry_id' => $ind->id, 'created_at' => $now, 'updated_at' => $now]);
                 }
             }
         }
