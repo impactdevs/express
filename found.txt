@@ -1,0 +1,106 @@
+Technology
+Computer Science: Software development, hardware engineering, artificial intelligence, data science, cybersecurity
+Software: Application development, web development, mobile development, game development, software testing
+Hardware: Computer hardware engineering, semiconductor design, electronics manufacturing
+Information Technology (IT): Network administration, system administration, database management, IT support
+Aerospace
+Aircraft Manufacturing: Commercial aircraft, military aircraft, drones
+Aerospace Engineering: Aerodynamics, propulsion, avionics, materials science
+Space Exploration: Spacecraft design, space missions, satellite technology
+Agriculture
+Crop Production: Farming, horticulture, agriculture technology
+Livestock: Animal husbandry, dairy farming, meat production
+Agribusiness: Food processing, agricultural equipment, agricultural finance
+Automotive
+Vehicle Manufacturing: Cars, trucks, motorcycles, electric vehicles
+Automotive Engineering: Automotive design, engine design, vehicle safety, automotive electronics
+Automotive Parts and Components: Tires, batteries, brakes, electronics
+Biotechnology
+Biomedical Engineering: Medical devices, prosthetics, biomaterials
+Pharmaceuticals: Drug discovery, drug development, pharmaceutical manufacturing
+Biotechnology Research: Genetics, genomics, biotechnology applications
+Construction
+Civil Engineering: Infrastructure projects, roads, bridges, buildings
+Architecture: Building design, interior design, urban planning
+Construction Management: Project management, cost estimation, scheduling
+Consulting
+Management Consulting: Business strategy, operations management, financial consulting
+Technology Consulting: IT consulting, cybersecurity consulting, data analytics consulting
+Specialized Consulting: Legal consulting, HR consulting, marketing consulting
+Education
+Primary Education: Elementary schools, primary education curriculum
+Secondary Education: High schools, secondary education curriculum
+Higher Education: Universities, colleges, vocational training
+Energy
+Renewable Energy: Solar energy, wind energy, hydroelectricity, bioenergy
+Fossil Fuels: Oil and gas exploration, extraction, refining
+Energy Efficiency: Energy conservation, energy management
+Entertainment
+Media and Entertainment: Film, television, music, publishing
+Gaming: Video games, mobile games, esports
+Live Entertainment: Theater, concerts, festivals
+Fashion
+Apparel Design: Clothing design, fashion trends
+Textiles: Fabric manufacturing, textile design
+Fashion Retail: Fashion stores, online fashion retailers
+Finance
+Banking: Retail banking, commercial banking, investment banking
+Insurance: Life insurance, property insurance, health insurance
+Financial Services: Asset management, wealth management, financial planning
+Food and Beverage
+Food Production: Food processing, food manufacturing, food packaging
+Food Service: Restaurants, cafes, catering
+Beverages: Alcohol production, soft drinks, bottled water
+Government
+Public Administration: Government agencies, public policy
+Law Enforcement: Police, fire departments, emergency services
+Military: Armed forces, defense industry
+Healthcare
+Medicine: Medical doctors, nurses, pharmacists
+Healthcare Administration: Hospital management, health insurance
+Allied Health: Physical therapy, occupational therapy, speech therapy
+Hospitality
+Hotels and Resorts: Hotel management, hospitality services
+Tourism: Travel agencies, tour operators, tourism marketing
+Event Planning: Meeting planning, conference planning
+Insurance
+Property and Casualty Insurance: Home insurance, auto insurance, commercial insurance
+Life Insurance: Life insurance, health insurance
+Reinsurance: Insurance for insurance companies
+Legal
+Law Practice: Attorneys, lawyers, legal assistants
+Legal Services: Legal research, legal consulting
+Manufacturing
+Industrial Manufacturing: Manufacturing of various products (e.g., automobiles, electronics, chemicals)
+Manufacturing Engineering: Production processes, quality control, supply chain management
+Media
+Print Media: Newspapers, magazines
+Broadcast Media: Television, radio
+Digital Media: Websites, blogs, social media
+Mining
+Mineral Extraction: Mining of minerals, metals, and precious stones
+Mining Engineering: Mining operations, safety regulations
+Pharmaceutical
+Drug Discovery: Research and development of new drugs
+Pharmaceutical Manufacturing: Production of pharmaceuticals
+Clinical Research: Clinical trials, drug testing
+Real Estate
+Real Estate Development: Construction of new properties, property management
+Real Estate Sales: Real estate agents, brokers
+Real Estate Investment: Property investment, real estate funds
+Retail
+Retail Stores: Brick-and-mortar stores, online retailers
+Retail Management: Store operations, customer service
+E-commerce: Online retail, digital marketing
+Sports
+Professional Sports: Athletes, coaches, sports management
+Sports Media: Sports journalism, sports broadcasting
+Sports Facilities: Stadiums, arenas, sports equipment
+Telecommunications
+Telecommunications Networks: Network infrastructure, telecommunications services
+Telecommunications Equipment: Network equipment, telecommunications hardware
+Telecommunications Services: Internet service providers, mobile phone services
+Tourism
+Travel Agencies: Tour operators, travel planning
+Hospitality: Hotels, restaurants, attractions
+Tourism Marketing: Promoting destinations, tourism campaigns

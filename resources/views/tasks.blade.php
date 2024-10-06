@@ -5,7 +5,7 @@
 			<div class="content">
 				<div class="container">
 					<div class="row">
-
+                        @include('layout.partials.nav-employer')
 						<div class="col-xl-9 col-lg-8">
 							<div class="page-title">
 								<h3>Manage Projects</h3>
