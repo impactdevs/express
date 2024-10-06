@@ -76,7 +76,7 @@ class Employer extends Model
 		'zip_code'
 	];
 
-	const createRules = [
+	public const createRules = [
 		'user_id' => ['required', 'exists:users,id', 'unique:employers'],
 		'company_name' => ['required', 'string', 'min:1', 'max:255'],
 		'tagline' => ['required', 'string', 'min:1', 'max:255'],
@@ -96,7 +96,7 @@ class Employer extends Model
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
 	];
 
-	const updateRules = [
+	public const updateRules = [
 		'user_id' => ['exists:users,id', 'unique:employers'],
 		'company_name' => ['string', 'min:1', 'max:255'],
 		'tagline' => ['string', 'min:1', 'max:255'],

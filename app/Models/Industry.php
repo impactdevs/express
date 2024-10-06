@@ -14,16 +14,17 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Industry
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string|null $logo
  * @property string $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Employer $employer
  * @property Collection|SubIndustry[] $sub_industries
+ * @property Collection|SubIndustrySkill[] $sub_industry_skills
  *
  * @package App\Models
  */
@@ -35,15 +36,15 @@ class Industry extends Model
 		'name',
 		'logo',
 		'description'
-	]; 
+	];
 
-	const createRules = [
+	public const createRules = [
 		'name' => ['required', 'string', 'min:1', 'max:255', 'unique:industries'],
 		'logo' => ['nullable', 'string', 'min:1', 'max:255'],
 		'description' => ['required', 'string', 'min:1', 'max:255']
 	];
 
-	const updateRules = [
+	public const updateRules = [
 		'name' => ['string', 'min:1', 'max:255', 'unique:industries'],
 		'logo' => ['nullable', 'string', 'min:1', 'max:255'],
 		'description' => ['string', 'min:1', 'max:255']
@@ -57,5 +58,10 @@ class Industry extends Model
 	public function sub_industries(): HasMany
 	{
 		return $this->hasMany(SubIndustry::class);
+	}
+
+	public function sub_industry_skills(): HasMany
+	{
+		return $this->hasMany(SubIndustrySkill::class);
 	}
 }

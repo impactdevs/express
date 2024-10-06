@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -65,7 +66,7 @@ class Freelancer extends Model
 		'zip_code'
 	];
 
-	const createRules = [
+	public const createRules = [
 		'user_id' => ['required', 'exists:users,id', 'unique:freelancers'],
 		'phone' => ['required', 'string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['required', 'string', 'min:1', 'max:50'],
@@ -79,7 +80,7 @@ class Freelancer extends Model
 		'zip_code' => ['nullable', 'string', 'min:1', 'max:255']
 	];
 
-	const updateRules = [
+	public const updateRules = [
 		'user_id' => ['exists:users,id', 'unique:freelancers'],
 		'phone' => ['string', 'min:1', 'max:20', 'regex:/^(\\+\\d{1,2}|0)\\d{10}$/'],
 		'job_type' => ['string', 'min:1', 'max:50'],
@@ -118,14 +119,18 @@ class Freelancer extends Model
 		return $this->hasMany(Experience::class);
 	}
 
-	public function languages(): HasMany
+	public function languages(): BelongsToMany
 	{
-		return $this->hasMany(Language::class);
+		return $this->belongsToMany(Language::class, 'freelancer_languages')
+					->withPivot('id', 'level')
+					->withTimestamps();
 	}
 
-	public function skills(): HasMany
+	public function skills(): BelongsToMany
 	{
-		return $this->hasMany(Skill::class);
+		return $this->belongsToMany(Skill::class, 'freelancer_skills')
+					->withPivot('id', 'level')
+					->withTimestamps();
 	}
 
 	public function social_media(): HasMany

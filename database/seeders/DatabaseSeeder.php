@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             TeamSizeSeeder::class,
             IndustrySeeder::class,
             AdminSeeder::class,
-            SubIndustrySeeder::class
+            SubIndustrySeeder::class,
+            LanguageSeeder::class,
+            CurrencySeeder::class,
         ]);
     }
 }

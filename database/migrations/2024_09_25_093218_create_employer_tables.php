@@ -11,29 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('team_sizes', function (Blueprint $table) {
-            $table->id();
-            $table->string('size');
-            $table->timestamps();
-        });
-
-        Schema::create('industries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique('name');
-            $table->string('logo')->nullable();
-            $table->string('description');
-            $table->timestamps();
-        });
-
-        Schema::create('sub_industries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('description');
-            $table->foreignId('industry_id');
-            $table->foreign('industry_id')->references('id')->on('industries');
-            $table->timestamps();
-        });
 
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
@@ -68,7 +45,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('employers');
-        Schema::dropIfExists('industries');
-        Schema::dropIfExists('team_sizes');
     }
 };

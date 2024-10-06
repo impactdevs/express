@@ -11,56 +11,45 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class SocialMedia
+ * Class UserLanguage
  *
  * @property int $id
  * @property int|null $freelancer_id
- * @property int|null $employer_id
- * @property string $platform
- * @property string $handle
+ * @property string $name
+ * @property string $level
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
- * @property Employer|null $employer
  * @property Freelancer|null $freelancer
  *
  * @package App\Models
  */
-class SocialMedia extends Model
+class UserLanguage extends Model
 {
-	protected $table = 'social_media';
+	protected $table = 'user_languages';
 
 	protected $casts = [
-		'freelancer_id' => 'int',
-		'employer_id' => 'int'
+		'freelancer_id' => 'int'
 	];
 
 	protected $fillable = [
 		'freelancer_id',
-		'employer_id',
-		'platform',
-		'handle'
+		'name',
+		'level'
 	];
 
 	public const createRules = [
 		'freelancer_id' => ['nullable', 'exists:freelancers,id'],
-		'employer_id' => ['nullable', 'exists:employers,id'],
-		'platform' => ['required', 'string', 'min:1', 'max:30'],
-		'handle' => ['required', 'string', 'min:1', 'max:255']
+		'name' => ['required', 'string', 'min:1', 'max:255'],
+		'level' => ['required', 'string', 'min:1', 'max:30']
 	];
 
 
 	public const updateRules = [
 		'freelancer_id' => ['nullable', 'exists:freelancers,id'],
-		'employer_id' => ['nullable', 'exists:employers,id'],
-		'platform' => ['string', 'min:1', 'max:30'],
-		'handle' => ['string', 'min:1', 'max:255']
+		'name' => ['string', 'min:1', 'max:255'],
+		'level' => ['string', 'min:1', 'max:30']
 	];
-
-	public function employer(): BelongsTo
-	{
-		return $this->belongsTo(Employer::class);
-	}
 
 	public function freelancer(): BelongsTo
 	{

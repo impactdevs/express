@@ -7,20 +7,19 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Class Language
- * 
+ *
  * @property int $id
- * @property int $freelancer_id
  * @property string $name
- * @property string $level
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
- * @property Freelancer $freelancer
+ *
+ * @property Collection|Freelancer[] $freelancers
  *
  * @package App\Models
  */
@@ -28,31 +27,23 @@ class Language extends Model
 {
 	protected $table = 'languages';
 
-	protected $casts = [
-		'freelancer_id' => 'int'
-	];
-
 	protected $fillable = [
-		'freelancer_id',
-		'name',
-		'level'
-	]; 
+		'name'
+	];
 
-	const createRules = [
-		'freelancer_id' => ['required', 'exists:freelancers,id'],
-		'name' => ['required', 'string', 'min:1', 'max:255'],
-		'level' => ['required', 'string', 'min:1', 'max:30']
+	public const createRules = [
+		'name' => ['required', 'string', 'min:1', 'max:255']
 	];
 
 
-	const updateRules = [
-		'freelancer_id' => ['exists:freelancers,id'],
-		'name' => ['string', 'min:1', 'max:255'],
-		'level' => ['string', 'min:1', 'max:30']
+	public const updateRules = [
+		'name' => ['string', 'min:1', 'max:255']
 	];
 
-	public function freelancer(): BelongsTo
+	public function freelancers(): BelongsToMany
 	{
-		return $this->belongsTo(Freelancer::class);
+		return $this->belongsToMany(Freelancer::class, 'freelancer_languages')
+					->withPivot('id', 'level')
+					->withTimestamps();
 	}
 }

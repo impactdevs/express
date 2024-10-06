@@ -33,8 +33,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('freelancer_id');
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
+            $table->foreignId('skill_id');
+            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
             $table->string('level', 20);
-            $table->string('skill', 50);
             $table->timestamps();
         });
 
@@ -71,11 +72,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('user_languages', function (Blueprint $table) {
+        Schema::create('freelancer_languages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id')->nullable();
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->string('name');
+            $table->foreignId('language_id');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->string('level', 30);
             $table->timestamps();
         });
@@ -86,11 +88,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('freelancer_languages');
         Schema::dropIfExists('experience');
         Schema::dropIfExists('certifications');
         Schema::dropIfExists('education');
-        Schema::dropIfExists('skills');
+        Schema::dropIfExists('freelancer_skills');
         Schema::dropIfExists('freelancers');
     }
 };
