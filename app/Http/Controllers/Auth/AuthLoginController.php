@@ -34,11 +34,16 @@ final class AuthLoginController extends Controller
         Auth::login($user);
         $user = auth()->user();
 
-        if ($user->userable_type === Employer::class && $user->email_verified_at === null) {
-                return redirect()->to(route('onboard-screen-employer'));
+        if($user->userable_type === Freelancer::class) {
+            if($user->email_verified_at === null){
+                return redirect()->to(route('onboard-screen'));
+            }
+            return redirect()->to(route('freelancer-dashboard'));
         }
-        if(($user->userable_type === Freelancer::class) && $user->email_verified_at === null) {
-            return redirect()->to(route('onboard-screen'));
+
+
+        if (($user->userable_type === Employer::class) && $user->email_verified_at === null) {
+            return redirect()->to(route('onboard-screen-employer'));
         }
         return redirect()->to(route('dashboard'));
     }

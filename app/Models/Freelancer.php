@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Collection|Education[] $education
  * @property Collection|Experience[] $experiences
  * @property Collection|Language[] $languages
- * @property Collection|Skill[] $skills
+ * @property Collection|FreelancerSkill[] $freelancer_skills
  * @property Collection|SocialMedia[] $social_media
  *
  * @package App\Models
@@ -122,15 +122,13 @@ class Freelancer extends Model
 	public function languages(): BelongsToMany
 	{
 		return $this->belongsToMany(Language::class, 'freelancer_languages')
-					->withPivot('id', 'level')
-					->withTimestamps();
+			->withPivot('id', 'level')
+			->withTimestamps();
 	}
 
-	public function skills(): BelongsToMany
+	public function freelancer_skills(): HasMany
 	{
-		return $this->belongsToMany(Skill::class, 'freelancer_skills')
-					->withPivot('id', 'level')
-					->withTimestamps();
+		return $this->hasMany(FreelancerSkill::class);
 	}
 
 	public function social_media(): HasMany

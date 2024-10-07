@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Freelancer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('social_media', function (Blueprint $table) {
+        Schema::create('social_media', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id')->nullable();
             $table->foreign('freelancer_id')->references('id')->on('freelancers');

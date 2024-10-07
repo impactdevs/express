@@ -22,7 +22,7 @@ final class PersonalInfoStoreRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'user' => $this->user()->id,
+            'user_id' => $this->user()->id,
         ]);
     }
 

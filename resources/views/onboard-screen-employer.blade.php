@@ -126,7 +126,7 @@ $page = "onboard-screen-employer"; ?>
                                                         <label class="form-label">Phone Number</label><span
                                                             class="label-star"> *</span>
                                                         <input type="tel" name="phone" class="form-control"
-                                                               value="{{old('phone')}}" required>
+                                                               value="{{old('phone')}}" placeholder="e.g +256777777777" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-6">
@@ -184,7 +184,7 @@ $page = "onboard-screen-employer"; ?>
                                                     <div class="input-block">
                                                         <label class="focus-label">Industry</label><span
                                                             class="label-star"> *</span>
-                                                        <select class="form-control select" name="industry" required>
+                                                        <select class="form-control select" name="industry_id" required>
                                                             <option value="" selected disabled hidden>Select</option>
                                                             @foreach($industries as $teamSize)
                                                                 <option
@@ -203,7 +203,7 @@ $page = "onboard-screen-employer"; ?>
                                                             @foreach($teamSizes as $index => $teamSize)
                                                                 <li>
                                                                     <label class="custom_radio me-4">
-                                                                        <input type="radio" name="team_size" value="{{$teamSize->id}}"
+                                                                        <input type="radio" name="team_size_id" value="{{$teamSize->id}}"
                                                                                @if($index===0) checked @endif>
                                                                         <span class="checkmark"></span> {{$teamSize->size}}
                                                                     </label>
@@ -278,7 +278,7 @@ $page = "onboard-screen-employer"; ?>
                                                                 <label class="form-label">Country</label>
 
                                                                 <select class="form-control select-level select"
-                                                                        name="country" required>
+                                                                        name="country_id" required>
                                                                     <option value="" selected disabled hidden>Choose
                                                                     </option>
                                                                     @foreach($countries as $country)
@@ -324,7 +324,7 @@ $page = "onboard-screen-employer"; ?>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="input-block">
-                                                                <label class="form-label">Document</label>
+                                                                <label class="form-label">Document (Upload PDF)</label>
                                                                 <div class="upload-sets">
                                                                     <label class="upload-filesview">
                                                                         Browse File

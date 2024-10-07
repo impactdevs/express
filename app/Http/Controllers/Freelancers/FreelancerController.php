@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Freelancers;
 
 use App\Enums\OnboardStep;
+use App\Models\FreelancerLanguage;
+use App\Models\FreelancerSkill;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\Freelancers\OtherInfoStoreRequest;
 use App\Http\Requests\Freelancers\PersonalInfoStoreRequest;
@@ -12,7 +14,6 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Freelancer;
 use App\Models\Language;
-use App\Models\Skill;
 use App\Models\SocialMedia;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -42,7 +43,7 @@ class FreelancerController extends Controller
 
         $freelancer = $request->user()->freelancer;
         if($freelancer){
-          if($freelancer->skills()->exists()){
+          if($freelancer->freelancer_skills()->exists()){
               if($freelancer->country){
                   $step = OnboardStep::SEND_EMAIL->value;
               }else{
@@ -84,14 +85,14 @@ class FreelancerController extends Controller
 
         foreach ($validated as $key => $iValue) {
             foreach ($iValue as $i => $v) {
-                $validated[$key][$i] = array_merge($validated[$key][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+                $validated[$key][$i] = array_merge($validated[$key][$i], ['freelancer_id' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
             }
         }
 
         $output = [];
         $output['education'] = Education::insert($validated['education']);
-        $output['skills'] = Skill::insert($validated['skills']);
-        $output['languages'] = Language::insert($validated['language']);
+        $output['skills'] = FreelancerSkill::insert($validated['skills']);
+        $output['languages'] = FreelancerLanguage::insert($validated['language']);
         if(array_key_exists('certification', $validated)){
             $output['certification'] = Certification::insert($validated['certification']);
         }
@@ -113,7 +114,7 @@ class FreelancerController extends Controller
             $social_media = [];
             foreach ($validated['social_media'] as $i => $iValue) {
                 if($validated['social_media'][$i]['handle']){
-                    $social_media = array_merge($validated['social_media'][$i], ['freelancer' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
+                    $social_media = array_merge($validated['social_media'][$i], ['freelancer_id' => $freelancer->id, 'created_at' => $now, 'updated_at' => $now]);
                 }
             }
             if(count($social_media) > 0){

@@ -46,7 +46,7 @@ class Education extends Model
 
 	public const createRules = [
 		'freelancer_id' => ['required', 'exists:freelancers,id'],
-		'degree' => ['required', 'string', 'min:1', 'max:50'],
+		'degree' => ['required', 'string', 'min:1', 'max:100'],
 		'university_name' => ['required', 'string', 'min:1', 'max:255'],
 		'start_date' => ['required', 'date'],
 		'end_date' => ['required', 'date']
@@ -55,7 +55,7 @@ class Education extends Model
 
 	public const updateRules = [
 		'freelancer_id' => ['exists:freelancers,id'],
-		'degree' => ['string', 'min:1', 'max:50'],
+		'degree' => ['string', 'min:1', 'max:100'],
 		'university_name' => ['string', 'min:1', 'max:255'],
 		'start_date' => ['date'],
 		'end_date' => ['date']

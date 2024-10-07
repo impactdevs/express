@@ -13,13 +13,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Country
- *
+ * 
  * @property int $id
  * @property string $name
  * @property string $code
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
  * @property Collection|Employer[] $employers
  * @property Collection|Freelancer[] $freelancers
  *
@@ -32,16 +32,16 @@ class Country extends Model
 	protected $fillable = [
 		'name',
 		'code'
-	];
+	]; 
 
 	public const createRules = [
-		'name' => ['required', 'string', 'min:1', 'max:255'],
-		'code' => ['required', 'string', 'min:1', 'max:255', 'unique:countries']
+		'name' => ['required', 'string', 'min:1', 'max:255', 'unique:countries'],
+		'code' => ['required', 'string', 'min:1', 'max:255']
 	];
 
 	public const updateRules = [
-		'name' => ['string', 'min:1', 'max:255'],
-		'code' => ['string', 'min:1', 'max:255', 'unique:countries']
+		'name' => ['string', 'min:1', 'max:255', 'unique:countries'],
+		'code' => ['string', 'min:1', 'max:255']
 	];
 
 	public function employers(): HasMany

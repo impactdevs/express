@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('freelancers', function (Blueprint $table) {
+        Schema::create('freelancers', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
@@ -29,28 +29,28 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('freelancer_skills', function (Blueprint $table) {
+        Schema::create('freelancer_skills', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id');
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->foreignId('skill_id');
-            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
+            $table->string('skill', 80);
             $table->string('level', 20);
+            $table->fullText('skill');
             $table->timestamps();
         });
 
-        Schema::create('education', function (Blueprint $table) {
+        Schema::create('education', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id');
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
-            $table->string('degree', 50);
+            $table->string('degree', 100);
             $table->string('university_name');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
         });
 
-        Schema::create('certifications', function (Blueprint $table) {
+        Schema::create('certifications', static function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignId('freelancer_id');
@@ -61,7 +61,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('experience', function (Blueprint $table) {
+        Schema::create('experience', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id');
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
@@ -72,7 +72,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('freelancer_languages', function (Blueprint $table) {
+        Schema::create('freelancer_languages', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('freelancer_id')->nullable();
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');

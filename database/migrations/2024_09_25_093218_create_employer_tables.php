@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
 
-        Schema::create('employers', function (Blueprint $table) {
+        Schema::create('employers', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

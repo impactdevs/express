@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('countries', static function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code')->unique();
+            $table->string('name')->unique();
+            $table->string('code');
             $table->timestamps();
         });
 
-        Schema::create('currencies', function (Blueprint $table) {
+        Schema::create('currencies', static function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('symbol');
@@ -26,25 +26,25 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('languages', static function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
 
-        Schema::create('skills', function (Blueprint $table) {
+        Schema::create('skills', static function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
 
-        Schema::create('team_sizes', function (Blueprint $table) {
+        Schema::create('team_sizes', static function (Blueprint $table) {
             $table->id();
             $table->string('size');
             $table->timestamps();
         });
 
-        Schema::create('industries', function (Blueprint $table) {
+        Schema::create('industries', static function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique('name');
             $table->string('logo')->nullable();
@@ -52,7 +52,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('sub_industries', function (Blueprint $table) {
+        Schema::create('sub_industries', static function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('logo')->nullable();
@@ -62,7 +62,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('sub_industry_skills', function (Blueprint $table) {
+        Schema::create('sub_industry_skills', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('industry_id');
             $table->foreign('industry_id')->references('id')->on('industries');

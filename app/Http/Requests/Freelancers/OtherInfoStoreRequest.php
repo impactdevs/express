@@ -17,7 +17,7 @@ final class OtherInfoStoreRequest extends FreelancerValidationAbstractRequest
             "social_media.*.platform" => ['required_with:social_media.*.handle'],
             "social_media.*.handle" => ['nullable'],
 
-            "country" => ['required', "exists:countries,id"],
+            "country_id" => ['required', "exists:countries,id"],
             "city" => ['required'],
             "state" => ['required'],
             "zip_code" => ['required'],

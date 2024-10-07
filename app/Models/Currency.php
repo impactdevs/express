@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Currency
- *
+ * 
  * @property int $id
  * @property string $name
  * @property string $symbol
@@ -29,7 +29,7 @@ class Currency extends Model
 		'name',
 		'symbol',
 		'abbr'
-	];
+	]; 
 
 	public const createRules = [
 		'name' => ['required', 'string', 'min:1', 'max:255', 'unique:currencies'],

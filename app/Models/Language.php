@@ -13,12 +13,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Class Language
- *
+ * 
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
  * @property Collection|Freelancer[] $freelancers
  *
  * @package App\Models
@@ -29,15 +29,14 @@ class Language extends Model
 
 	protected $fillable = [
 		'name'
-	];
+	]; 
 
 	public const createRules = [
-		'name' => ['required', 'string', 'min:1', 'max:255']
+		'name' => ['required', 'string', 'min:1', 'max:255', 'unique:languages']
 	];
 
-
 	public const updateRules = [
-		'name' => ['string', 'min:1', 'max:255']
+		'name' => ['string', 'min:1', 'max:255', 'unique:languages']
 	];
 
 	public function freelancers(): BelongsToMany

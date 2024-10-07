@@ -16,7 +16,7 @@ final class SkillsStoreRequest extends FreelancerValidationAbstractRequest
             "skills.*.skill" => ['required'],
             "skills.*.level" => ['required'],
 
-            "language.*.name" => ['required'],
+            "language.*.language_id" => ['required'],
             "language.*.level" => ['required'],
 
             "education.*.degree" => ['required'],
@@ -34,6 +34,14 @@ final class SkillsStoreRequest extends FreelancerValidationAbstractRequest
             "certification.*.name" => ['required_with:certification.*.certified_from'],
             "certification.*.certified_from" => ['required_with:certification.*.certified_on'],
             "certification.*.certified_on" => ['required_with:certification.*.certified_from', 'date_format:Y-m-d'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'freelancer.required' => 'User is not a freelancer.',
+            'language.*.language_id.required' => 'Language is required.',
         ];
     }
 

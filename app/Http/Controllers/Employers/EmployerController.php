@@ -72,7 +72,7 @@ class EmployerController extends Controller
             $social_media = [];
             foreach ($validated['social_media'] as $i => $iValue) {
                 if($validated['social_media'][$i]['handle']){
-                    $social_media = array_merge($validated['social_media'][$i], ['employer' => $employer->id, 'created_at' => $now, 'updated_at' => $now]);
+                    $social_media = array_merge($validated['social_media'][$i], ['employer_id' => $employer->id, 'created_at' => $now, 'updated_at' => $now]);
                 }
             }
             if(count($social_media) > 0){
@@ -80,6 +80,12 @@ class EmployerController extends Controller
             }
         }
         unset($validated['social_media']);
+        $data = $request->validated();
+        if($request->hasFile('kyc_document')) {
+            $path = $request->file('kyc_document')?->store('kyc_documents');
+            $data['kyc_document_path'] = $path;
+            unset($data['kyc_document']);
+        }
         $employer->fill($validated);
         $employer->save();
         $output['employer'] = $employer;
