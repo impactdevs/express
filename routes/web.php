@@ -23,9 +23,9 @@ include_once __DIR__ . '/custom/web/employer_routes.php';
 // Auth-related routes
 Route::get('/login', static fn() => view('login'))->name('login');
 
-Route::post('/login', AuthLoginController::class)->name('login');
+Route::post('/login', AuthLoginController::class)->name('login.store');
 Route::get('/register', static fn() => view('register'))->name('register');
-Route::post('/register', AuthRegisterController::class)->name('register');
+Route::post('/register', AuthRegisterController::class)->name('register.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
@@ -50,8 +50,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/', static fn() => view('index'))->name('pagee');
-Route::get('/home', static fn() => view('index'))->name('pagee');
-Route::get('/index', static fn() => view('index'))->name('pagee');
+Route::get('/home', static fn() => view('index'))->name('pagee.home');
+Route::get('/index', static fn() => view('index'))->name('pagee.index');
 Route::get('/404-page', static fn() => view('404-page'))->name('404-page');
 Route::get('/about', static fn() => view('about'))->name('about');
 Route::get('/blank-page', static fn() => view('blank-page'))->name('blank-page');
@@ -164,15 +164,15 @@ Route::Group(['prefix' => 'admin'], static function () {
     Route::get('/withdrawn', static fn() => view('admin.withdrawn'))->name('withdrawn');
     Route::get('/bid-fees', static fn() => view('admin.bid-fees'))->name('bid-fees');
     Route::get('/categories', static fn() => view('admin.categories'))->name('categories');
-    Route::get('/change-password', static fn() => view('admin.change-password'))->name('change-password');
+    Route::get('/change-password', static fn() => view('admin.change-password'))->name('admin.change-password');
     Route::get('/components', static fn() => view('admin.components'))->name('components');
     Route::get('/contest-entry-fees', static fn() => view('admin.contest-entry-fees'))->name('contest-entry-fees');
     Route::get('/contests-fees', static fn() => view('admin.contests-fees'))->name('contests-fees');
     Route::get('/data-tables', static fn() => view('admin.data-tables'))->name('data-tables');
-    Route::get('/delete-account', static fn() => view('admin.delete-account'))->name('delete-account');
+    Route::get('/delete-account', static fn() => view('admin.delete-account'))->name('admin.delete-account');
     Route::get('/email-settings', static fn() => view('admin.email-settings'))->name('email-settings');
     Route::get('/fees', static fn() => view('admin.fees'))->name('fees');
-    Route::get('/forgot-password', static fn() => view('admin.forgot-password'))->name('forgot-password');
+    Route::get('/forgot-password', static fn() => view('admin.forgot-password'))->name('admin.forgot-password');
     Route::get('/form-basic-inputs', static fn() => view('admin.form-basic-inputs'))->name('form-basic-inputs');
     Route::get('/form-horizontal', static fn() => view('admin.form-horizontal'))->name('form-horizontal');
     Route::get('/form-input-groups', static fn() => view('admin.form-input-groups'))->name('form-input-groups');
@@ -201,7 +201,7 @@ Route::Group(['prefix' => 'admin'], static function () {
     Route::get('/taxs', static fn() => view('admin.taxs'))->name('taxs');
     Route::get('/tax-types', static fn() => view('admin.tax-types'))->name('tax-types');
     Route::get('/users', static fn() => view('admin.users'))->name('users');
-    Route::get('/verify-identity', static fn() => view('admin.verify-identity'))->name('verify-identity');
+    Route::get('/verify-identity', static fn() => view('admin.verify-identity'))->name('admin.verify-identity');
     Route::get('/view-estimate', static fn() => view('admin.view-estimate'))->name('view-estimate');
     Route::get('/view-invoice', static fn() => view('admin.view-invoice'))->name('view-invoice');
 });
