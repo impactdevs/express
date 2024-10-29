@@ -24,4 +24,17 @@ final class OtherInfoStoreRequest extends FreelancerValidationAbstractRequest
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'social_media.*.platform.required_with' => 'Social Media Platform is required with its handle.',
+            'country_id.required' => 'Country is required.'
+        ];
+    }
+
 }

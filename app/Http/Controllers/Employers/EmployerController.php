@@ -22,33 +22,33 @@ class EmployerController extends Controller
         $step = session('step');
         if ($step !== null){
             Session::forget('step');
-            return view('onboard-screen-employer', ['step'=>$step]);
-        }
-        $user = $request->user();
-        if($user->email_verified_at){
-            return redirect()->to(route('dashboard'));
-        }
+        }else {
+            $user = $request->user();
+            if ($user->email_verified_at) {
+                return redirect()->to(route('dashboard'));
+            }
 
-        $employer = $request->user()->employer;
-        if($employer){
-          if($employer->country){
-              $step = OnboardStep::SEND_EMAIL->value;
-          }else{
-              $step = OnboardStep::OTHER_INFO->value;
-          }
-        }else{
-            $step = OnboardStep::EMPLOYER_INFO->value;
+            $employer = $request->user()->employer;
+            if ($employer) {
+                if ($employer->country) {
+                    $step = OnboardStep::SEND_EMAIL->value;
+                } else {
+                    $step = OnboardStep::OTHER_INFO->value;
+                }
+            } else {
+                $step = OnboardStep::EMPLOYER_INFO->value;
+            }
         }
 
         if($step === OnboardStep::SEND_EMAIL->value){
-            $user->sendEmailVerificationNotification();
+            $request->user()->sendEmailVerificationNotification();
         }
 
         return view('onboard-screen-employer', ['step'=>$step]);
     }
 
 
-    public function store_employer_info(EmployerInfoStoreRequest $request)
+    public function store_employer_info(EmployerInfoStoreRequest $request): Employer
     {
         $data = $request->validated();
         if($request->hasFile('profile_picture')) {

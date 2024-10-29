@@ -35,4 +35,16 @@ final class PersonalInfoStoreRequest extends FormRequest
             'profile_picture' => ['nullable', 'image', 'mimes:jpg,bmp,png,jpeg,svg,webp', 'extensions:jpg,bmp,png,jpeg,svg,webp', 'max:2048'],
         ]);
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'phone.regex' => 'Phone is invalid. Use country_code e.g (+256) +256123456789',
+        ];
+    }
 }

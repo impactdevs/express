@@ -40,6 +40,7 @@
         'ongoing-projects',
         'pending-projects',
         'post-job',
+        'post-project',
         'profile-settings',
         'project-payment',
         'review',
@@ -105,7 +106,7 @@
         'milestones',
         'ongoing-projects',
         'pending-projects',
-        'post-job',
+        'post-project',
         'profile-settings',
         'project-payment',
         'review',
@@ -172,7 +173,7 @@
 @if (Route::is(['index-five']))
     <div class="main-wrapper home-five-wrapper">
 @endif
-@if (!Route::is(['onboard-screen-employer', 'onboard-screen']))
+@if (!Route::is(['onboard-screen-employer', 'onboard-screen', 'post-project']))
     @include('layout.partials.header')
 @endif
 @yield('content')

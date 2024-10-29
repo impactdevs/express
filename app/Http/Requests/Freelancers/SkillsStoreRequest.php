@@ -42,6 +42,16 @@ final class SkillsStoreRequest extends FreelancerValidationAbstractRequest
         return [
             'freelancer.required' => 'User is not a freelancer.',
             'language.*.language_id.required' => 'Language is required.',
+            'certification.*.certified_on.date_format' => 'Certified on filed should follow Year-Month-Day format e.g 1999-02-27',
+            'experience.*.start_date.date_format' => 'Experience Start date should follow Year-Month-Day format e.g 1999-02-27',
+            'experience.*.end_date.date_format' => 'Experience End date should follow Year-Month-Day format e.g 1999-02-27',
+            'education.*.start_date.date_format' => 'Education Start date should follow Year-Month-Day format e.g 1999-02-27',
+            'education.*.end_date.date_format' => 'Education End date should follow Year-Month-Day format e.g 1999-02-27',
+
+            "certification.*.certification_type.required_with" => 'Please fill in all certificate details or leave blank completely.',
+            "certification.*.name.required_with" => 'Please fill in all certificate details or leave blank completely.',
+            "certification.*.certified_from.required_with" => 'Please fill in all certificate details or leave blank completely.',
+            "certification.*.certified_on.required_with" => 'Please fill in all certificate details or leave blank completely.',
         ];
     }
 

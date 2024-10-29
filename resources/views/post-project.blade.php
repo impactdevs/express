@@ -1,23 +1,17 @@
 <?php $page = 'post-project'; ?>
 @extends('layout.mainlayout')
 @section('content')
-    @component('components.breadcrumb')
-        @slot('li_1')
-            Post a Project
-        @endslot
-        @slot('li_2')
-            Home
-        @endslot
-        @slot('li_3')
-            Post a Project
-        @endslot
-    @endcomponent
+{{--   <h1 class="text-center mt-2">Post a Project</h1>--}}
 
     <!-- Page Content -->
-    <div class="content">
+    <div class="content content-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                @include('layout.partials.nav-employer')
+                <div class="col-xl-9 col-lg-8">
+                    <div class="page-title">
+                        <h3>Post a Project</h3>
+                    </div>
                     <div class="select-project mb-4">
                         <form action="project-conformation">
                             <div class="title-box widget-box">
@@ -168,34 +162,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 my-3">
-                                        <h4>Attachment</h4>
-                                        <p>You can attach more than 1 files to 10 files, Size of the Document should be
-                                            Below 2MB </p>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="attach-file">
-                                            <i class="fa fa-pdf"></i>
-                                            Attach file
-                                            <input type="file">
-                                        </div>
-                                        <div class="filename">
-                                            <ul>
-                                                <li>
-                                                    <h6>Filename 1 <a href="javascript:void(0);" class="file-close"><i
-                                                                class="fa fa-close"></i></a></h6>
-                                                </li>
-                                                <li>
-                                                    <h6>Filename 2 <a href="javascript:void(0);" class="file-close"><i
-                                                                class="fa fa-close"></i></a></h6>
-                                                </li>
-                                                <li>
-                                                    <h6>Filename 3 <a href="javascript:void(0);" class="file-close"><i
-                                                                class="fa fa-close"></i></a></h6>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-lg-12 my-3">--}}
+{{--                                        <h4>Attachment</h4>--}}
+{{--                                        <p>You can attach more than 1 files to 10 files, Size of the Document should be--}}
+{{--                                            Below 2MB </p>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-lg-12">--}}
+{{--                                        <div class="attach-file">--}}
+{{--                                            <i class="fa fa-pdf"></i>--}}
+{{--                                            Attach file--}}
+{{--                                            <input type="file">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="filename">--}}
+{{--                                            <ul>--}}
+{{--                                                <li>--}}
+{{--                                                    <h6>Filename 1 <a href="javascript:void(0);" class="file-close"><i--}}
+{{--                                                                class="fa fa-close"></i></a></h6>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <h6>Filename 2 <a href="javascript:void(0);" class="file-close"><i--}}
+{{--                                                                class="fa fa-close"></i></a></h6>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <h6>Filename 3 <a href="javascript:void(0);" class="file-close"><i--}}
+{{--                                                                class="fa fa-close"></i></a></h6>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="col-lg-12 my-3">
                                         <h4>Other Requirement</h4>
                                     </div>
@@ -227,8 +221,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-end">
                                         <div class="btn-item">
-                                            <button type="submit" class="btn reset-btn">Reset</button>
-                                            <button type="submit" class="btn next-btn">Post a Job</button>
+                                            <button type="submit" class="btn next-btn">Post Project</button>
                                         </div>
                                     </div>
                                 </div>

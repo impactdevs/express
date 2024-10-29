@@ -13,7 +13,6 @@ use App\Models\Certification;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Freelancer;
-use App\Models\Language;
 use App\Models\SocialMedia;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -34,37 +33,37 @@ class FreelancerController extends Controller
         $step = session('step');
         if ($step !== null){
             Session::forget('step');
-            return view('onboard-screen', ['step'=>$step]);
-        }
-        $user = $request->user();
-        if($user->email_verified_at){
-            return redirect()->to(route('freelancer-dashboard'));
-        }
+        }else {
+            $user = $request->user();
+            if ($user->email_verified_at) {
+                return redirect()->to(route('freelancer-dashboard'));
+            }
 
-        $freelancer = $request->user()->freelancer;
-        if($freelancer){
-          if($freelancer->freelancer_skills()->exists()){
-              if($freelancer->country){
-                  $step = OnboardStep::SEND_EMAIL->value;
-              }else{
-                  $step = OnboardStep::OTHER_INFO->value;
-              }
-          }else{
-              $step = OnboardStep::SKILLS->value;
-          }
-        }else{
-            $step = OnboardStep::PERSONAL_INFO->value;
+            $freelancer = $request->user()->freelancer;
+            if ($freelancer) {
+                if ($freelancer->freelancer_skills()->exists()) {
+                    if ($freelancer->country) {
+                        $step = OnboardStep::SEND_EMAIL->value;
+                    } else {
+                        $step = OnboardStep::OTHER_INFO->value;
+                    }
+                } else {
+                    $step = OnboardStep::SKILLS->value;
+                }
+            } else {
+                $step = OnboardStep::PERSONAL_INFO->value;
+            }
         }
 
         if($step === OnboardStep::SEND_EMAIL->value){
-            $user->sendEmailVerificationNotification();
+            $request->user()->sendEmailVerificationNotification();
         }
 
         return view('onboard-screen', ['step'=>$step]);
     }
 
 
-    public function store_personal_info(PersonalInfoStoreRequest $request)
+    public function store_personal_info(PersonalInfoStoreRequest $request): Freelancer
     {
         $data = $request->validated();
         if($request->hasFile('profile_picture')) {

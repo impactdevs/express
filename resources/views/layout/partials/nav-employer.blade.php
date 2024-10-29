@@ -1,23 +1,26 @@
 @php
     $user = Auth::user();
-  function linkParams(string $routeName) {
+    $employer = $user->employer;
+    function linkParams(string $routeName): string
+    {
       $href = url($routeName);
       $linkClasses = Route::currentRouteName() === $routeName ? "nav-link active": "nav-link";
       return 'href="'.$href.'" class="'.$linkClasses.'"';
-  }
+    }
 
-  function subLink(string $routeName) {
+    function subLink(string $routeName): string
+    {
       $href = url($routeName);
       $linkClasses = Route::currentRouteName() === $routeName ? "active": "";
       return 'href="'.$href.'" class="'.$linkClasses.'"';
-  }
+    }
 @endphp
 
-<!-- Employer Navbar -->
+    <!-- Employer Navbar -->
 <div class="col-xl-3 col-lg-4 theiaStickySidebar">
     <div class="settings-widget">
         <div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
-            <a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset('/assets/img/user/table-avatar-03.jpg')}}" class="avatar-lg rounded-circle"></a>
+            <a href="{{url('freelancer-profile')}}"><img alt="profile image" src="{{URL::asset($employer->profile_picture_path??'/assets/img/user/table-avatar-03.jpg')}}" class="avatar-lg rounded-circle"></a>
             <div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
                 <h3 class="mb-0"><a href="{{url('profile-settings')}}">{{$user->name}}</a><img src="{{URL::asset('/assets/img/icon/verified-badge.svg')}}" class="ms-1" alt="Img"></h3>
                 <p class="mb-0">{{$user->email}}</p>
@@ -37,6 +40,9 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="sub-menu-ul">
+                            <li>
+                                <a {!! subLink('post-project') !!}>Post a Project</a>
+                            </li>
                             <li>
                                 <a {!! subLink('manage-projects') !!}>All Projects</a>
                             </li>

@@ -4,12 +4,12 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User
@@ -36,7 +36,7 @@ class User extends Authenticatable implements Auditable
     use \OwenIt\Auditing\Auditable;
     use HasFactory, Notifiable;
 
-    use \Spatie\Permission\Traits\HasRoles;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.

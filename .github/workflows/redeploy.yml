@@ -1,0 +1,20 @@
+name: Deploy to server
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        run: |
+          git config --global user.email "timkibalama@gmail.com"
+          git config --global user.name "Timothy Kibalama"
+          git clone https://oauth2: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@github.com/timothy-mayweather/express-deployer.git
+          cd express-deployer/
+          echo `date` >> redeploy.txt
+          git add .
+          git commit -m "redeploy"
+          git push
