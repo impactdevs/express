@@ -104,4 +104,10 @@ class User extends Authenticatable implements Auditable
     {
         return $this->hasOne(Freelancer::class);
     }
+
+    // Inverse relationship for the polymorphic association
+    public function user()
+    {
+        return $this->morphOne(User::class, 'userable');
+    }
 }
